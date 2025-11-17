@@ -5,5 +5,6 @@ $dotenv->load();
 
 
 require_once __DIR__ . '/src/view/Templates/header.php';
+require_once __DIR__ . '/src/view/accueil.php';
 require_once __DIR__ . '/src/view/Templates/footer.php';
 ?>
