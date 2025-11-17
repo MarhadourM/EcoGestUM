@@ -81,17 +81,37 @@
     </header>
 
     <script>
-        document.querySelectorAll('.nav__item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                document.querySelectorAll('.nav__item').forEach(navItem => {
-                    navItem.classList.remove('active');
-                });
-                this.classList.add('active');
+    // Animation fluide de la navigation
+    document.querySelectorAll('.nav__item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            document.querySelectorAll('.nav__item').forEach(navItem => {
+                navItem.classList.remove('active');
             });
+            this.classList.add('active');
         });
+    });
 
-        // Gestion du bouton de connexion
-        document.querySelector('.header__connect-btn').addEventListener('click', function() {
-            alert('Fonctionnalité de connexion à implémenter');
-        });
-    </script>
+    // Header sticky avec ombre au scroll
+    let lastScrollTop = 0;
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', () => {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop && st > header.offsetHeight) {
+            // Scroll vers le bas, cacher le header
+            header.classList.add('hide');
+        } else {
+            // Scroll vers le haut, montrer le header
+            header.classList.remove('hide');
+        }
+        lastScrollTop = st <= 0 ? 0 : st; // Pour Mobile ou scroll up
+    });
+
+    // Gestion du bouton de connexion
+    document.querySelector('.header__connect-btn').addEventListener('click', function() {
+        window.location.href = 'connexion.php';
+    });
+
+    
+</script>
+
