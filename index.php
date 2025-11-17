@@ -6,7 +6,7 @@ $dotenv->load();
 
 //require_once __DIR__ . '/src/view/Templates/header.php';
 //require_once __DIR__ . '/src/view/Templates/footer.php';
- require_once __DIR__ . '/src/Model/modelBDD.php';
- require_once __DIR__ . '/src/Model/modelEvenment.php';
+require_once __DIR__ . '/src/model/modelUser.php';
+
 
 ?>
