@@ -1,50 +1,55 @@
-<?php
-
-?>
-<footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <h3>Nous contacter</h3>
-      <address>
-        Avenue Olivier Messiaen<br>
-        72085 Le Mans cedex 9<br>
-        <a href="tel:+33243833000">+33 2 43 83 30 00</a><br>
-        <a href="https://www.univ-lemans.fr/fr/contact-1.html">Nous contacter</a><br>
-        <a href="https://www.univ-lemans.fr/fr/pied-de-page/plans-des-campus.html">Plan des campus</a>
-      </address>
+<footer role="contentinfo" class="footer">
+  <div class="footerPrincipalContainer">
+    <div class="containerHautFooter">
+      <div class="coordonnees">
+        <div class="coordonneesIntitule">
+          <img class="logoBlancFooter" src="assets/Images/logo_LEMANS_UNIVERSITE_BLANC.png" alt="Le Mans Université">
+          <p class="coordonneesAdresse">Avenue Olivier Messiaen 72085 Le Mans cedex 9</p>
+        </div>
+        <nav aria-label="Liste des contacts" class="contactNav">
+          <ul class="contactList">
+            <li class="footerTel">
+              <a href="tel:33243833000" class="coordonneesPhone"><i class="fa-solid fa-phone"></i>+33 2 43 83 30 00</a>
+            </li>
+            <li class="footerContact">
+              <a class="footerContactLink" href="https://www.univ-lemans.fr/fr/contact-1.html"><i class="fa-solid fa-envelope"></i>Nous contacter</a>
+            </li>
+            <li class="footerPlan">
+              <a class="footerPlanLink" href="https://www.univ-lemans.fr/fr/pied-de-page/plans-des-campus.html"><i class="fa-solid fa-location-dot"></i>Plan des campus</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="accesDirects">
+        <h3 class="directAccessIntitule">Accès rapides</h3>
+        <nav class="footerDirectAccessNav">
+          <ul class="footerDirectAccessList">
+            <li class="footerDirectAccessItem"><a href="#">Tous nos sites web</a></li>
+            <li class="footerDirectAccessItem"><a href="#">Espace presse</a></li>
+            <li class="footerDirectAccessItem"><a href="#">Offres d'emploi</a></li>
+            <li class="footerDirectAccessItem"><a href="#">Marchés publics</a></li>
+            <li class="footerDirectAccessItem"><a href="#">Charte graphique</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="restonsConnectes">
+        <h3 class="socialTitle">Restons connectés</h3>
+        <div class="socialIcons">
+          <img src="assets/Images/instagram.png" alt="Instagram" class="instagram">
+          <img src="assets/Images/linkedin-in.png" alt="LinkedIn" class="linkedin">
+          <img src="assets/Images/youtube.png" alt="YouTube" class="youtube">
+          <img src="assets/Images/facebook-f.png" alt="Facebook" class="facebook">
+        </div>
+      </div>
     </div>
-
-    <div class="footer-column">
-      <h3>Accès rapides</h3>
-      <ul>
-        <li><a href="#">Tous nos sites web</a></li>
-        <li><a href="#">Espace presse</a></li>
-        <li><a href="#">Offres d'emploi</a></li>
-        <li><a href="#">Marchés publics</a></li>
-        <li><a href="#">Charte graphique</a></li>
+    <nav class="footerBottomContainer">
+      <ul class="footerBottomBarNav">
+        <li><a href="#">Accessibilité : non conforme</a></li>
+        <li><a href="#">Données personnelles</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Plan du site</a></li>
       </ul>
-    </div>
-
-    <div class="footer-column">
-      <h3>Restons connectés</h3>
-      <ul class="social-links">
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Facebook</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- section déplacée sous les autres colonnes -->
-  <div class="footer-legal">
-    <h3>Informations légales</h3>
-    <ul>
-      <li><a href="#">Accessibilité : non conforme</a></li>
-      <li><a href="#">Données personnelles</a></li>
-      <li><a href="#">Mentions légales</a></li>
-      <li><a href="#">Plan du site</a></li>
-    </ul>
+    </nav>
   </div>
 </footer>
 </body>

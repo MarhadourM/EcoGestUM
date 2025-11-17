@@ -1,52 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f5f5f5;
+}
 footer {
-  background: #003366;
+  background: #040823;
   color: #fff;
-  padding: 40px 20px;
-  font-size: 14px;
+  font-family: "Poppins", Arial, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
 }
-
-.footer-container {
+.footerPrincipalContainer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0 0 0;
+}
+.containerHautFooter {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
 }
-
-.footer-column {
-  flex: 1 1 220px;
+.coordonnees {
+  flex: 1.2 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-footer h3 {
-  font-size: 16px;
+.logoBlancFooter {
+  max-width: 200px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
-
-footer ul {
+.coordonneesAdresse {
+  font-size: 1.08rem;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.contactList li {
+  margin-bottom: 17px;
+  width: 100%;
+}
+.contactList a {
+  background: #d4451b;
+  color: #fff;
+  border-radius: 30px;
+  display: block;
+  font-size: 1.23rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  font-weight: 500;
+  width: 400px;
+  max-width: 100%;
+  padding: 12px 36px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.contactList a i {
+  margin-right: 14px;
+  font-size: 1.2em;
+}
+.contactList a:hover {
+  background: #913008;
+}
+.accesDirects {
+  flex: 1 1 190px;
+}
+.directAccessIntitule {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+  font-family: "Poppins-Bold", Arial, sans-serif;
+}
+.footerDirectAccessList {
+  padding: 0;
   list-style: none;
-  padding-left: 0;
 }
-
-footer li {
-  margin-bottom: 8px;
+.footerDirectAccessItem {
+  margin-bottom: 15px;
 }
-
-footer a {
+.footerDirectAccessItem a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.2s;
+  font-size: 1.1rem;
+  transition: text-decoration 0.2s;
 }
-
-footer a:hover {
-  color: #ffdb3a;
+.footerDirectAccessItem a:hover {
+  text-decoration: underline;
 }
-
-.social-links li {
-  display: inline-block;
-  margin-right: 10px;
+.restonsConnectes {
+  flex: 1 1 210px;
+  text-align: center;
 }
-.footer-legal {
+.socialTitle {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+  font-family: "Poppins-Bold", Arial, sans-serif;
+}
+.socialIcons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.socialIcons img {
+  width: 32px;
+  height: 35px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+}
+.footerBottomContainer {
+  border-top: 1px solid #fff2;
+  margin-top: 16px;
+  margin-bottom: 0;
   width: 100%;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.footerBottomBarNav {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  list-style: none;
+  padding: 8px 0 0 0;
+  font-size: 1.09rem;
+}
+.footerBottomBarNav a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.98;
+  transition: text-decoration 0.2s;
+  font-weight: 500;
+}
+.footerBottomBarNav a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .containerHautFooter {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  .coordonnees,
+  .accesDirects,
+  .restonsConnectes {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .logoBlancFooter {
+    margin-left: 0;
+    max-width: 160px;
+  }
+  .contactList {
+    align-items: center;
+    text-align: center;
+  }
+  .contactList li {
+    display: flex;
+    justify-content: center;
+  }
+  .contactList a {
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  .contactList a {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
 }
