@@ -20,13 +20,13 @@
                 <span class="header__separator">|</span>
                 <span class="header__site-name">EcoGestUM</span>
             </div>
-            <button class="header__connect-btn" src=window.location(connexion.php)>SE CONNECTER</button>
+            <button class="header__connect-btn">SE CONNECTER</button>
         </div>
         <!-- Navigation principale -->
         <nav class="header__nav">
             <div class="nav">
                 <div class="nav__item active">
-                    <a href="#statistiques" class="nav__link">
+                    <a href="<?php echo $_ENV['BASE_URL']; ?>statistiques" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M18 17V9M13 17v-5M8 17v-3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="nav__item">
-                    <a href="#notre-politique" class="nav__link">
+                    <a href="<?php echo $_ENV['BASE_URL']; ?>notre-politique" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
                             <polyline points="17 21 17 13 7 13 7 21" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="nav__item">
-                    <a href="#espace-reprise" class="nav__link">
+                    <a href="<?php echo $_ENV['BASE_URL']; ?>espace-reprise" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="nav__item">
-                    <a href="#evenements" class="nav__link">
+                    <a href="<?php echo $_ENV['BASE_URL']; ?>evenements" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="nav__item">
-                    <a href="#messagerie" class="nav__link">
+                    <a href="<?php echo $_ENV['BASE_URL']; ?>messagerie" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -109,9 +109,8 @@
 
     // Gestion du bouton de connexion
     document.querySelector('.header__connect-btn').addEventListener('click', function() {
-        window.location.href = 'connexion.php';
+        window.location.href = '<?php echo $_ENV['BASE_URL']; ?>connexion';
     });
-
-    
-</script>
-
+    </script>
+</body>
+</html>
