@@ -1,0 +1,18 @@
+{
+    "name": "antoine/eco-gest-um",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Antoine\\EcoGestUm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Antoine Rioul",
+            "email": "rioul.antoine@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
