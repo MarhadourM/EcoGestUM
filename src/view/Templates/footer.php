@@ -9,13 +9,13 @@
         <nav aria-label="Liste des contacts" class="contactNav">
           <ul class="contactList">
             <li class="footerTel">
-              <a href="tel:33243833000" class="coordonneesPhone"><i class="fa-solid fa-phone"></i>+33 2 43 83 30 00</a>
+              <a href="tel:33243833000" class="coordonneesPhone"><i class="fa-solid fa-phone"></i>📞 +33 2 43 83 30 00</a>
             </li>
             <li class="footerContact">
-              <a class="footerContactLink" href="https://www.univ-lemans.fr/fr/contact-1.html"><i class="fa-solid fa-envelope"></i>Nous contacter</a>
+              <a class="footerContactLink" href="https://www.univ-lemans.fr/fr/contact-1.html"><i class="fa-solid fa-envelope"></i>📧 Nous contacter</a>
             </li>
             <li class="footerPlan">
-              <a class="footerPlanLink" href="https://www.univ-lemans.fr/fr/pied-de-page/plans-des-campus.html"><i class="fa-solid fa-location-dot"></i>Plan des campus</a>
+              <a class="footerPlanLink" href="https://www.univ-lemans.fr/fr/pied-de-page/plans-des-campus.html"><i class="fa-solid fa-location-dot"></i>📍 Plan des campus</a>
             </li>
           </ul>
         </nav>
@@ -35,10 +35,10 @@
       <div class="restonsConnectes">
         <h3 class="socialTitle">Restons connectés</h3>
         <div class="socialIcons">
-          <img src="assets/Images/instagram.png" alt="Instagram" class="instagram">
-          <img src="assets/Images/linkedin-in.png" alt="LinkedIn" class="linkedin">
-          <img src="assets/Images/youtube.png" alt="YouTube" class="youtube">
-          <img src="assets/Images/facebook-f.png" alt="Facebook" class="facebook">
+          <img src="/src/assets/Images/instagram.png" alt="Instagram" class="instagram">
+          <img src="/src/assets/Images/linkedin-in.png" alt="LinkedIn" class="linkedin">
+          <img src="/src/assets/Images/youtube.png" alt="YouTube" class="youtube">
+          <img src="/src/assets/Images/facebook-f.png" alt="Facebook" class="facebook">
         </div>
       </div>
     </div>

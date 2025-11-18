@@ -717,7 +717,7 @@ footer {
 .contactList {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -960,28 +960,27 @@ footer {
 .connexion-form input[type="text"],
 .connexion-form input[type="password"],
 .connexion-form input[type="email"] {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-
 .connexion-form input[type="email"]:focus {
-    border-color: #2E2D5D;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(46, 45, 93, 0.1);
+  border-color: #2e2d5d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 45, 93, 0.1);
 }
 
 .connexion-form input[type="text"]:focus,
 .connexion-form input[type="password"]:focus,
 .connexion-form input[type="email"]:focus {
-    border-color: #2E2D5D;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(46, 45, 93, 0.1);
+  border-color: #2e2d5d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 45, 93, 0.1);
 }
 
 .remember-me {
