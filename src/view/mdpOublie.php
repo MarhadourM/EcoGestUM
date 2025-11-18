@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="connexion-page" style="background-image: url('<?php echo getenv("BASE_URL")."src/assets/Images/ConnexionImg.png"; ?>');">
-        <div class="back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>'">
+        <div class="back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>connexion'">
             <svg viewBox="0 0 24 24" fill="none" stroke="#1B2963" stroke-width="2">
                 <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
         <div class="connexion-container">
             <div class="connexion-logo">
-                <img src="<?php echo $_ENV["BASE_URL"]."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
+                <img src="<?php echo getenv("BASE_URL")."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
             </div>
             <form class="connexion-form" method="POST" action="traitement_mdp_oublie.php">
                 <h2 class="connexion-title">Réinitialisation du mot de passe</h2>

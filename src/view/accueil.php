@@ -1,6 +1,6 @@
 <main class="main-content">
     <!-- Section Hero avec compteur -->
-    <section class="hero-section" style="background-image: url('<?php echo $_ENV["BASE_URL"]."src/assets/Images/ObjRecyclTotalImg.png"; ?>');">
+    <section class="hero-section" style="background-image: url('<?php echo getenv('BASE_URL')."src/assets/Images/ObjRecyclTotalImg.png"; ?>');">
         <div class="counter-card">
             <div class="counter-label">Déjà</div>
             <div class="counter-number">18 065</div>
@@ -11,7 +11,7 @@
     <!-- Section Donation Campus & Moi -->
     <section class="donation-section">
         <div class="donation-card">
-            <img src="<?php echo $_ENV["BASE_URL"]."src/assets/Images/FormulaireDonAcceuil.png"; ?>" alt="Campus & Moi" class="donation-icon">
+            <img src="<?php echo getenv('BASE_URL')."src/assets/Images/FormulaireDonAcceuil.png"; ?>" alt="Campus & Moi" class="donation-icon">
             <button class="donation-btn">Formulaire de donation</button>
         </div>
         <div class="donation-content">
