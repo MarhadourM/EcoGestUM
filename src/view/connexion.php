@@ -19,7 +19,7 @@
         <div class="connexion-container">
             <!-- Logo -->
             <div class="connexion-logo">
-                <img src="<?php echo $_ENV["BASE_URL"]."src/assets/Images/logo.png"; ?>" alt="Le Mans Université">
+                <img src="<?php echo $_ENV["BASE_URL"]."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
             </div>
 
             <!-- Formulaire -->
@@ -40,13 +40,11 @@
                 </div>
 
                 <button type="submit" class="connexion-btn">Se connecter</button>
+               <a href="inscription" class="inscription-link">S'INSCRIRE</a>
 
+                
                 <div class="connexion-footer">
                     <a href="mot-de-passe-oublie.php">mot de passe oublié</a>
-                </div>
-
-                <div class="inscription-link">
-                    <a href="inscription">S'INSCRIRE</a>
                 </div>
             </form>
         </div>

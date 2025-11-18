@@ -1,6 +1,6 @@
 <?php
 // Charger BASE_URL
-$_ENV['BASE_URL'] = 'http://localhost/SamiHajadi/EcoGestUM/';
+$_ENV['BASE_URL'] = 'http://localhost/SAE301/GIT/EcoGestUM/';
 
 // Récupérer le paramètre 'page' de l'URL
 $page = $_GET['page'] ?? 'accueil';
