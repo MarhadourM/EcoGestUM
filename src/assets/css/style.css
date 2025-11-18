@@ -13,7 +13,7 @@
   width: 25%;
   display: flex;
   justify-content: center;
-  padding: 20px 0; /* espace auto autour du logo */
+  padding: -20px 0;
 }
 
 /* Style du logo */
@@ -61,8 +61,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 2px 16px;
   background-color: var(--color-header);
+  padding: 6px 12px;
+  height: 50px;
+  min-height: 50px;
 }
 
 .header__logo {
