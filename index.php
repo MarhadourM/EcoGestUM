@@ -4,7 +4,6 @@ $_ENV['BASE_URL'] = 'http://localhost/SamiHajadi/EcoGestUM/';
 
 // Récupérer le paramètre 'page' de l'URL
 $page = $_GET['page'] ?? 'accueil';
-var_dump($page);
 // Router les pages
 switch ($page) {
     case 'accueil':
