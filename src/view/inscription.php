@@ -19,7 +19,7 @@
         <div class="connexion-container">
             <!-- Logo -->
             <div class="connexion-logo">
-                <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo.png"?>" alt="Le Mans Université">
+                <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS.png"?>" alt="Le Mans Université">
             </div>
 
             <!-- Formulaire d'inscription -->

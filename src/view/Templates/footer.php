@@ -3,7 +3,7 @@
     <div class="containerHautFooter">
       <div class="coordonnees">
         <div class="coordonneesIntitule">
-          <img class="logoBlancFooter" src="assets/Images/logo_LEMANS_UNIVERSITE_BLANC.png" alt="Le Mans Université">
+          <img class="logoBlancFooter" src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"?>" alt="Le Mans Université">
           <p class="coordonneesAdresse">Avenue Olivier Messiaen 72085 Le Mans cedex 9</p>
         </div>
         <nav aria-label="Liste des contacts" class="contactNav">
@@ -35,10 +35,10 @@
       <div class="restonsConnectes">
         <h3 class="socialTitle">Restons connectés</h3>
         <div class="socialIcons">
-          <img src="/src/assets/Images/instagram.png" alt="Instagram" class="instagram">
-          <img src="/src/assets/Images/linkedin-in.png" alt="LinkedIn" class="linkedin">
-          <img src="/src/assets/Images/youtube.png" alt="YouTube" class="youtube">
-          <img src="/src/assets/Images/facebook-f.png" alt="Facebook" class="facebook">
+          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/instagram.png"?>" alt="Instagram" class="instagram">
+          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/linkedin-in.png"?>" alt="LinkedIn" class="linkedin">
+          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/youtube.png"?>" alt="YouTube" class="youtube">
+          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/instagram.png"?>" alt="Facebook" class="facebook">
         </div>
       </div>
     </div>
