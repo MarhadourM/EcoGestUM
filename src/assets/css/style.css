@@ -8,6 +8,33 @@
   --color-border: #e0e0e0;
   --color-header: #2e2d5d;
 }
+/* Conteneur du logo d’accueil */
+.LogoAcceuil {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0; /* espace auto autour du logo */
+}
+
+/* Style du logo */
+.LogoAcceuil img {
+  max-width: 260px; /* taille par défaut */
+  width: 100%;
+  height: auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .LogoAcceuil img {
+    max-width: 200px; /* tablettes */
+  }
+}
+
+@media (max-width: 480px) {
+  .LogoAcceuil img {
+    max-width: 150px; /* smartphones */
+  }
+}
 
 /* ===== RESET DE BASE ===== */
 * {

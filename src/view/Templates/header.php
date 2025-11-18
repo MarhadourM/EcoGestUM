@@ -11,12 +11,9 @@
         <!-- Top bar -->
         <div class="header__top">
             <div id="logo_accueil" class="header__logo">
-                <div class="header__logo-img">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" fill="#2b2e5e" stroke="#2b2e5e" stroke-width="2"/>
-                    </svg>
+                <div class="LogoAcceuil">
+                    <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université">
                 </div>
-                <span class="header__logo-text">Le Mans Université</span>
                 <span class="header__separator">|</span>
                 <span class="header__site-name">EcoGestUM</span>
             </div>
