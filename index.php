@@ -1,6 +1,9 @@
 <?php
 
-// Récupérer le paramètre 'page' de l'URL
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $page = $_GET['page'] ?? 'accueil';
 // Router les pages
 switch ($page) {

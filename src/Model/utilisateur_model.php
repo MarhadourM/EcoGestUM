@@ -1,32 +1,50 @@
-<?php 
-require_once __DIR__ . '/modelBDD.php';
-function inscription_utilisateur($identifiant, $nom, $prenom, $email, $mdp, $iduniv, $idcomp = null, $iddept = null, $idrole = 1) {
+<?php require_once 'modelBDD.php';
+
+
+function get_users(){
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR");
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
+}
+
+function login_user($email, $password){
+}
+
+function logout_user(){
+    session_destroy();
+}
+
+function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp, $id_dept, $idrole = 1) {
     $pdo = get_bdd();
     $pdo->beginTransaction();
     try {
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
         $stmt = $pdo->prepare(
-            "INSERT INTO UTILISATEUR (identifiantut, nomut, prenut, emailut, mdput, iduniv, idcomp, iddept)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO UTILISATEUR (nom_ut, pren_ut, email_ut, mdp_ut, id_univ, id_comp, id_dept)
+                VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
-        $stmt->execute([$identifiant, $nom, $prenom, $email, $hash, $iduniv, $idcomp, $iddept]);
-        $idut = $pdo->lastInsertId();
+        $stmt->execute([$nom, $prenom, $email, $hash, $id_univ, $id_comp, $id_dept]);
+        $id_ut = $pdo->lastInsertId();
 
-        $stmtRole = $pdo->prepare("INSERT INTO ROLEUTILISATEUR (idrole, idut) VALUES (?, ?)");
-        $stmtRole->execute([$idrole, $idut]);
+        $stmtRole = $pdo->prepare("INSERT INTO ROLE_UTILISATEUR (id_role, id_ut) VALUES (?, ?)");
+        $stmtRole->execute([$idrole, $id_ut]);
 
         $pdo->commit();
-        return $idut;
+        return $id_ut;
     } catch(Exception $e){
         $pdo->rollBack();
+        echo "Erreur SQL : " . $e->getMessage(); 
         return false;
     }
-}   
+}
 
-function connexion_utilisateur($identifiant, $motdepasse) {
+
+function connexion_utilisateur($email, $motdepasse) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE identifiantut=?");
-    $stmt->execute([$identifiant]);
+    $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE emailut=?");
+    $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($motdepasse, $user['mdput'])) {
@@ -34,10 +52,13 @@ function connexion_utilisateur($identifiant, $motdepasse) {
         $stmtRole = $pdo->prepare("SELECT idrole FROM ROLEUTILISATEUR WHERE idut=?");
         $stmtRole->execute([$user['idut']]);
         $roles = $stmtRole->fetchAll(PDO::FETCH_COLUMN);
+
         $user['roles'] = $roles;
         return $user;
     }
     return false;
 }
+
+
 
 ?>
