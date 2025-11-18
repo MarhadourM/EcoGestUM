@@ -116,5 +116,3 @@
         window.location.href = "<?php echo $_ENV['BASE_URL']; ?>accueil";
     }
     </script>
-</body>
-</html>
