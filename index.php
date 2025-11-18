@@ -4,18 +4,17 @@ $_ENV['BASE_URL'] = 'http://localhost/SamiHajadi/EcoGestUM/';
 
 // Récupérer le paramètre 'page' de l'URL
 $page = $_GET['page'] ?? 'accueil';
-
+var_dump($page);
 // Router les pages
 switch ($page) {
     case 'accueil':
-    case '':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/accueil.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/accueil.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'connexion':
-        require_once __DIR__ . '/view/connexion.php';
+        require_once __DIR__ . 'src/view/connexion.php';
         break;
     
     case 'inscription':
