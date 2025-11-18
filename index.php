@@ -1,5 +1,4 @@
 <?php
-// Charger BASE_URL
 
 // Récupérer le paramètre 'page' de l'URL
 $page = $_GET['page'] ?? 'accueil';
@@ -12,19 +11,21 @@ switch ($page) {
         break;
     
     case 'connexion':
-        require_once __DIR__ . 'src/view/connexion.php';
+        require_once __DIR__ . '/src/view/connexion.php';
         break;
     
     case 'inscription':
-        require_once __DIR__ . '/view/inscription.php';
+        require_once __DIR__ . '/src/view/inscription.php';
         break;
-    
+    case 'mot-de-passe-oublie.php':
+        require_once __DIR__ . '/src/view/mdpOublie.php';
+        break;
     case 'traitement_connexion':
-        require_once __DIR__ . '/view/traitement_connexion.php';
+        require_once __DIR__ . '/src/view/traitement_connexion.php';
         break;
     
     case 'traitement_inscription':
-        require_once __DIR__ . '/view/traitement_inscription.php';
+        require_once __DIR__ . '/src/view/traitement_inscription.php';
         break;
     
     case 'statistiques':
