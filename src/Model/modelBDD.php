@@ -20,6 +20,4 @@ function get_bdd(){
 
 
 
-
-
 ?>
