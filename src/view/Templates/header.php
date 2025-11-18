@@ -10,7 +10,7 @@
     <header class="header">
         <!-- Top bar -->
         <div class="header__top">
-            <div class="header__logo">
+            <div id="logo_accueil" class="header__logo">
                 <div class="header__logo-img">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" fill="#2b2e5e" stroke="#2b2e5e" stroke-width="2"/>
@@ -111,6 +111,10 @@
     document.querySelector('.header__connect-btn').addEventListener('click', function() {
         window.location.href = '<?php echo $_ENV['BASE_URL']; ?>connexion';
     });
+
+    document.getElementById('logo_accueil').onclick = function() { //redirect accueil
+        window.location.href = "<?php echo $_ENV['BASE_URL']; ?>accueil";
+    }
     </script>
 </body>
 </html>

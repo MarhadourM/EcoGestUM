@@ -22,6 +22,14 @@ switch ($page) {
         require_once __DIR__ . '/view/inscription.php';
         break;
     
+    case 'traitement_connexion':
+        require_once __DIR__ . '/view/traitement_connexion.php';
+        break;
+    
+    case 'traitement_inscription':
+        require_once __DIR__ . '/view/traitement_inscription.php';
+        break;
+    
     case 'statistiques':
         require_once __DIR__ . '/view/Templates/header.php';
         require_once __DIR__ . '/view/statistiques.php';
