@@ -29,33 +29,33 @@ switch ($page) {
         break;
     
     case 'statistiques':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/statistiques.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/statistiques.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'notre-politique':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/notre-politique.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/notre-politique.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'espace-reprise':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/espace-reprise.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/espace-reprise.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'evenements':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/evenements.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/evenements.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'messagerie':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/messagerie.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/messagerie.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     default:
