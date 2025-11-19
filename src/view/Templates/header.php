@@ -22,7 +22,7 @@
         <!-- Navigation principale -->
         <nav class="header__nav">
             <div class="nav">
-                <div class="nav__item active">
+                <div class="nav__item <?php if($page == 'statistiques'){echo 'active';} ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>statistiques" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
@@ -32,7 +32,7 @@
                     </a>
                 </div>
 
-                <div class="nav__item">
+                <div class="nav__item <?php if($page == 'notre-politique'){echo 'active';} ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +43,7 @@
                     </a>
                 </div>
 
-                <div class="nav__item">
+                <div class="nav__item <?php if($page == 'espace-reprise'){echo 'active';} ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>espace-reprise" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,7 +53,7 @@
                     </a>
                 </div>
 
-                <div class="nav__item">
+                <div class="nav__item <?php if($page == 'evenements'){echo 'active';} ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>evenements" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,7 +65,7 @@
                     </a>
                 </div>
 
-                <div class="nav__item">
+                <div class="nav__item <?php if($page == 'messagerie'){echo 'active';} ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>messagerie" class="nav__link">
                         <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
