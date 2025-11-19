@@ -43,14 +43,14 @@ function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp
 
 function connexion_utilisateur($email, $motdepasse) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE emailut=?");
+    $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE email_ut=?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($motdepasse, $user['mdput'])) {
+    if ($user && ($user['mdp_ut'] === $motdepasse || password_verify($motdepasse, $user['mdp_ut']))) {
         // Chercher les rôles
-        $stmtRole = $pdo->prepare("SELECT idrole FROM ROLEUTILISATEUR WHERE idut=?");
-        $stmtRole->execute([$user['idut']]);
+        $stmtRole = $pdo->prepare("SELECT id_role FROM ROLE_UTILISATEUR WHERE id_ut=?");
+        $stmtRole->execute([$user['id_ut']]);
         $roles = $stmtRole->fetchAll(PDO::FETCH_COLUMN);
 
         $user['roles'] = $roles;
@@ -58,7 +58,5 @@ function connexion_utilisateur($email, $motdepasse) {
     }
     return false;
 }
-
-
 
 ?>

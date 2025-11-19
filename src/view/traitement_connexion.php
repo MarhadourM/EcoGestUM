@@ -1,29 +1,33 @@
 <?php
 require_once __DIR__ . '/../model/utilisateur_model.php';
-
 session_start();
 
-if (!empty($_POST['identifiant']) && !empty($_POST['motdepasse'])) {
-    $id = $_POST['identifiant'];
+if (!empty($_POST['email']) && !empty($_POST['motdepasse'])) {
+    $email = $_POST['email'];
     $mdp = $_POST['motdepasse'];
 
-    $user = connexion_utilisateur($id, $mdp);
+    $user = connexion_utilisateur($email, $mdp);
 
     if ($user) {
         $_SESSION['user'] = [
-            'idut' => $user['idut'],
-            'nomut' => $user['nomut'],
-            'prenomut' => $user['prenomut'],
-            'emailut' => $user['emailut'],
+            'id_ut' => $user['id_ut'],
+            'nom_ut' => $user['nom_ut'],
+            'prenom_ut' => $user['pren_ut'],
+            'email_ut' => $user['email_ut'],
             'roles' => $user['roles']
         ];
         header('Location: '.$_ENV['BASE_URL']);
         exit();
     } else {
-        echo "Identifiant ou mot de passe incorrect.";
+        // Erreur de login : message en session + redirection propre
+        $_SESSION['connexion_error'] = "Email ou mot de passe incorrect.";
+        header('Location: '.$_ENV['BASE_URL'].'connexion');
+        exit();
     }
 } else {
-    echo "Veuillez remplir tous les champs.";
+    $_SESSION['connexion_error'] = "Veuillez remplir tous les champs.";
+    header('Location: '.$_ENV['BASE_URL'].'connexion');
+    exit();
 }
 
 ?>

@@ -1354,3 +1354,11 @@ footer {
     max-width: 120px;
   }
 }
+
+.form-error {
+    color: #C32F2F;
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 500;
+}
