@@ -1,3 +1,12 @@
+<?php
+session_start();
+$error_message = '';
+if (isset($_SESSION['connexion_error'])) {
+    $error_message = $_SESSION['connexion_error'];
+    unset($_SESSION['connexion_error']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,8 +34,8 @@
             <!-- Formulaire -->
             <form class="connexion-form" method="POST" action="traitement_connexion">
                 <div class="form-group">
-                    <label for="identifiant">Identifiant *</label>
-                    <input type="text" id="identifiant" name="identifiant" required placeholder="Votre identifiant">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="Votre email">
                 </div>
 
                 <div class="form-group">
@@ -38,6 +47,12 @@
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Se souvenir de moi</label>
                 </div>
+
+                <?php if (!empty($error_message)): ?>
+                    <div class="form-error">
+                        <?php echo htmlspecialchars($error_message); ?>
+                    </div>
+                <?php endif; ?>
 
                 <button type="submit" class="connexion-btn">Se connecter</button>
                <a href="inscription" class="inscription-link">S'INSCRIRE</a>
