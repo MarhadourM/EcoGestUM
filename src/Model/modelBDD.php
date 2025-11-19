@@ -56,16 +56,21 @@ function get_objets_disponibles($page = 1, $parPage = 9) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
 function get_nb_objets_disponibles() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("
+    $sql = "
         SELECT COUNT(*) as total
-        FROM objet_recyclable
-        WHERE id_statut_recyclage_obj = 1
-    ");
-    return $stmt->fetch()['total'];
+        FROM objet_recyclable o
+        INNER JOIN photo_objet po ON o.id_obj_recycl = po.id_obj_recycl
+        INNER JOIN photo p ON po.id_photo = p.id_photo
+        INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
+        INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
+        WHERE o.id_statut_recyclage_obj = 1
+    ";
+    $stmt = $pdo->query($sql);
+    return (int)$stmt->fetch()['total'];
 }
+
 
 
 ?>
