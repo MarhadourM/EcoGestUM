@@ -1593,7 +1593,6 @@ footer {
   flex-direction: column;
   gap: 32px;
   margin: 0 auto;
-  max-width: 850px;
   padding-bottom: 48px;
 }
 
