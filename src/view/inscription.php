@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__ . '/../model/utilisateur_model.php';
+session_start();
+$errors = [];
+if (!empty($_SESSION['inscription_error'])) {
+  $errors = $_SESSION['inscription_error'];
+  unset($_SESSION['inscription_error']);
+}
 $universites = get_universites();
 $composantes = get_composantes();
 $departements = get_departements();
@@ -9,7 +15,7 @@ $departements = get_departements();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $_ENV['BASE_URL']; ?>src/assets/css/style.css" rel="stylesheet" />
+    <link href="<?php echo getenv('BASE_URL')."src/assets/css/style.css"; ?>" rel="stylesheet" />
     <title>Inscription - EcoGestUM</title>
 </head>
 <body>
@@ -77,35 +83,61 @@ $departements = get_departements();
                     <label for="confirmer_mdp">Confirmer le mot de passe *</label>
                     <input type="password" id="confirmer_mdp" name="confirmer_mdp" required placeholder="Confirmer votre mot de passe">
                 </div>
+                <?php if (!empty($errors)): ?>
+                    <div class="message-error">
+                        <ul>
+                            <?php foreach ($errors as $err): ?>
+                                <li><?= htmlspecialchars($err) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <button type="submit" class="connexion-btn">Confirmer l'inscription</button>
             </form>
         </div>
     </div>
 
     <script>
-    document.querySelector('.connexion-form').addEventListener('submit', function(e) {
-        const mdp1 = document.getElementById('motdepasse').value;
-        const mdp2 = document.getElementById('confirmer_mdp').value;
-        let err = document.getElementById('mdp-error');
+document.querySelector('.connexion-form').addEventListener('submit', function(e) {
+    const mdp1 = document.getElementById('motdepasse').value;
+    const mdp2 = document.getElementById('confirmer_mdp').value;
+    let erreurs = [];
 
-        if (!err) {
-            err = document.createElement('div');
-            err.id = 'mdp-error';
-            err.style.color = '#d32f2f';
-            err.style.fontSize = '14px';
-            err.style.marginTop = '7px';
-            // Place juste après le champ de confirmation
-            document.getElementById('confirmer_mdp').parentNode.appendChild(err);
-        }
+    if (mdp1.length < 8) {
+        erreurs.push("Le mot de passe doit contenir au moins 8 caractères");
+    }
+    if (!/[a-z]/.test(mdp1)) {
+        erreurs.push("Le mot de passe doit contenir au moins une minuscule");
+    }
+    if (!/[0-9]/.test(mdp1)) {
+        erreurs.push("Le mot de passe doit contenir au moins un chiffre");
+    }
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(mdp1)) {
+        erreurs.push("Le mot de passe doit contenir au moins un caractère spécial (!@#$%^&*(),.?\":{}|<>)");
+    }
+    if (mdp1 !== mdp2) {
+        erreurs.push("Les mots de passe sont différents");
+    }
 
-        if (mdp1 !== mdp2) {
-            err.textContent = 'Les mots de passe sont différents';
-            e.preventDefault(); // empêche l’envoi du formulaire
-        } else {
-            err.textContent = '';
-        }
-    });
+    let errDiv = document.getElementById('mdp-error');
+    if (!errDiv) {
+        errDiv = document.createElement('div');
+        errDiv.id = 'mdp-error';
+        errDiv.className = 'message-error';
+        // Ajoute le message d'erreur juste avant le bouton
+        const submitBtn = document.querySelector('.connexion-btn');
+        submitBtn.parentNode.insertBefore(errDiv, submitBtn);
+    }
+
+    if (erreurs.length > 0) {
+        errDiv.innerHTML = '<ul>' + erreurs.map(e => '<li>'+e+'</li>').join('') + '</ul>';
+        e.preventDefault();
+    } else {
+        errDiv.innerHTML = '';
+    }
+});
 </script>
+
 
 </body>
 </html>
