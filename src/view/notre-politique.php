@@ -1,5 +1,5 @@
 <main class="main-content politique">
-  <section class="politique__header">
+  <section class="headerPages"> 
     <nav class="breadcrumb">
       <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumb__item">Accueil</a>
       <span class="breadcrumb__separator">></span>

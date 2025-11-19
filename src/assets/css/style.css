@@ -1311,9 +1311,9 @@ footer {
 /*====== politique =====*/
 
 /* Header bleu et fil d'Ariane sur toute la largeur */
-.politique__header {
+.headerPages {
   background: linear-gradient(90deg, #e9edfa 65%, #ddeaf6 100%);
-  padding: 30px 0 0 0;
+  padding: 30px 0 30px 0;
   text-align: center;
   box-shadow: 0 2px 12px rgba(35,50,170,0.09);
 }
@@ -1351,10 +1351,9 @@ footer {
 .politique__intro {
   width: 100%;
   background: #fff;
-  box-shadow: 0 1px 10px rgba(39,60,170,0.06);
+  /*  box-shadow: 0 1px 10px rgba(39,60,170,0.06);*/
   border-radius: 0;
   padding: 28px 0 24px 0;
-  margin: 0 auto 16px auto;
 }
 .politique__intro p {
   font-size: 1.18em;
@@ -1362,7 +1361,7 @@ footer {
   color: #000;
   margin: 0;
   line-height: 1.6;
-  text-align: center;
+  text-align: justify;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -1374,16 +1373,13 @@ footer {
   width: 100%;
   box-sizing: border-box;
   padding: 30px 0 22px 0;
-  margin: 0 auto 24px auto;
   text-align: center;
-  border-top: 2px solid #e9edfa;
-  border-bottom: 2px solid #e9edfa;
 }
 
 /* Sous-titres larges */
 .politique__subtitle {
-  font-size: 1.43em;
-  color: #193fc9;
+  font-size: 2em;
+  color: #24358e;
   font-weight: 700;
   margin-bottom: 18px;
   letter-spacing: 0.05em;
@@ -1433,7 +1429,7 @@ footer {
 
 .politique__list strong,
 .politique__campus strong {
-  color: #24358e;
+  color: #193fc9;
   font-weight: bold;
   font-size: 1.07em;
 }
