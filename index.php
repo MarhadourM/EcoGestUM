@@ -45,7 +45,7 @@ switch ($page) {
     
     case 'espace-reprise':
         require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/espace-reprise.php';
+        require_once __DIR__ . '/src/view/espace-reprise.php';
         require_once __DIR__ . '/view/Templates/footer.php';
         break;
     

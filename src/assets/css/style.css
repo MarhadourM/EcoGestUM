@@ -1354,7 +1354,7 @@ footer {
     max-width: 120px;
   }
 }
-/* HEADER 100% ÉCRAN */
+/* PAGE STATISTIQUES ET RAPPORTS */
 .headerPages {
   width: 100vw;
   min-width: 100vw;
@@ -1369,8 +1369,6 @@ footer {
   transform: translateX(-50%);
   box-sizing: border-box;
 }
-
-/* Fil d'ariane */
 .breadcrumb {
   margin: 0 auto 8px auto;
   font-size: 1.05rem;
@@ -1393,14 +1391,12 @@ footer {
   color: #7683d4;
   margin: 0 7px;
 }
-
-/* MAIN CONTENT LIMITÉ ET CENTRÉ */
 .main-content {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin: 0 auto;
-  max-width: 850px; /* <--- Limitation DE TOUT le contenu principal */
+  max-width: 850px;
   padding-bottom: 48px;
 }
 
@@ -1413,7 +1409,7 @@ footer {
   margin-bottom: 0;
   display: block;
   width: 100%;
-  max-width: 850px; /* <--- Limite chaque card */
+  max-width: 850px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1576,3 +1572,4 @@ footer {
     max-width: 99vw;
   }
 }
+/* Fin page statistiques et rapports */
