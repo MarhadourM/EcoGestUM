@@ -1769,6 +1769,58 @@ footer {
   }
 }
 /* Fin page statistiques et rapports */
+
+/* PAGE espace reprise*/
+
+.container-espace-reprise {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.action-block {
+  background: #dbdbdb;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 26px;
+}
+
+.action-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.action-title {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 1.18em;
+  font-weight: bold;
+  color: #232369;
+  flex: 1;
+  letter-spacing: 0.5px;
+}
+
+.action-btn {
+  background-color: #dd5227;
+  color: #fff;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  border: none;
+  border-radius: 21px;
+  padding: 9px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 24px;
+}
+
+.action-btn:hover {
+  background-color: #b04322;
+}
 /* HEADER large */
 .headerPages {
   width: 100vw;
