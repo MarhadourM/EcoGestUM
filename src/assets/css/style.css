@@ -1591,12 +1591,25 @@ footer {
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
   margin: 0 auto;
-  padding-bottom: 48px;
 }
 
 /* CARDS CENTRÉES */
+.main-content-stats {
+  /*espace entre les divs*/
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 38px;
+  margin-bottom: 40px;
+  margin-top: 35px;
+  padding: 15px;
+  width: 100%;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
 .stats-card {
   border-radius: 15px;
   background: #dee2e6;
@@ -1825,6 +1838,11 @@ footer {
 .headerPages {
   width: 100vw;
   min-width: 100vw;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+  margin-right: 0;
   background: linear-gradient(90deg, #d2e8fa 65%, #b1d3ef 100%);
   padding: 30px 0 20px 0;
   text-align: center;
@@ -1870,13 +1888,11 @@ footer {
   letter-spacing: 0.02em;
   text-align: center;
 }
-.main-content {
+.main-content-carte {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 22px auto;
-  max-width: 1080px; /* ← Augmente la largeur max */
-  margin-top: 38px; /* ← Décale encore un peu plus la carte vers le bas */
+  margin-top: 38px;
 }
 .carte-wrapper {
   margin: 0 auto;
@@ -1908,14 +1924,14 @@ footer {
     max-width: 98vw;
     min-height: 180px;
   }
-  .main-content {
+  .main-content-carte {
     padding: 0 1vw;
   }
 }
 
 /* Responsive */
 @media (max-width: 800px) {
-  .main-content,
+  .main-content-carte,
   .carte-wrapper {
     max-width: 98vw;
     padding: 7vw 2vw;

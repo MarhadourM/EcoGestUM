@@ -8,7 +8,7 @@
   <h1 class="politique__title">Notre engagement sur le recyclage au sein de nos services : Notre politique environnementale</h1>
 </section>
 
-<main class="main-content">
+<main class="main-content-stats ">
   <section class="stats-card">
     <div class="stats-flex">
       <img src="<?php echo getenv('BASE_URL')."src/assets/Images/world.jpg"; ?>" alt="World image" class="stats-img">

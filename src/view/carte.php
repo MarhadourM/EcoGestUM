@@ -9,7 +9,7 @@
   <h1 class="carte__title">Carte interactive</h1>
 </section>
 
-<main class="main-content">
+<main class="main-content-carte">
   <section class="carte-section">
     <div class="carte-wrapper">
         <div id="map" class="carte-img"></div>
