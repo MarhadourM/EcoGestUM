@@ -29,10 +29,19 @@ function get_departements() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function get_objets_disponibles($page = 1, $parPage = 9) {
+function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
     $offset = ($page - 1) * $parPage;
-    // Insère directement $offset et $parPage dans la requête
+    $where = "WHERE o.id_statut_recyclage_obj = 1";
+    if ($search !== '') {
+        $where .= " AND (o.nom_obj_recycl LIKE :search OR o.desc_obj_recycl LIKE :search)";
+    }
+    if ($etat !== '') {
+        $where .= " AND o.id_etat_obj = :etat";
+    }
+    if ($categorie !== '') {
+        $where .= " AND o.id_cat_obj = :categorie";
+    }
     $sql = "
         SELECT 
             o.id_obj_recycl,
@@ -48,16 +57,25 @@ function get_objets_disponibles($page = 1, $parPage = 9) {
         INNER JOIN photo p ON po.id_photo = p.id_photo
         INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
         INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
-        WHERE o.id_statut_recyclage_obj = 1
+        $where
         ORDER BY o.date_obj_recycl DESC
         LIMIT $offset, $parPage
     ";
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    if ($search !== '') $stmt->bindValue(':search', "%$search%");
+    if ($etat !== '') $stmt->bindValue(':etat', $etat);
+    if ($categorie !== '') $stmt->bindValue(':categorie', $categorie);
+    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function get_nb_objets_disponibles() {
+
+function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
+    $where = "WHERE o.id_statut_recyclage_obj = 1";
+    if ($search !== '') $where .= " AND (o.nom_obj_recycl LIKE :search OR o.desc_obj_recycl LIKE :search)";
+    if ($etat !== '') $where .= " AND o.id_etat_obj = :etat";
+    if ($categorie !== '') $where .= " AND o.id_cat_obj = :categorie";
     $sql = "
         SELECT COUNT(*) as total
         FROM objet_recyclable o
@@ -65,11 +83,16 @@ function get_nb_objets_disponibles() {
         INNER JOIN photo p ON po.id_photo = p.id_photo
         INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
         INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
-        WHERE o.id_statut_recyclage_obj = 1
+        $where
     ";
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    if ($search !== '') $stmt->bindValue(':search', "%$search%");
+    if ($etat !== '') $stmt->bindValue(':etat', $etat);
+    if ($categorie !== '') $stmt->bindValue(':categorie', $categorie);
+    $stmt->execute();
     return (int)$stmt->fetch()['total'];
 }
+
 
 
 

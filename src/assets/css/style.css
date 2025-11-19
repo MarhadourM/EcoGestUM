@@ -1910,3 +1910,27 @@ footer {
     .objets-grid { grid-template-columns: 1fr; }
     .objet-card { width: 98vw; max-width: 350px;}
 }
+
+.search-filter-bar {
+    gap: 14px;
+}
+.search-box, .etat-select, .categorie-select {
+    border: 1.2px solid #d8d9ee;
+    border-radius: 8px;
+    padding: 7px 15px;
+    font-size: 1.02em;
+    width: 170px;
+}
+.search-btn {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.search-btn:hover {
+    background: #b14f25;
+}
