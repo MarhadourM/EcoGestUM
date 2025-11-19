@@ -52,6 +52,11 @@ switch ($page) {
     
     case 'evenements':
         require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/evenements.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
+        break;
+     case 'carte':
+        require_once __DIR__ . '/src/view/Templates/header.php';
         require_once __DIR__ . '/src/view/carte.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;

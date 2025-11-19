@@ -77,21 +77,21 @@
 
     // Gestion des boutons
     document.querySelector('.donation-btn').addEventListener('click', function() {
-        window.location.href = 'formulaire-donation.php';
+        window.location.href = "<?php echo getenv('BASE_URL'); ?>formulaire-donation";
     });
 
     document.querySelectorAll('.why-card-btn').forEach((btn, index) => {
         btn.addEventListener('click', function() {
             if (index === 0) {
-                window.location.href = 'politique.php';
+                window.location.href = "<?php echo getenv('BASE_URL'); ?>notre-politique";
             } else {
-                window.location.href = 'statistiques.php';
+                window.location.href = "<?php echo getenv('BASE_URL'); ?>statistiques";
             }
         });
     });
 
     document.querySelector('.collect-btn').addEventListener('click', function() {
-        window.location.href = 'carte.php';
+        window.location.href = "<?php echo getenv('BASE_URL'); ?>carte";
     });
 </script>
 

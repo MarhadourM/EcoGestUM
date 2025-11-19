@@ -15,31 +15,30 @@
         <div id="map" class="carte-img"></div>
     </div>
     <div class="cards-lieux">
-      <div class="lieu-card">
-        <img src="img/campus.jpg" alt="Campus" class="lieu-img">
+      <div class="lieu-card" data-card="campus">
+        <img src="<?php echo getenv('BASE_URL')."src/assets/Images/campus.png"; ?>" alt="Campus" class="lieu-img">
         <h2>Retrait campus</h2>
-        <p><strong>Description :</strong><br>Récupérez facilement votre commande directement sur le campus principal à l’Avenue Olivier Messiaen.</p>
+        <p><strong>Description :</strong><br>Récupérez facilement votre commande directement sur le campus de l’Université du Mans, au cœur de la vie étudiante. Un point pratique et rapide, à deux pas de vos salles de cours et de la bibliothèque.</p>
         <div class="lieu-addr">Le Mans Université, campus principal<br>Avenue Olivier Messiaen</div>
         <button class="map-btn" data-marker="campus">Voir sur maps</button>
       </div>
-      <div class="lieu-card">
-        <img src="img/republique.jpg" alt="République" class="lieu-img">
+<div class="lieu-card" data-card="rep">
+        <img src="<?php echo getenv('BASE_URL')."src/assets/Images/rep.png"; ?>" alt="République" class="lieu-img">
         <h2>Retrait place de république</h2>
-        <p><strong>Description :</strong><br>Récupérez vos achats en plein centre-ville du Mans, sur la place de la République ! Accès tram, bus et nombreux commerces à proximité.</p>
+        <p><strong>Description :</strong><br> Profitez d’un retrait en plein centre-ville du Mans, sur la place de République. Idéal pour combiner vos courses, vos sorties ou un café en terrasse avec la récupération de votre commande.</p>
         <div class="lieu-addr">13 Place de la République,<br>72000 Le Mans</div>
         <button class="map-btn" data-marker="rep">Voir sur maps</button>
       </div>
-      <div class="lieu-card">
-        <img src="img/saint-saturnin.jpg" alt="Saint-Saturnin" class="lieu-img">
+      <div class="lieu-card" data-card="saint">
+        <img src="<?php echo getenv('BASE_URL')."src/assets/Images/saint-sat.png"; ?>" alt="Saint-Saturnin" class="lieu-img">
         <h2>Retrait Saint-Saturnin</h2>
-        <p><strong>Description :</strong><br>Le site parfait pour les habitants du nord de l’agglo, accès rapide via la zone commerciale et parking gratuit à proximité.</p>
+        <p><strong>Description :</strong><br>Un point de retrait pratique situé dans la zone commerciale de Saint-Saturnin, parfait pour récupérer votre commande en même temps que vos autres achats.</p>
         <div class="lieu-addr">Rue de la Mairie,<br>72650 Saint-Saturnin</div>
         <button class="map-btn" data-marker="saint">Voir sur maps</button>
       </div>
     </div>
   </section>
 </main>
-
 <script>
   // Création de la carte
   var map = L.map('map').setView([48.0061, 0.1996], 13);
@@ -49,25 +48,30 @@
     attribution: '© OpenStreetMap contribs'
   }).addTo(map);
 
-  // Création des marqueurs AVEC VARIABLE pour accès JS
+  // Récupération du HTML des cards comme popups
+  function getCardHTML(id) {
+    const card = document.querySelector(`.lieu-card[data-card="${id}"]`);
+    return card ? card.innerHTML : "<p>Informations non disponibles</p>";
+  }
+
+  // Création des marqueurs avec popup HTML complet
   var markers = {
     campus: L.marker([48.0115, 0.1665]).addTo(map)
-      .bindPopup('<b>Le Mans Université</b><br>Campus principal<br>Avenue Olivier Messiaen'),
+      .bindPopup(getCardHTML("campus"), { maxWidth: 300 }),
     rep: L.marker([48.0078, 0.1963]).addTo(map)
-      .bindPopup('<b>Place de la République</b><br>13 Place de la République, 72000 Le Mans'),
+      .bindPopup(getCardHTML("rep"), { maxWidth: 300 }),
     saint: L.marker([48.0606, 0.1572]).addTo(map)
-      .bindPopup('<b>Retrait Saint-Saturnin</b><br>Rue de la Mairie, 72650 Saint-Saturnin')
+      .bindPopup(getCardHTML("saint"), { maxWidth: 300 })
   };
 
-  // Ajoute listeners sur chaque bouton pour ouvrir sa popup
+  // Boutons "Voir sur maps" = ouvre aussi la popup
   document.querySelectorAll('.map-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var key = btn.getAttribute('data-marker');
       if(markers[key]) {
-        map.setView(markers[key].getLatLng(), 15, {animate:true}); // Centre la carte
-        markers[key].openPopup(); // Ouvre la popup
+        map.setView(markers[key].getLatLng(), 15, {animate:true});
+        markers[key].openPopup();
       }
-    })
+    });
   });
 </script>
-  
