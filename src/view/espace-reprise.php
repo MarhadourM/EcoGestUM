@@ -25,7 +25,7 @@
     </div>
     <div class="action-block">
         <span class="action-title">CARTE INTERACTIVE DES POINTS DE RETRAIT</span>
-        <a href="map.php">
+        <a href="carte.php">
             <button class="action-btn">Carte</button>
         </a>
     </div>
