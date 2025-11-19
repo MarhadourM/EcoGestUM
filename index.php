@@ -62,6 +62,12 @@ switch ($page) {
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
+    case 'rechercheObjet':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/rechercheObjet.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
+        break;
+    
     default:
         http_response_code(404);
         echo "<h1>404 - Page non trouvée</h1>";
