@@ -38,7 +38,7 @@
           <img src="<?php echo getenv('BASE_URL')."src/assets/Images/instagram.png"?>" alt="Instagram" class="instagram">
           <img src="<?php echo getenv('BASE_URL')."src/assets/Images/linkedin-in.png"?>" alt="LinkedIn" class="linkedin">
           <img src="<?php echo getenv('BASE_URL')."src/assets/Images/youtube.png"?>" alt="YouTube" class="youtube">
-          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/instagram.png"?>" alt="Facebook" class="facebook">
+          <img src="<?php echo getenv('BASE_URL')."src/assets/Images/facebook-f.png"?>" alt="Facebook" class="facebook">
         </div>
       </div>
     </div>
