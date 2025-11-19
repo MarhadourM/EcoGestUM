@@ -1769,3 +1769,199 @@ footer {
   }
 }
 /* Fin page statistiques et rapports */
+/* HEADER large */
+.headerPages {
+  width: 100vw;
+  min-width: 100vw;
+  background: linear-gradient(90deg, #d2e8fa 65%, #b1d3ef 100%);
+  padding: 30px 0 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(35, 50, 170, 0.09);
+  margin-bottom: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+
+/* Fil d'ariane */
+.breadcrumb {
+  margin: 0 auto 10px auto;
+  font-size: 1.08rem;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 7px 22px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(34, 50, 170, 0.06);
+  font-weight: 500;
+}
+.breadcrumbitem {
+  color: #24458c;
+  text-decoration: none;
+  font-weight: bold;
+}
+.breadcrumbitem.active {
+  color: #d45336;
+}
+.breadcrumbseparator {
+  color: #9bb6e0;
+  margin: 0 7px;
+}
+
+/* Titre typé */
+.carte__title {
+  margin: 18px 0 0 0;
+  color: #28426d;
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 22px auto;
+  max-width: 1080px; /* ← Augmente la largeur max */
+  margin-top: 38px; /* ← Décale encore un peu plus la carte vers le bas */
+}
+.carte-wrapper {
+  margin: 0 auto;
+  background: #f6f8fb;
+  border-radius: 9px;
+  box-shadow: 0 2px 10px rgba(70, 100, 150, 0.07);
+  padding: 32px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#map.carte-img {
+  width: 100%;
+  max-width: 680px; /* ← Plus large qu’avant (change selon ton design) */
+  min-width: 240px;
+  aspect-ratio: 484 / 295; /* garde le ratio, s’adapte large */
+  min-height: 260px;
+  height: 50vw;
+  max-height: 500px;
+  border-radius: 13px;
+  box-shadow: 0 3px 14px rgba(100, 120, 170, 0.14);
+  margin: 0 auto;
+  margin-bottom: 12px;
+  display: block;
+}
+@media (max-width: 900px) {
+  #map.carte-img {
+    max-width: 98vw;
+    min-height: 180px;
+  }
+  .main-content {
+    padding: 0 1vw;
+  }
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .main-content,
+  .carte-wrapper {
+    max-width: 98vw;
+    padding: 7vw 2vw;
+  }
+  .carte-img {
+    max-width: 97vw;
+  }
+}
+.cards-lieux {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin: 46px auto 30px auto;
+  max-width: 1150px;
+}
+
+.lieu-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(80, 80, 80, 0.08);
+  width: 340px;
+  padding: 0 0 22px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.lieu-img {
+  width: 100%;
+  height: 130px;
+  border-radius: 14px 14px 0 0;
+  object-fit: cover;
+  display: block;
+}
+
+.lieu-card h2 {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 14px 0 3px 0;
+  color: #223c6f;
+  text-align: left;
+  padding: 0 17px;
+}
+
+.lieu-card p {
+  text-align: left;
+  padding: 0 17px;
+  margin: 7px 0 5px 0;
+}
+.lieu-card strong {
+  color: #1b3360;
+  font-weight: bold;
+}
+.lieu-addr {
+  color: #e36118;
+  font-weight: 600;
+  padding: 0 17px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+.map-btn {
+  background: #d65924;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  margin: 15px 0 0 0;
+  font-weight: 700;
+  font-size: 1.07em;
+  padding: 12px 0;
+  width: 85%;
+  align-self: center;
+  cursor: pointer;
+  transition: background 0.17s;
+  box-shadow: 0 1px 6px rgba(214, 89, 36, 0.06);
+}
+.map-btn:hover {
+  background: #b94813;
+}
+
+@media (max-width: 1100px) {
+  .cards-lieux {
+    gap: 18px;
+  }
+  .lieu-card {
+    width: 96vw;
+    max-width: 400px;
+  }
+}
+@media (max-width: 800px) {
+  .cards-lieux {
+    flex-direction: column;
+    align-items: center;
+  }
+  .lieu-card {
+    width: 97vw;
+  }
+}
