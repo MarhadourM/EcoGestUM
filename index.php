@@ -32,15 +32,15 @@ switch ($page) {
         break;
     
     case 'statistiques':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/statistiques.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/statistiques.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'notre-politique':
-        require_once __DIR__ . '/view/Templates/header.php';
-        require_once __DIR__ . '/view/notre-politique.php';
-        require_once __DIR__ . '/view/Templates/footer.php';
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/notre-politique.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
     case 'espace-reprise':
