@@ -1,3 +1,10 @@
+<?php if (isset($_GET['success']) && $_GET['success'] === 'don') : ?>
+    <div class="espace-notif-success">
+        Objet ajouté avec succès !
+    </div>
+<?php endif; ?>
+
+
 <div class="container-espace-reprise">
     <div class="action-block">
         <span class="action-title">ACCÉDER À L’ESPACE DÉDIÉ À LA RÉUTILISATION</span>

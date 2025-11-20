@@ -74,6 +74,29 @@ switch ($page) {
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
     
+    case 'rechercheObjet':
+        require_once __DIR__ . '/src/controller/rechercheObjetController.php';
+
+        // Si c'est une action de réservation, traite-la AVANT TOUT AFFICHAGE !
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
+            reserver_objet_action();
+            // header('Location...') fait exit, donc rien ne s’affiche après
+        }
+
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        afficher_recherche_objet(); // La page affichée si GET ou après la redirection
+        require_once __DIR__ . '/src/view/Templates/footer.php';
+        break;
+
+    case 'formDon':
+        require_once __DIR__.'/src/view/formDon.php';
+        break;
+        
+    case 'traitement_formDon':
+        require_once __DIR__.'/src/controller/formDonController.php';
+        break;
+
+    
     default:
         http_response_code(404);
         echo "<h1>404 - Page non trouvée</h1>";
