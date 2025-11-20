@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <title>EcoGestUM - Header</title>
+    <title>EcoGestUM</title>
 </head>
 <body>
     <header class="header">
