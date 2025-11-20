@@ -28,7 +28,12 @@ switch ($page) {
     case 'traitement_connexion':
         require_once __DIR__ . '/src/view/traitement_connexion.php';
         break;
-    
+     case 'deconnexion':
+        session_start();
+        session_unset();
+        session_destroy();
+        header('Location: ' . getenv('BASE_URL') . 'accueil');
+        break;
     case 'traitement_inscription':
         require_once __DIR__ . '/src/view/traitement_inscription.php';
         break;
