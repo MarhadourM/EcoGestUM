@@ -1,7 +1,4 @@
-<?php
-require_once __DIR__ . '/../controller/NotificationsController.php';
-?>
-
+<?php require_once __DIR__ . '/../controller/NotificationsController.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,13 +24,13 @@ require_once __DIR__ . '/../controller/NotificationsController.php';
         <div class="notif-card">
           <span>
             <?php
-  $baseUrl = getenv('BASE_URL');
-  $img = $baseUrl . "src/assets/Images/InfoIcon.png"; // Images au lieu de Img
-  if ($notif['nom_type_notif'] === 'information')  $img = $baseUrl . "src/assets/Images/InfoIcon.png";
-  if ($notif['nom_type_notif'] === 'alerte')        $img = $baseUrl . "src/assets/Images/AlerteIcon.png";
-  if ($notif['nom_type_notif'] === 'confirmation')  $img = $baseUrl . "src/assets/Images/CheckIcon.png";
-  if ($notif['nom_type_notif'] === 'rappel')        $img = $baseUrl . "src/assets/Images/alerte.png";
-?>
+              $baseUrl = getenv('BASE_URL');
+              $img = $baseUrl . "src/assets/Images/InfoIcon.png";
+              if ($notif['nom_type_notif'] === 'information')  $img = $baseUrl . "src/assets/Images/InfoIcon.png";
+              if ($notif['nom_type_notif'] === 'alerte')        $img = $baseUrl . "src/assets/Images/AlerteIcon.png";
+              if ($notif['nom_type_notif'] === 'confirmation')  $img = $baseUrl . "src/assets/Images/CheckIcon.png";
+              if ($notif['nom_type_notif'] === 'rappel')        $img = $baseUrl . "src/assets/Images/alerte.png";
+            ?>
             <img src="<?= $img ?>" class="IconNotif" alt="Icône">
           </span>
           <div class="notif-card-content">
@@ -42,11 +39,10 @@ require_once __DIR__ . '/../controller/NotificationsController.php';
             <div class="notif-card-date"><?= htmlspecialchars(date('d/m/Y', strtotime($notif['date_envoi_notif']))); ?></div>
           </div>
           <div class="notif-card-actions">
-            <form method="post" action="supprimer_notif.php" style="display:inline;">
+            <form method="post" action="" style="display:inline;">
               <input type="hidden" name="idnotification" value="<?= $notif['id_notification']; ?>">
               <button type="submit" class="notif-btn notif-btn-delete">Supprimer</button>
             </form>
-            <a href="voir_notif.php?id=<?= $notif['id_notification']; ?>" class="notif-btn notif-btn-read">Voir plus</a>
           </div>
         </div>
       <?php endforeach; ?>
