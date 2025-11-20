@@ -6,6 +6,7 @@
     </nav>
     <h1 class="politique__title">Nos Evenements</h1>
   </section>
+
 <div class="container-event">
   <div class="events-grid">
     <div class="event-card">
@@ -100,14 +101,19 @@
   <div class="event-popup">
     <span id="close-popup" class="event-popup-close">&times;</span>
     <img id="event-popup-img" src="" alt="" class="event-popup-img">
-    <h2 id="event-popup-title"></h2>
-    <div id="event-popup-desc"></div>
-    <form class="event-popup-form">
-      <input type="email" placeholder="Votre adresse mail" class="event-popup-input">
-      <button type="submit" class="event-popup-btn">S’inscrire</button>
-    </form>
+    <div class="event-popup-content">
+      <h2 id="event-popup-title"></h2>
+      <div id="event-popup-desc"></div>
+      <form class="event-popup-form">
+        <input type="email" placeholder="Votre adresse mail" class="event-popup-input">
+        <button type="submit" class="event-popup-btn">S’inscrire</button>
+      </form>
+    </div>
   </div>
 </div>
+
+
+<script src="src/assets/event.js"></script>
 
 
 

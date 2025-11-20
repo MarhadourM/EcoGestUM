@@ -1,32 +1,32 @@
 // Tableau de données de chaque event (à adapter si tu veux une version dynamique depuis PHP)
 const eventsData = [
   {
-    img: "assets/Images/pic01.jpg",
+    img: "src/assets/Images/pic01.jpg",
     title: "Festival zéro déchets",
     desc: "Venez participer à notre festival dédié au zéro déchet ! Au programme : quiz, jeux et concours pour apprendre en s’amusant. Découvrez des astuces pratiques pour réduire vos déchets au quotidien et repartez avec des idées inspirantes."
   },
   {
-    img: "assets/Images/pic02.jpg",
+    img: "src/assets/Images/pic02.jpg",
     title: "Collecte communautaire",
     desc: "Participez à la grande collecte sur le campus ! Réunissons nos efforts pour récupérer gob-objets et matériaux, dans une ambiance conviviale et solidaire."
   },
   {
-    img: "assets/Images/pic03.jpg",
+    img: "src/assets/Images/pic03.jpg",
     title: "Sensibilisation au recyclage",
     desc: "Conférences, jeux et cadeaux pour mieux comprendre les enjeux du recyclage, avec des intervenants et des ateliers pour tous."
   },
   {
-    img: "assets/Images/pic04.jpg",
+    img: "src/assets/Images/pic04.jpg",
     title: "Ventes d’objets de seconde main",
     desc: "Donnez une seconde vie à des objets : profitez de ventes solidaires et faites des trouvailles utiles et responsables sur le campus."
   },
   {
-    img: "assets/Images/pic05.jpg",
+    img: "src/assets/Images/pic05.jpg",
     title: "Mise en place tri sur le campus",
     desc: "Aidez à installer les nouveaux systèmes de tri : participez activement à la transition écologique de votre université !"
   },
   {
-    img: "assets/Images/pic06.jpg",
+    img: "src/assets/Images/pic06.jpg",
     title: "Atelier manuel sur le recyclage",
     desc: "Atelier fun pour découvrir le recyclage en mettant la main à la pâte, et repartir avec vos créations !"
   }
