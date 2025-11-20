@@ -9,6 +9,8 @@ if (!empty($_POST['email']) && !empty($_POST['motdepasse'])) {
     $user = connexion_utilisateur($email, $mdp);
 
     if ($user) {
+        $_SESSION['isConnected'] = true; 
+
         $_SESSION['user'] = [
             'id_ut' => $user['id_ut'],
             'nom_ut' => $user['nom_ut'],

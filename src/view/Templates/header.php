@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +25,18 @@
                 <span class="header__separator">|</span>
                 <span class="header__site-name">EcoGestUM</span>
             </div>
-            <button class="header__connect-btn">SE CONNECTER</button>
+            <?php if (empty($_SESSION['isConnected']) || $_SESSION['isConnected'] !== true): ?>
+        <button class="header__connect-btn">SE CONNECTER</button>
+    <?php else: ?>
+        <div class="header__right">
+            <div id="notifications">
+                <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
+            </div>
+            <div id="profil">
+                <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/user_icon.png" alt="Utilisateur" class="header-user-icon" title="Icon User">
+            </div>
+        </div>
+    <?php endif; ?>
         </div>
         <!-- Navigation principale -->
         <nav class="header__nav">
@@ -81,38 +97,51 @@
     </header>
 
     <script>
-    // Animation fluide de la navigation
-    document.querySelectorAll('.nav__item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            document.querySelectorAll('.nav__item').forEach(navItem => {
-                navItem.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation fluide de la navigation
+        document.querySelectorAll('.nav__item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav__item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                this.classList.add('active');
             });
-            this.classList.add('active');
         });
-    });
 
-    // Header sticky avec ombre au scroll
-    let lastScrollTop = 0;
-    const header = document.querySelector('.header');
+        // Header sticky avec ombre au scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
 
-    window.addEventListener('scroll', () => {
-        let st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > lastScrollTop && st > header.offsetHeight) {
-            // Scroll vers le bas, cacher le header
-            header.classList.add('hide');
-        } else {
-            // Scroll vers le haut, montrer le header
-            header.classList.remove('hide');
+        window.addEventListener('scroll', () => {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop && st > header.offsetHeight) {
+                // Scroll vers le bas, cacher le header
+                header.classList.add('hide');
+            } else {
+                // Scroll vers le haut, montrer le header
+                header.classList.remove('hide');
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // Pour Mobile ou scroll up
+        });
+
+        // Gestion du bouton de connexion
+        let connectBtn = document.querySelector('.header__connect-btn');
+        if(connectBtn) {
+            connectBtn.addEventListener('click', function() {
+                window.location.href = '<?php echo getenv('BASE_URL'); ?>connexion';
+            });
         }
-        lastScrollTop = st <= 0 ? 0 : st; // Pour Mobile ou scroll up
-    });
 
-    // Gestion du bouton de connexion
-    document.querySelector('.header__connect-btn').addEventListener('click', function() {
-        window.location.href = '<?php echo getenv('BASE_URL'); ?>connexion';
+        // Redirection logo accueil
+        document.getElementById('logo_accueil').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>accueil';
+        }
+        // Redirection notifications et profil
+        document.getElementById('notifications').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>notifications';
+        }
+        document.getElementById('profil').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>profil';
+        }
     });
-
-    document.getElementById('logo_accueil').onclick = function() { //redirect accueil
-        window.location.href = "<?php echo getenv('BASE_URL'); ?>accueil";
-    }
     </script>
