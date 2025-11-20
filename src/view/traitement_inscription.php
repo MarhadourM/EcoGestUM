@@ -35,6 +35,12 @@ if (
     // Vérification mot de passe
     $errors = motdepasse_invalide($mdp, $mdp2);
 
+    // Vérification email déjà utilisé AVANT la création
+    if (email_existe($email)) {
+        $errors[] = "Cet email est déjà inscrit.";
+    }
+
+
     if (empty($errors)) {
         $result = inscription_utilisateur($nom, $prenom, $email, $mdp, $iduniv, $idcomp, $iddept, $idrole);
 

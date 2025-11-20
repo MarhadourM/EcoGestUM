@@ -84,8 +84,6 @@ if ($user_id) {
     </div>
   </div>
 </form>
-
-
             <!-- AFFECTATION -->
             <div class="profil-affectation-card">
                 <div class="profil-aff-title">État de votre(vos) affectation(s)</div>
@@ -105,11 +103,11 @@ if ($user_id) {
                 </div>
             </div>
             <button class="profil-btn-deconnexion-v2" onclick="window.location.href='<?= getenv('BASE_URL'); ?>deconnexion'">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4250af" stroke-width="2" style="margin-right:8px;">
-      <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  Se déconnecter
-</button>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4250af" stroke-width="2" style="margin-right:8px;">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Se déconnecter
+            </button>
         </div>
     </div>
 </div>
