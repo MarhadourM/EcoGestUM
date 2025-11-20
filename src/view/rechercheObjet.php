@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     $idObj = (int)$_POST['id_obj_recycl'];
     $idUt = $_SESSION['id_ut'] ?? null;
     if ($idUt) {
-        reserver_objet($idObj, $idUt); // à ajouter dans modelBDD.php
+        reserver_objet($idObj, $idUt);
         header('Location: rechercheObjet.php?success=1');
         exit;
     }
@@ -75,7 +75,16 @@ $pdo = get_bdd();
         data-lieu="<?= htmlspecialchars($obj['loca_obj_recycl']) ?>"
         data-photo="<?= htmlspecialchars($obj['lien_photo']) ?>"
         data-id="<?= $obj['id_obj_recycl'] ?>">
-        <img src="<?= htmlspecialchars($obj['lien_photo']) ?>" alt="<?= htmlspecialchars($obj['nom_obj_recycl']) ?>" />
+        <?php
+        $photo = $obj['lien_photo'];
+        // Si URL absolue (photo existante du web), laisse tel quel
+        if (strpos($photo, 'http') === 0) {
+            $photoSrc = $photo;
+        } else {
+            $photoSrc = getenv('BASE_URL').'src/assets/imgCache/'.htmlspecialchars($photo);
+        }
+        ?>
+        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($obj['nom_obj_recycl']) ?>" />
         <div class="objet-info">
             <strong><?= htmlspecialchars($obj['nom_obj_recycl']) ?></strong>
             <p><?= htmlspecialchars($obj['loca_obj_recycl']) ?></p>

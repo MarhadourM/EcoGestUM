@@ -13,15 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.objet-card').forEach(card => {
     card.addEventListener('click', function() {
-      objetSelectionne = this.dataset.id;
-      document.getElementById('popup-img').src = this.dataset.photo;
-      document.getElementById('popup-title').textContent = this.dataset.nom;
-      document.getElementById('popup-desc').textContent = this.dataset.desc;
-      document.getElementById('popup-cat').textContent = this.dataset.cat;
-      document.getElementById('popup-etat').textContent = this.dataset.etat;
-      document.getElementById('popup-lieu').textContent = this.dataset.lieu;
-      document.getElementById('overlay-popup').style.display = 'flex';
-      lockBodyScroll(true);
+        objetSelectionne = this.dataset.id;
+        let photo = this.dataset.photo;
+        let src;
+        if (photo.startsWith('http')) {
+            src = photo;
+        } else {
+            src = 'src/assets/imgCache/' + photo;
+        }
+        document.getElementById('popup-img').src = src;
+
+        document.getElementById('popup-title').textContent = this.dataset.nom;
+        document.getElementById('popup-desc').textContent = this.dataset.desc;
+        document.getElementById('popup-cat').textContent = this.dataset.cat;
+        document.getElementById('popup-etat').textContent = this.dataset.etat;
+        document.getElementById('popup-lieu').textContent = this.dataset.lieu;
+        document.getElementById('overlay-popup').style.display = 'flex';
+        lockBodyScroll(true);
     });
   });
 

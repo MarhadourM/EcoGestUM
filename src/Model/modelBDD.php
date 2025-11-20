@@ -29,6 +29,18 @@ function get_departements() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function get_etats_objet() {
+    $pdo = get_bdd();
+    $req = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM ETAT_OBJET");
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_categories_objet() {
+    $pdo = get_bdd();
+    $req = $pdo->query("SELECT id_cat_obj, nom_cat_obj FROM CATEGORIE_OBJET");
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
     $offset = ($page - 1) * $parPage;
@@ -117,7 +129,22 @@ function reserver_objet($idObj, $idUt) {
     return true;
 }
 
+function ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat) {
+    $pdo = get_bdd();
+    $sql = "INSERT INTO objet_recyclable (id_cat_obj, nom_obj_recycl, desc_obj_recycl, loca_obj_recycl, id_etat_obj, id_statut_recyclage_obj, date_obj_recycl)
+            VALUES (?, ?, ?, ?, ?, 1, NOW())";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$categorie, $nom, $description, $localisation, $etat]);
+    return $pdo->lastInsertId();
+}
 
-
+function ajouter_photo_objet($id_objet, $filename) {
+    $pdo = get_bdd();
+    $pdo->beginTransaction();
+    $pdo->prepare("INSERT INTO photo(lien_photo) VALUES (?)")->execute([$filename]);
+    $id_photo = $pdo->lastInsertId();
+    $pdo->prepare("INSERT INTO photo_objet(id_photo, id_obj_recycl) VALUES (?, ?)")->execute([$id_photo, $id_objet]);
+    $pdo->commit();
+}
 
 ?>

@@ -76,6 +76,13 @@ switch ($page) {
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
 
+    case 'formDon':
+        require_once __DIR__.'/src/view/formDon.php';
+        break;
+        
+    case 'traitement_formDon':
+        require_once __DIR__.'/src/controller/formDonController.php';
+        break;
 
     
     default:
