@@ -2400,13 +2400,16 @@ footer {
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(3, 340px);
   gap: 34px;
-  margin-bottom: 48px;
+  padding: 16px 0 24px 0;                   /* un peu d'air en haut/bas */
+  margin: 0 auto;
+  justify-content: center;  
 }
 
 .event-card {
   background: var(--color-white);
+  max-width: 340px; 
   border-radius: 16px;
   box-shadow: 0 2px 14px #0002;
   overflow: hidden;
@@ -2486,8 +2489,12 @@ footer {
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-bottom: 44px;
-  align-items: stretch;
+  justify-content: center;      /* CENTRE le grid dans le parent */
+  max-width: 1000px;            /* adapte la largeur max selon ta page */
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .challenge-img {
   width: 100%;
@@ -2509,6 +2516,7 @@ footer {
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 480px;
+  
 }
 /* Pour le contenu texte uniquement */
 .challenge-title,
@@ -2632,64 +2640,123 @@ footer {
   }
 }
 
-.event-popup-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  font-size: 2.2em;
-  color: #1f2121;
-  cursor: pointer;
-  font-weight: bold;
-  z-index: 10;
-  padding: 2px 7px;
-  background: rgba(245, 245, 249, 0.92);
-  border-radius: 18px;
-  transition: background 0.15s;
+.event-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #23234888;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-.event-popup-close:hover {
-  background: #eee;
-}
+.event-overlay.visible { display: flex; }
 
-.event-popup h2 {
-  font-family: "Poppins-Bold", Arial, sans-serif;
-  font-size: 2em;
-  color: var(--color-header);
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-.event-popup-desc {
-  font-size: 1.09em;
-  color: #222;
-  margin-bottom: 24px;
-}
-.event-popup-form {
+.event-popup {
+  position: relative;
+  width: 420px;
+  max-width: 96vw;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 50px #2223;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 14px;
+  align-items: stretch;
 }
-.event-popup-input {
-  font-size: 1.09em;
-  border-radius: 8px;
-  border: 1.5px solid var(--color-border);
-  padding: 14px 14px;
-  outline: none;
-  margin-bottom: 7px;
+
+.event-popup-img {
+  width: 100%;
+  height: 130px;                  /* Ajuste la hauteur selon ton design */
+  object-fit: cover;
+  display: block;
+  border-radius: 24px 24px 0 0;
+  margin: 0;
+  padding: 0;
 }
-.event-popup-btn {
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  font-size: 1.25em;
+
+.event-popup-body {
+  padding: 0 28px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;              /* optionnel, pour couper toute transparence */
+}
+
+.event-popup-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  cursor: pointer;
+  font-size: 2.2em;
+  color: #d85a2c;
+  background: none;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.event-popup-close:hover { color: #a93d19; }
+
+.event-popup-body h2 {
+  font-family: "Poppins-Bold", Arial, sans-serif;
+  font-size: 2em;
+  color: #27306d;
+  margin-top: 0.4em;
+  margin-bottom: 0.1em;
+}
+.event-popup-desc {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.14em;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.event-popup-infos {
+  margin: 12px 0 10px 0;
+  font-size: 1.08em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 6px;
+}
+
+#event-popup-price {
   font-weight: bold;
+  color: #d85a2c;
+  letter-spacing: 1px;
+}
+#event-popup-date {
+  font-weight: bold;
+  color: #27306d;
+  letter-spacing: 0.5px;
+}
+
+.event-popup-input {
+  width: 100%;
+  padding: 11px 18px;
+  font-size: 1.07em;
+  border: 1px solid #d3d3da;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  outline: none;
+}
+.event-popup-input:focus {
+  border-color: #4369cb;
+}
+
+.event-popup-btn {
+  width: 100%;
+  background: #d85a2c;
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  border: none;
   border-radius: 8px;
   padding: 13px 0;
-  margin-top: 4px;
+  margin-top: 0;
   cursor: pointer;
-  transition: background 0.19s;
+  transition: background 0.18s;
 }
 .event-popup-btn:hover {
-  background: #b14f25;
+  background: #b74412;
 }
 
 

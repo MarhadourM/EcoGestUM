@@ -7,76 +7,48 @@
     <h1 class="politique__title">Nos Evenements</h1>
   </section>
 
-<div class="container-event">
-  <div class="events-grid">
-    <div class="event-card">
-      <img src="src/assets/Images/pic01.jpg" alt="Festival zéro déchets" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Festival zéro déchets</div>
-        <div class="event-desc">Quiz, jeux, concours</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">18/09/25</span>
-        </div>
-      </div>
-    </div>
-    <div class="event-card">
-      <img src="src/assets/Images/pic02.jpg" alt="Collecte communautaire" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Collecte communautaire</div>
-        <div class="event-desc">Gob-objets, récolte</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">28/09/25</span>
-        </div>
-      </div>
-    </div>
-    <div class="event-card">
-      <img src="src/assets/Images/pic03.jpg" alt="Sensibilisation au recyclage" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Sensibilisation au recyclage</div>
-        <div class="event-desc">Conférences, jeux, cadeaux</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">12/10/25</span>
-        </div>
-      </div>
-    </div>
-    <div class="event-card">
-      <img src="src/assets/Images/pic04.jpg" alt="Ventes d’objets de seconde main" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Ventes d’objets de seconde main</div>
-        <div class="event-desc">Vente, Seconde main</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">02/11/25</span>
-        </div>
-      </div>
-    </div>
-    <div class="event-card">
-      <img src="src/assets/Images/pic05.jpg" alt="Mise en place tri sur le campus" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Mise en place tri sur le campus</div>
-        <div class="event-desc">Mise en place de poubelle</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">21/11/25</span>
-        </div>
-      </div>
-    </div>
-    <div class="event-card">
-      <img src="src/assets/Images/pic06.jpg" alt="Atelier manuel sur le recyclage" class="event-img">
-      <div class="event-content">
-        <div class="event-title">Atelier manuel sur le recyclage</div>
-        <div class="event-desc">Fun, amusement, rigolade</div>
-        <div class="event-footer">
-          <span class="event-free">Gratuit</span>
-          <span class="event-date">03/01/25</span>
-        </div>
+<div class="events-grid">
+<?php 
+require_once __DIR__ . '/../Model/modelEvenement.php';
+  $events = getEvents(); 
+  $imgIndex = 1;
+?>
+<?php foreach ($events as $event): ?>
+  <div class="event-card"
+      data-title="<?php echo htmlspecialchars($event['nom_event']); ?>"
+      data-desc="<?php echo htmlspecialchars($event['desc_event']); ?>"
+      data-date="<?php echo htmlspecialchars($event['date_event']); ?>"
+      data-price="<?php if ($event['prix_event'] == 0) {
+              echo 'Gratuit';
+          } else {?>
+          <?php echo htmlspecialchars($event['prix_event']).'€'; }?>"
+      data-img="src/assets/Images/pic0<?php echo $imgIndex; ?>.jpg">
+    <img src="src/assets/Images/pic0<?php echo $imgIndex; ?>.jpg"
+         alt="Image évènement <?php echo htmlspecialchars($event['nom_event']); ?>"
+         class="event-img">
+
+    <div class="event-content">
+      <div class="event-title"><?php echo htmlspecialchars($event['nom_event']); ?></div>
+      <div class="event-desc"><?php echo htmlspecialchars($event['desc_event']); ?></div>
+      <div class="event-footer">
+        <span class="event-price">
+          <?php if ($event['prix_event'] == 0) {
+              echo 'Gratuit';
+          } else {?>
+          <?php echo htmlspecialchars($event['prix_event']).'€'; }?>
+        </span>
+        <span class="event-date"><?php echo htmlspecialchars($event['date_event']); ?></span>
       </div>
     </div>
   </div>
+  <?php
+    $imgIndex++;
+    if ($imgIndex > 6) { $imgIndex = 1; }
+  ?>
+<?php endforeach; ?>
+</div>
 
+ <!-- Section Nos Enjeux -->
   <div class="section-title-event">NOS ENJEUX</div>
   <div class="challenges-event">
     <div class="challenge-event">
@@ -99,11 +71,15 @@
 <!-- Overlay -->
 <div id="event-overlay" class="event-overlay">
   <div class="event-popup">
-    <span id="close-popup" class="event-popup-close">&times;</span>
     <img id="event-popup-img" src="" alt="" class="event-popup-img">
-    <div class="event-popup-content">
+    <div class="event-popup-body">
+      <span id="close-popup-event" class="event-popup-close">&times;</span>
       <h2 id="event-popup-title"></h2>
       <div id="event-popup-desc"></div>
+      <div class="event-popup-infos">
+        <span id="event-popup-price"></span>
+        <span id="event-popup-date"></span>
+      </div>
       <form class="event-popup-form">
         <input type="email" placeholder="Votre adresse mail" class="event-popup-input">
         <button type="submit" class="event-popup-btn">S’inscrire</button>
@@ -113,7 +89,8 @@
 </div>
 
 
-<script src="src/assets/event.js"></script>
+
+<script src="src/assets/js/event.js"></script>
 
 
 
