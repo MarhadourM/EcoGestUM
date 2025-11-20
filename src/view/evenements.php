@@ -95,4 +95,19 @@
   </div>
 </div>
 
+<!-- Overlay -->
+<div id="event-overlay" class="event-overlay">
+  <div class="event-popup">
+    <span id="close-popup" class="event-popup-close">&times;</span>
+    <img id="event-popup-img" src="" alt="" class="event-popup-img">
+    <h2 id="event-popup-title"></h2>
+    <div id="event-popup-desc"></div>
+    <form class="event-popup-form">
+      <input type="email" placeholder="Votre adresse mail" class="event-popup-input">
+      <button type="submit" class="event-popup-btn">S’inscrire</button>
+    </form>
+  </div>
+</div>
+
+
 
