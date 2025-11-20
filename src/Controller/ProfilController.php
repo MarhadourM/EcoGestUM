@@ -11,5 +11,10 @@ function get_user_info($id) {
     $stmt->execute([$id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+function update_user_email($id, $new_email) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("UPDATE utilisateur SET email_ut = ? WHERE id_ut = ?");
+    $stmt->execute([$new_email, $id]);
+}
 
 ?>
