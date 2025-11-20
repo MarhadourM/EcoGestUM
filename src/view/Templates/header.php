@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +25,14 @@
                 <span class="header__separator">|</span>
                 <span class="header__site-name">EcoGestUM</span>
             </div>
-            <button class="header__connect-btn">SE CONNECTER</button>
+            <?php if (empty($_SESSION['isConnected']) || $_SESSION['isConnected'] !== true): ?>
+        <button class="header__connect-btn">SE CONNECTER</button>
+    <?php else: ?>
+        <div class="header__right">
+            <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
+            <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/user_icon.png" alt="Utilisateur" class="header-user-icon" title="Icon User">
+        </div>
+    <?php endif; ?>
         </div>
         <!-- Navigation principale -->
         <nav class="header__nav">
