@@ -1934,3 +1934,119 @@ footer {
 .search-btn:hover {
     background: #b14f25;
 }
+
+/*====== Popups objet ======*/
+
+#overlay-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 24, 60, 0.76); /* Plus sombre pour bien masquer le fond */
+  z-index: 5000; /* Doit être au-dessus de tout */
+  display: none; /* reste hidden par défaut */
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* bloque tout clic dessous */
+}
+
+#overlay-popup[style*="display: flex"] {
+  display: flex !important;
+}
+
+#popup-objet {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 16px 54px rgba(44,48,104,0.18);
+  padding: 32px 30px 28px 30px;
+  max-width: 525px;
+  min-width: 280px;
+  min-height: 220px;
+  width: 99vw;
+  text-align: left;
+  position: relative;
+  animation: popup-in 0.33s cubic-bezier(.55,.21,.3,1.13);
+  display: flex;
+  flex-direction: column;
+}
+#popup-objet img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  background: #eee;
+}
+#close-popup {
+  font-size: 5em;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 14px;
+  left: 38px;
+  cursor: pointer;
+  color: #333;
+  transition: color .14s;
+  font-weight: bold;
+  z-index: 10001;
+}
+#close-popup:hover {
+  color: #e85e36;
+}
+.btn-reserver {
+  background: #c85a2c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  padding: 17px 0;
+  width: 100%;
+  margin-top: 22px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background .17s;
+  box-shadow: 0 3px 12px rgba(180,90,44,0.11);
+  letter-spacing: 0.5px;
+}
+.btn-reserver:hover {
+  background: #aa2c1c;
+}
+#popup-objet h2 {
+  margin-top: 0;
+  font-size: 1.45em;
+  font-weight: bold;
+  color: #25318c;
+}
+#popup-desc {
+  font-size: 1em;
+  color: #282828;
+  margin-bottom: 8px;
+}
+#popup-cat {
+  color: #234fa2;
+  font-weight: bold;
+}
+#popup-etat {
+  color: #e85e36;
+  font-weight: bold;
+}
+#popup-lieu {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #c85a2c;
+  font-size: 1.14em;
+}
+@media (max-width: 700px) {
+  #popup-objet {
+    padding: 12px 2vw 14px 2vw;
+    max-width: 99vw;
+    min-height: unset;
+  }
+  #popup-objet img {
+    max-height: 34vw;
+  }
+}
+@keyframes popup-in {
+  from { opacity:0; transform:scale(0.93);}
+  to   { opacity:1; transform:scale(1);}
+}

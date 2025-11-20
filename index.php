@@ -63,10 +63,20 @@ switch ($page) {
         break;
     
     case 'rechercheObjet':
+        require_once __DIR__ . '/src/controller/rechercheObjetController.php';
+
+        // Si c'est une action de réservation, traite-la AVANT TOUT AFFICHAGE !
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
+            reserver_objet_action();
+            // header('Location...') fait exit, donc rien ne s’affiche après
+        }
+
         require_once __DIR__ . '/src/view/Templates/header.php';
-        require_once __DIR__ . '/src/view/rechercheObjet.php';
+        afficher_recherche_objet(); // La page affichée si GET ou après la redirection
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
+
+
     
     default:
         http_response_code(404);

@@ -1,0 +1,38 @@
+<?php
+require_once __DIR__ . '/../model/modelBDD.php';
+
+function reserver_objet_action() {
+    $idObj = $_POST['id_obj_recycl'] ?? null;
+    $idUt = $_SESSION['id_ut'] ?? null;
+    if ($idObj && $idUt) {
+        $ok = reserver_objet($idObj, $idUt);
+        if ($ok) {
+            header('Location: ?page=rechercheObjet&success=1');
+        } else {
+            header('Location: ?page=rechercheObjet&error=1');
+        }
+        exit;
+    }
+    header('Location: ?page=rechercheObjet&error=1');
+    exit;
+}
+
+function afficher_recherche_objet() {
+    $search = $_GET['search'] ?? '';
+    $etat = $_GET['etat'] ?? '';
+    $categorie = $_GET['categorie'] ?? '';
+    $page = isset($_GET['num']) ? max(1, (int)$_GET['num']) : 1;
+    $parPage = 9;
+
+    $total = get_nb_objets_disponibles($search, $etat, $categorie);
+    $nbPages = max(1, ceil($total / $parPage));
+    if ($page > $nbPages) $page = $nbPages;
+
+    $objets = get_objets_disponibles($page, $parPage, $search, $etat, $categorie);
+    $pdo = get_bdd();
+    $success = isset($_GET['success']);
+
+    // Met à disposition pour la vue :
+    require __DIR__ . '/../view/rechercheObjet.php';
+}
+?>
