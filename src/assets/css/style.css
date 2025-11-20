@@ -2400,13 +2400,16 @@ footer {
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(3, 340px);
   gap: 34px;
-  margin-bottom: 48px;
+  padding: 16px 0 24px 0;                   /* un peu d'air en haut/bas */
+  margin: 0 auto;
+  justify-content: center;  
 }
 
 .event-card {
   background: var(--color-white);
+  max-width: 340px; 
   border-radius: 16px;
   box-shadow: 0 2px 14px #0002;
   overflow: hidden;
@@ -2486,8 +2489,12 @@ footer {
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-bottom: 44px;
-  align-items: stretch;
+  justify-content: center;      /* CENTRE le grid dans le parent */
+  max-width: 1000px;            /* adapte la largeur max selon ta page */
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .challenge-img {
   width: 100%;
@@ -2509,6 +2516,7 @@ footer {
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 480px;
+  
 }
 /* Pour le contenu texte uniquement */
 .challenge-title,
@@ -2632,64 +2640,123 @@ footer {
   }
 }
 
-.event-popup-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  font-size: 2.2em;
-  color: #1f2121;
-  cursor: pointer;
-  font-weight: bold;
-  z-index: 10;
-  padding: 2px 7px;
-  background: rgba(245, 245, 249, 0.92);
-  border-radius: 18px;
-  transition: background 0.15s;
+.event-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #23234888;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-.event-popup-close:hover {
-  background: #eee;
-}
+.event-overlay.visible { display: flex; }
 
-.event-popup h2 {
-  font-family: "Poppins-Bold", Arial, sans-serif;
-  font-size: 2em;
-  color: var(--color-header);
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-.event-popup-desc {
-  font-size: 1.09em;
-  color: #222;
-  margin-bottom: 24px;
-}
-.event-popup-form {
+.event-popup {
+  position: relative;
+  width: 420px;
+  max-width: 96vw;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 50px #2223;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 14px;
+  align-items: stretch;
 }
-.event-popup-input {
-  font-size: 1.09em;
-  border-radius: 8px;
-  border: 1.5px solid var(--color-border);
-  padding: 14px 14px;
-  outline: none;
-  margin-bottom: 7px;
+
+.event-popup-img {
+  width: 100%;
+  height: 130px;                  /* Ajuste la hauteur selon ton design */
+  object-fit: cover;
+  display: block;
+  border-radius: 24px 24px 0 0;
+  margin: 0;
+  padding: 0;
 }
-.event-popup-btn {
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  font-size: 1.25em;
+
+.event-popup-body {
+  padding: 0 28px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;              /* optionnel, pour couper toute transparence */
+}
+
+.event-popup-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  cursor: pointer;
+  font-size: 2.2em;
+  color: #d85a2c;
+  background: none;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.event-popup-close:hover { color: #a93d19; }
+
+.event-popup-body h2 {
+  font-family: "Poppins-Bold", Arial, sans-serif;
+  font-size: 2em;
+  color: #27306d;
+  margin-top: 0.4em;
+  margin-bottom: 0.1em;
+}
+.event-popup-desc {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.14em;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.event-popup-infos {
+  margin: 12px 0 10px 0;
+  font-size: 1.08em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 6px;
+}
+
+#event-popup-price {
   font-weight: bold;
+  color: #d85a2c;
+  letter-spacing: 1px;
+}
+#event-popup-date {
+  font-weight: bold;
+  color: #27306d;
+  letter-spacing: 0.5px;
+}
+
+.event-popup-input {
+  width: 100%;
+  padding: 11px 18px;
+  font-size: 1.07em;
+  border: 1px solid #d3d3da;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  outline: none;
+}
+.event-popup-input:focus {
+  border-color: #4369cb;
+}
+
+.event-popup-btn {
+  width: 100%;
+  background: #d85a2c;
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  border: none;
   border-radius: 8px;
   padding: 13px 0;
-  margin-top: 4px;
+  margin-top: 0;
   cursor: pointer;
-  transition: background 0.19s;
+  transition: background 0.18s;
 }
 .event-popup-btn:hover {
-  background: #b14f25;
+  background: #b74412;
 }
 
 .espace-notif-success {
@@ -3074,43 +3141,43 @@ footer {
   transition: background 0.14s, color 0.14s, border 0.14s;
 }
 .formdon-file-label input[type="file"] {
-  display: none;
+    display: none;
 }
 .formdon-file-label:hover {
-  background: #fff5ec;
-  border: 1.4px solid #cf5222;
-  color: #d25e26;
+    background: #fff5ec; 
+    border: 1.4px solid #cf5222;
+    color: #d25e26;
 }
 @media (max-width: 900px) {
-  .formdon-container {
-    padding: 24px 3vw 24px 3vw;
-  }
-  .formdon-row {
-    flex-direction: column;
-    gap: 0;
-  }
+    .formdon-container {
+        padding: 24px 3vw 24px 3vw;
+    }
+    .formdon-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 .formdon-back-arrow {
-  position: absolute;
-  top: 35px;
-  left: 38px;
-  background: #fff;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 14px 0 rgba(80, 90, 130, 0.08);
-  z-index: 40;
-  border: 1.5px solid #e1e2e5;
-  transition: box-shadow 0.18s, transform 0.18s;
+    position: absolute;
+    top: 35px;
+    left: 38px;
+    background: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+    box-shadow: 0 4px 14px 0 rgba(80,90,130,0.08);
+    z-index: 40;
+    border: 1.5px solid #e1e2e5;
+    transition: box-shadow .18s, transform .18s;
 }
 .formdon-back-arrow:hover {
-  box-shadow: 0 7px 22px rgba(190, 80, 44, 0.16);
-  transform: scale(1.08);
+    box-shadow: 0 7px 22px rgba(190,80,44,0.16);
+    transform: scale(1.08);
 }
 /*===Page notifs===*/
 .notif-bg {
@@ -3246,3 +3313,90 @@ footer {
   height: 45px;
   margin-top: 2px;
 }
+
+/*objectif templates*/
+
+.objectifs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 870px;
+}
+
+
+
+.objectif-title {
+  font-family: "Poppins-Bold", Arial, sans-serif;
+  font-size: 2em;
+  color: #354085;
+  margin-bottom: 5px;
+}
+
+.objectif-desc {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  margin-top: 0;
+  color: var(--color-dark, #222);
+  text-indent: 24px; /* optionnel pour styliser */
+}
+
+.objectif-progress-label {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 0.97em;
+  color: #354085;
+  margin-bottom: 9px;
+}
+
+.etat-label {
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 1em;
+}
+
+.objectif-card {
+  background: #ededed; /* Gris clair */
+  border-radius: 15px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+  padding: 20px 36px 22px 36px;
+  width: 100%;
+  transition: background 0.35s, box-shadow 0.25s;
+}
+
+/* Pastille d’état avec gradient selon le statut */
+.etat-label {
+  font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 18px;
+  font-size: 1em;
+  color: #222;
+  display: inline-block;
+  background: #ddd; /* fallback */
+}
+
+/* En cours = bleu pastel gradient */
+.objectif-en-cours .etat-label {
+  background: linear-gradient(90deg, #b3c6f7 0%,#d8e6fb  100%);
+  color: #29326b;
+  box-shadow: 0 0 6px #b3c6f755;
+}
+
+/* Atteint = vert pastel gradient */
+.objectif-atteint .etat-label {
+  background: linear-gradient(90deg, #91e6bb 0%, #d6fbe2 100%);
+  color: #198765;
+  box-shadow: 0 0 6px #91e6bb33;
+}
+
+/* Abandonné = rouge pastel gradient */
+.objectif-abandonné .etat-label,
+.objectif-abandonne .etat-label {
+  background: linear-gradient(90deg, #f5b4b4 0%, #fde2e2 100%);
+  color: #b03d3d;
+  text-decoration: line-through;
+  box-shadow: 0 0 6px #f5b4b433;
+}
+

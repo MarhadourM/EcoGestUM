@@ -1,12 +1,24 @@
 <?php
 
 require_once 'modelBDD.php';
-function get_events(){
+
+function getEvents() {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT * FROM EVENEMENT");
+    $sql = "
+        SELECT 
+            id_event,
+            nom_event,
+            desc_event,
+            date_event,
+            prix_event
+        FROM
+            evenement
+        ORDER BY
+            date_event ASC
+    ";
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $users;
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
