@@ -2936,15 +2936,6 @@ footer {
 
 /* == Form Don  == */
 
-.formdon-bg {
-    min-height: 100vh;
-    width: 100vw;
-    position: fixed;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-}
 .formdon-container {
     max-width: 920px;
     background: #fff;
@@ -3063,7 +3054,7 @@ footer {
     display: none;
 }
 .formdon-file-label:hover {
-    background: #fff5ec;
+    background: #fff5ec; 
     border: 1.4px solid #cf5222;
     color: #d25e26;
 }
