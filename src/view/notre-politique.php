@@ -46,7 +46,7 @@
 
   <!-- Objectifs -->
   <section class="politique__objectifs">
-    <h2 class="politique__subtitle">Objectifs 2030 – 2050 <span style="color: #d35400; font-style: italic;">(objectifs du moment)</span></h2>
+    <h2 class="politique__subtitle">Objectifs 2030 – 2050 <a style="color: #d35400; font-style: italic;" href ="<?php echo getenv('BASE_URL'); ?>objectifs" >(objectifs du moment)</a></h2>
     <ul>
       <li>Atteindre un taux de recyclage et réemploi supérieur à 90&nbsp;% des objets collectés sur l’ensemble des campus.</li>
       <li>Intégrer systématiquement des modules de sensibilisation au recyclage dans toutes les formations.</li>

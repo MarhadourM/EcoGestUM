@@ -2297,3 +2297,94 @@ footer {
   transition: background 0.19s;
 }
 .event-popup-btn:hover { background: #b14f25; }
+
+
+
+/*objectif templates*/
+
+.objectifs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 870px;
+}
+
+
+
+.objectif-title {
+  font-family: "Poppins-Bold", Arial, sans-serif;
+  font-size: 2em;
+  color: #354085;
+  margin-bottom: 5px;
+}
+
+.objectif-desc {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  margin-top: 0;
+  color: var(--color-dark, #222);
+  text-indent: 24px; /* optionnel pour styliser */
+}
+
+.objectif-progress-label {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 0.97em;
+  color: #354085;
+  margin-bottom: 9px;
+}
+
+.etat-label {
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 1em;
+}
+
+.objectif-card {
+  background: #ededed; /* Gris clair */
+  border-radius: 15px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+  padding: 20px 36px 22px 36px;
+  width: 100%;
+  transition: background 0.35s, box-shadow 0.25s;
+}
+
+/* Pastille d’état avec gradient selon le statut */
+.etat-label {
+  font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 18px;
+  font-size: 1em;
+  color: #222;
+  display: inline-block;
+  background: #ddd; /* fallback */
+}
+
+/* En cours = bleu pastel gradient */
+.objectif-en-cours .etat-label {
+  background: linear-gradient(90deg, #b3c6f7 0%,#d8e6fb  100%);
+  color: #29326b;
+  box-shadow: 0 0 6px #b3c6f755;
+}
+
+/* Atteint = vert pastel gradient */
+.objectif-atteint .etat-label {
+  background: linear-gradient(90deg, #91e6bb 0%, #d6fbe2 100%);
+  color: #198765;
+  box-shadow: 0 0 6px #91e6bb33;
+}
+
+/* Abandonné = rouge pastel gradient */
+.objectif-abandonné .etat-label,
+.objectif-abandonne .etat-label {
+  background: linear-gradient(90deg, #f5b4b4 0%, #fde2e2 100%);
+  color: #b03d3d;
+  text-decoration: line-through;
+  box-shadow: 0 0 6px #f5b4b433;
+}
+
+
+
