@@ -32,7 +32,12 @@ switch ($page) {
     case 'traitement_inscription':
         require_once __DIR__ . '/src/view/traitement_inscription.php';
         break;
-    
+    case 'profil':
+        require_once __DIR__ . '/src/view/profil.php';
+        break;
+    case 'notifications':
+        require_once __DIR__ . '/src/view/notifications.php';
+        break;
     case 'statistiques':
         require_once __DIR__ . '/src/view/Templates/header.php';
         require_once __DIR__ . '/src/view/statistiques.php';
