@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($photoNamesSaved as $file) {
                 ajouter_photo_objet($id_objet, $file); // Doit gérer TABLE PHOTO + PHOTO_OBJET
             }
-            header('Location: formDon?success=1');
+            header('Location: espace-reprise?success=don');
             exit;
         } else {
             $error_message = "Erreur lors de l’enregistrement de l’objet.";
