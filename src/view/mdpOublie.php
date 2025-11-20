@@ -28,7 +28,7 @@
                     <input type="email" id="email_securite" name="email_securite" required placeholder="Votre adresse mail personnelle">
                 </div>
                 <div class="notice">
-L’adresse à fournir est votre email personnel communiqué à l’administration, pas celui de l’Université. En cas d’oubli ou d’adresse invalide, contactez votre scolarité (étudiants) ou votre RH (personnels).
+                    L’adresse à fournir est votre email personnel communiqué à l’administration, pas celui de l’Université. En cas d’oubli ou d’adresse invalide, contactez votre scolarité (étudiants) ou votre RH (personnels).
                 </div>
                 <button type="submit" class="connexion-btn">Valider</button>
                 <div class="connexion-footer">

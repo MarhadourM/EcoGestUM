@@ -74,10 +74,10 @@ switch ($page) {
         break;
     
     case 'messagerie':
-        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/controller/messagerieController.php';
         require_once __DIR__ . '/src/view/messagerie.php';
-        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
+
     
     case 'rechercheObjet':
         require_once __DIR__ . '/src/controller/rechercheObjetController.php';
@@ -85,7 +85,6 @@ switch ($page) {
         // Si c'est une action de réservation, traite-la AVANT TOUT AFFICHAGE !
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
             reserver_objet_action();
-            // header('Location...') fait exit, donc rien ne s’affiche après
         }
 
         require_once __DIR__ . '/src/view/Templates/header.php';

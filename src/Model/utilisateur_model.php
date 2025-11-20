@@ -9,13 +9,6 @@ function get_users(){
     return $users;
 }
 
-function login_user($email, $password){
-}
-
-function logout_user(){
-    session_destroy();
-}
-
 function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp, $id_dept, $idrole = 1) {
     $pdo = get_bdd();
     $pdo->beginTransaction();
@@ -40,6 +33,7 @@ function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp
     }
 }
 
+
 function connexion_utilisateur($email, $motdepasse) {
     $pdo = get_bdd();
     $stmt = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE email_ut=?");
@@ -57,14 +51,5 @@ function connexion_utilisateur($email, $motdepasse) {
     }
     return false;
 }
-
-function email_existe($email) {
-    $pdo = get_bdd();
-    $sql = "SELECT COUNT(*) FROM utilisateur WHERE email_ut = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$email]);
-    return $stmt->fetchColumn() > 0;
-}
-
 
 ?>

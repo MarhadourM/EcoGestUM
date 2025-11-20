@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../model/utilisateur_model.php';
-session_start();
 
 if (!empty($_POST['email']) && !empty($_POST['motdepasse'])) {
     $email = $_POST['email'];
