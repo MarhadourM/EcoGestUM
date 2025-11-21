@@ -29,6 +29,9 @@
         <button class="header__connect-btn">SE CONNECTER</button>
     <?php else: ?>
         <div class="header__right">
+            <div id= "dashbord">
+                <button class="button-dashboard" ><a href="<?php echo getenv('BASE_URL'); ?>dashboard">DASHBOARD</a></button>
+            </div>
             <div id="notifications">
                 <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
             </div>

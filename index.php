@@ -108,6 +108,10 @@ switch ($page) {
         require_once __DIR__.'/src/controller/formDonController.php';
         break;
 
+    case 'dashboard':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/dashboard.php';
+        break;
     
     default:
         http_response_code(404);
