@@ -15,5 +15,10 @@ function get_notifs_user($user_id) {
     $stmt->execute([$user_id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+function delete_notification_user($id_notification, $id_ut) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("DELETE FROM notif_utilisateur WHERE id_notification = ? AND id_ut = ?");
+    $stmt->execute([$id_notification, $id_ut]);
+}
 
 ?>
