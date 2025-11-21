@@ -9,19 +9,20 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['conv'
     exit;
 }
 
+// Création conversation + synchro pour les deux users
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_conv_email'])) {
     $user_id = $_SESSION['user']['id_ut'];
     $email = trim($_POST['new_conv_email']);
     $dest = getUserByEmail($email);
 
     if (!$dest) {
-        header("Location: ?page=messagerie&error=Utilisateur introuvable pour cet email");
+        header("Location: ?page=messagerie&error=Utilisateur introuvable");
         exit;
     }
     $conv_id = findConversationBetweenUsers($user_id, $dest['id_ut']);
     if (!$conv_id) {
         $conv_id = createConversationForBothUsers($user_id, $dest['id_ut']);
-        sendMessage($conv_id, $user_id, $dest['id_ut'], "Nouvelle discussion");
+        sendMessage($conv_id, $user_id, $dest['id_ut'], "Coucou ! je viens de créer une conversation avec toi.");
     }
 
     header("Location: ?page=messagerie&conv=$conv_id");

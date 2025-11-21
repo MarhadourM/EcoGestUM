@@ -27,21 +27,27 @@ $error_message = $_GET['error'] ?? '';
             <div class="messagerie-list">
                 <?php foreach ($conversations as $conv): ?>
                     <div class="messagerie-list-item <?= ($conv['id_conv'] == $selectedConv ? 'active' : '') ?>"
-                         onclick="window.location.href='?conv=<?= $conv['id_conv']; ?>'">
+                        onclick="window.location.href='?conv=<?= $conv['id_conv']; ?>'">
                         <?= htmlspecialchars($conv['nom_user']) ?>
-                        <a href="?page=messagerie&action=delete&conv=<?= $conv['id_conv'] ?>" onclick="return confirm('Supprimer la conversation ?')">🗑️</a>
+                        <a href="?page=messagerie&action=delete&conv=<?= $conv['id_conv'] ?>" 
+                        class="messagerie-delete-btn" 
+                        title="Supprimer la conversation" 
+                        onclick="return confirm('Supprimer la conversation ?')">🗑️</a>
                     </div>
                 <?php endforeach; ?>
                 <div class="messagerie-list-item" style="background:#e3e9f7;">
-                    <form method="POST" action="?page=messagerie">
-                        <input type="email" name="new_conv_email" placeholder="Email pour une nouvelle conv" required style="width:75%;padding:5px;" />
-                        <button type="submit" style="margin-left:8px;">Créer</button>
+                    <!-- FORMULAIRE -->
+                    <form class="messagerie-add-conv" method="POST" action="?page=messagerie">
+                        <input class="messagerie-email-input" type="email" name="new_conv_email" placeholder="Ajouter un email..." required />
+                        <button class="messagerie-add-btn" type="submit">➕</button>
                     </form>
+                    <!-- MESSAGE ERREUR : EN DESSOUS DU FORMULAIRE, HORS FLEX -->
                     <?php if ($error_message): ?>
-                        <div class="profil-error" style="margin-top:6px;"><?= htmlspecialchars($error_message) ?></div>
+                        <div class="messagerie-error"><?= htmlspecialchars($error_message) ?></div>
                     <?php endif; ?>
                 </div>
             </div>
+
             <div class="messagerie-chat">
                 <div class="messagerie-chat-header">
                     <?php

@@ -28,7 +28,7 @@ $categories = get_categories_objet();
             <h2 class="formdon-title">FORMULAIRE DE DONATION</h2>
             <form class="formdon-form" method="POST" action="traitement_formDon" enctype="multipart/form-data">
                 <div class="formdon-group" style="margin-bottom:24px;">
-                    <label>Photos de l’objet :</label>
+                    <label>Photos de l'objet :</label>
                     <label class="formdon-file-label">
                         <input type="file" name="photos[]" accept="image/jpeg, image/png" multiple required>
                         <span>Sélectionner des fichiers</span>
@@ -37,7 +37,7 @@ $categories = get_categories_objet();
                 </div>
                 <div class="formdon-row" style="display:flex; gap:20px;">
                     <div class="formdon-group">
-                        <label for="categorie">Catégorie de l’objet</label>
+                        <label for="categorie">Catégorie de l'objet</label>
                         <select name="categorie" id="categorie" required>
                             <option value="">Choisir une catégorie</option>
                             <?php foreach ($categories as $cat): ?>
@@ -48,13 +48,13 @@ $categories = get_categories_objet();
                         </select>
                     </div>
                     <div class="formdon-group">
-                        <label for="nom">Nom de l’objet</label>
-                        <input type="text" name="nom" id="nom" placeholder="Nom de l’objet" required>
+                        <label for="nom">Nom de l'objet</label>
+                        <input type="text" name="nom" id="nom" placeholder="Nom de l'objet" required>
                     </div>
                 </div>
                 <div class="formdon-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" rows="4" placeholder="Description détaillée de l’objet" required></textarea>
+                    <textarea name="description" id="description" rows="4" placeholder="Description détaillée de l'objet" required></textarea>
                 </div>
                 <div class="formdon-row" style="display:flex; gap:20px;">
                     <div class="formdon-group">
