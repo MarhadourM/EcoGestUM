@@ -107,8 +107,14 @@ switch ($page) {
     case 'traitement_formDon':
         require_once __DIR__.'/src/controller/formDonController.php';
         break;
+    case 'signalementObj':
+        require_once __DIR__ . '/src/view/signalementObj.php';
+        break;
 
-    
+    case 'traitement_signalement':
+        require_once __DIR__ . '/src/controller/SignalementController.php';
+        break;
+
     default:
         http_response_code(404);
         echo "<h1>404 - Page non trouvée</h1>";

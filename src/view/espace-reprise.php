@@ -1,7 +1,10 @@
+<!-- Affichage des notifications de succès -->
 <?php if (isset($_GET['success']) && $_GET['success'] === 'don') : ?>
-    <div class="espace-notif-success">
-        Objet ajouté avec succès !
-    </div>
+    <div class="espace-notif-success">Objet ajouté avec succès !</div>
+<?php endif; ?>
+
+<?php if (isset($_GET['success']) && $_GET['success'] === 'signalement') : ?>
+    <div class="espace-notif-success">Signalement enregistré avec succès !</div>
 <?php endif; ?>
 
 
