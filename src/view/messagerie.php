@@ -1,17 +1,12 @@
 <?php
 require_once __DIR__ . '/../controller/messagerieController.php';
 
-$user_id = $_SESSION['user']['id_ut'] ?? null;
-if (!$user_id) {
-    header('Location: ../connexion.php');
-    exit;
-}
-
+$user_id = $_SESSION['user']['id_ut'];
 $conversations = getUserConversations($user_id);
-$selectedConv = $_GET['conv'] ?? ($conversations[0]['idconv'] ?? null);
+$selectedConv = $_GET['conv'] ?? ($conversations[0]['id_conv'] ?? null);
 $messages = $selectedConv ? getConversationMessages($selectedConv) : [];
+$error_message = $_GET['error'] ?? '';
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,38 +17,70 @@ $messages = $selectedConv ? getConversationMessages($selectedConv) : [];
 </head>
 <body>
 <div class="profil-page" style="background-image:url('<?= getenv('BASE_URL'); ?>src/assets/Images/ConnexionImg.png');">
-<div class="messagerie-page">
-    <div class="back-arrow" onclick="window.location.href='<?= getenv('BASE_URL'); ?>accueil'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1B2963" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="messagerie-container">
-        <div class="messagerie-list">
-            <?php foreach ($conversations as $conv): ?>
-            <div class="messagerie-list-item <?= ($conv['id_conv'] == $selectedConv ? 'active' : '') ?>"
-                onclick="window.location.href='?conv=<?= $conv['id_conv']; ?>'">
-                <?= htmlspecialchars($conv['nom_user']) ?>
-            </div>
-            <?php endforeach; ?>
+    <div class="messagerie-page">
+        <div class="back-arrow" onclick="window.location.href='<?= getenv('BASE_URL'); ?>accueil'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1B2963" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </div>
-        <div class="messagerie-chat">
-            <div class="messagerie-chat-header">
-                <?= htmlspecialchars($conversations[array_search($selectedConv, array_column($conversations, 'id_conv'))]['nom_user'] ?? '') ?>
-            </div>
-            <div class="messagerie-chat-messages">
-                <?php foreach ($messages as $msg): ?>
-                <div class="messagerie-message <?= $msg['id_ut'] == $user_id ? 'self' : 'other' ?>">
-                    <div class="message-content"><?= htmlspecialchars($msg['contenu_mess']) ?></div>
-                    <div class="message-date"><?= date('H:i', strtotime($msg['date_envoi_mess'])) ?></div>
-                </div>
+        <div class="messagerie-container">
+            <div class="messagerie-list">
+                <?php foreach ($conversations as $conv): ?>
+                    <div class="messagerie-list-item <?= ($conv['id_conv'] == $selectedConv ? 'active' : '') ?>"
+                         onclick="window.location.href='?conv=<?= $conv['id_conv']; ?>'">
+                        <?= htmlspecialchars($conv['nom_user']) ?>
+                        <a href="?page=messagerie&action=delete&conv=<?= $conv['id_conv'] ?>" onclick="return confirm('Supprimer la conversation ?')">🗑️</a>
+                    </div>
                 <?php endforeach; ?>
+                <div class="messagerie-list-item" style="background:#e3e9f7;">
+                    <form method="POST" action="?page=messagerie">
+                        <input type="email" name="new_conv_email" placeholder="Email pour une nouvelle conv" required style="width:75%;padding:5px;" />
+                        <button type="submit" style="margin-left:8px;">Créer</button>
+                    </form>
+                    <?php if ($error_message): ?>
+                        <div class="profil-error" style="margin-top:6px;"><?= htmlspecialchars($error_message) ?></div>
+                    <?php endif; ?>
+                </div>
             </div>
-            <form class="messagerie-form" method="POST" action="messagerieController.php">
-                <input type="hidden" name="conv_id" value="<?= htmlspecialchars($selectedConv) ?>">
-                <input type="text" name="message" placeholder="Écrire un message..." required />
-                <button type="submit">Envoyer</button>
-            </form>
+            <div class="messagerie-chat">
+                <div class="messagerie-chat-header">
+                    <?php
+                    $headerName = '';
+                    foreach ($conversations as $conv) {
+                        if ($conv['id_conv'] == $selectedConv) {
+                            $headerName = $conv['nom_user'];
+                        }
+                    }
+                    ?>
+                    <?= htmlspecialchars($headerName) ?>
+                </div>
+                <div class="messagerie-chat-messages">
+                    <?php foreach ($messages as $msg): ?>
+                        <div class="messagerie-message <?= $msg['id_ut'] == $user_id ? 'self' : 'other' ?>">
+                            <div class="message-content"><?= htmlspecialchars($msg['contenu_mess']) ?></div>
+                            <div class="message-date"><?= date('H:i', strtotime($msg['date_envoi_mess'])) ?></div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php if ($selectedConv): ?>
+                    <?php
+                    $dest_id = '';
+                    foreach ($conversations as $conv) {
+                        if ($conv['id_conv'] == $selectedConv && isset($conv['id_dest'])) {
+                            $dest_id = $conv['id_dest'];
+                            break;
+                        }
+                    }
+                    ?>
+                    <form class="messagerie-form" method="POST"
+                          action="?page=messagerie<?= $selectedConv ? '&conv='.htmlspecialchars($selectedConv) : '' ?>">
+                        <input type="hidden" name="conv_id" value="<?= htmlspecialchars($selectedConv) ?>">
+                        <input type="hidden" name="dest_id" value="<?= htmlspecialchars($dest_id) ?>">
+                        <input type="text" name="message" placeholder="Écrire un message..." required />
+                        <button type="submit">Envoyer</button>
+                    </form>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

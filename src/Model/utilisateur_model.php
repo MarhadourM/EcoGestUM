@@ -52,4 +52,11 @@ function connexion_utilisateur($email, $motdepasse) {
     return false;
 }
 
+function email_existe($email) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM UTILISATEUR WHERE email_ut=?");
+    $stmt->execute([$email]);
+    $count = $stmt->fetchColumn();
+    return $count > 0;
+}
 ?>
