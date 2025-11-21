@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../Model/model-statisitique-rapport.php';
  $nb_nouv_obj = getNewObjParMoisAuto();
  $nb_obj_recycles = getObjRecyclesParMois();   
  $nb_events = getNbeventsParMois();
+ $rapports = getLastRapports();
  $mois = date('n');
 $annee = date('Y');
 ?>
