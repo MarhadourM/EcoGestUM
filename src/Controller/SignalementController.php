@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Upload et insertion BDD
     $photoNamesSaved = [];
     if (!$error_message && isset($_FILES['photos']) && is_array($_FILES['photos']['name'])) {
-        $upload_dir = __DIR__ . '/../src/assets/imgCache/';
+        $upload_dir = __DIR__ . '/../../src/assets/imgCache/';
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0755, true);
         }
