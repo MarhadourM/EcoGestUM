@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../../Model/utilisateur_model.php';
 
 ?>
 
@@ -29,9 +30,11 @@
         <button class="header__connect-btn">SE CONNECTER</button>
     <?php else: ?>
         <div class="header__right">
+            <?php if(get_nom_role($_SESSION['user']['roles'][0]) == 'Présidence' || get_nom_role($_SESSION['user']['roles'][0]) == 'Chef de département'): ?>
             <div id= "dashbord">
                 <button class="button-dashboard" ><a href="<?php echo getenv('BASE_URL'); ?>dashboard">DASHBOARD</a></button>
             </div>
+            <?php endif; ?>
             <div id="notifications">
                 <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
             </div>
