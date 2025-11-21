@@ -1,10 +1,10 @@
 <section class="headerPages"> 
     <nav class="breadcrumb">
-      <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumb__item">Accueil</a>
-      <span class="breadcrumb__separator">></span>
+      <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumbitem">Accueil</a>
+      <span class="breadcrumbseparator">></span>
       <span class="breadcrumbitem active">Evenements</span>
     </nav>
-    <h1 class="politique__title">Nos Evenements</h1>
+    <h1 class="breadcrumb_title">Nos Evenements</h1>
   </section>
 
 <div class="events-grid">

@@ -1,13 +1,13 @@
 <?php require_once __DIR__ . '/../Model/modelObjectif.php';?>
 <section class="headerPages"> 
     <nav class="breadcrumb">
-        <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumb__item">Accueil</a>
-        <span class="breadcrumb__separator">></span>
-        <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="breadcrumb__item">Notre politique</a>
-        <span class="breadcrumb__separator">></span>
+        <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumbitem">Accueil</a>
+        <span class="breadcrumbseparator">></span>
+        <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="breadcrumbitem">Notre politique</a>
+        <span class="breadcrumbseparator">></span>
         <span class="breadcrumbitem active">Objectifs du moments</span>
     </nav>
-    <h1 class="politique__title">Objectifs</h1>
+    <h1 class="breadcrumb_title">Objectifs</h1>
 </section>
 
 <div class="objectifs-container">

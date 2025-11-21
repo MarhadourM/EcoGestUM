@@ -1,10 +1,10 @@
 <section class="headerPages"> 
     <nav class="breadcrumb">
-      <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumb__item">Accueil</a>
-      <span class="breadcrumb__separator">></span>
+      <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumbitem">Accueil</a>
+      <span class="breadcrumbseparator">></span>
       <span class="breadcrumbitem active">Notre politique</span>
     </nav>
-    <h1 class="politique__title">Notre engagement sur le recyclage au sein de nos services : Notre politique environnementale</h1>
+    <h1 class="breadcrumb_title">Notre engagement sur le recyclage au sein de nos services : Notre politique environnementale</h1>
   </section>
 <main class="main-content politique">
   

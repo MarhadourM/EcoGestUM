@@ -5,7 +5,7 @@
     <span class="breadcrumbseparator">&gt;</span>
     <span class="breadcrumbitem active">Nos Statistiques</span>
   </nav>
-  <h1 class="politique__title">Notre engagement sur le recyclage au sein de nos services : Notre politique environnementale</h1>
+  <h1 class="breadcrumb_title">Notre engagement sur le recyclage au sein de nos services : Notre politique environnementale</h1>
 </section>
 
 <main class="main-content-stats ">

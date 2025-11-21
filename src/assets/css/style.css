@@ -1430,40 +1430,6 @@ footer {
 
 /*====== politique =====*/
 
-.breadcrumb {
-  margin: 0 auto 8px auto;
-  font-size: 1.05rem;
-  background: rgba(255, 255, 255, 0.7);
-  display: inline-block;
-  padding: 7px 22px;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(34, 50, 170, 0.08);
-  font-weight: 500;
-}
-.breadcrumb__item {
-  color: #24358e;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.breadcrumb__item.active {
-  font-weight: bold;
-}
-.breadcrumb__separator {
-  color: #7683d4;
-  margin: 0 7px;
-}
-
-/* Titre large et fort */
-.politique__title {
-  font-size: 2.3em;
-  font-weight: 800;
-  color: #213198;
-  letter-spacing: 0.5px;
-  margin: 22px 0 13px 0;
-  text-align: center;
-  line-height: 1.2;
-}
 
 /* Section intro, full-width, background blanc */
 .politique__intro {
@@ -1636,6 +1602,18 @@ footer {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+
+
+.breadcrumb_title{
+  font-size: 2.3em;
+  font-weight: 800;
+  color: #213198;
+  letter-spacing: 0.5px;
+  margin: 22px 0 13px 0;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* CARDS CENTRÉES */
@@ -1877,6 +1855,7 @@ footer {
 .action-btn:hover {
   background-color: #b04322;
 }
+
 /* HEADER large */
 .headerPages {
   width: 100%;
