@@ -26,8 +26,8 @@
                 <span class="header__site-name">EcoGestUM</span>
             </div>
             <?php if (empty($_SESSION['isConnected']) || $_SESSION['isConnected'] !== true): ?>
-        <button class="header__connect-btn">SE CONNECTER</button>
-    <?php else: ?>
+                <button class="header__connect-btn">SE CONNECTER</button>
+            <?php else: ?>
         <div class="header__right">
             <div id="notifications">
                 <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
@@ -36,7 +36,7 @@
                 <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/user_icon.png" alt="Utilisateur" class="header-user-icon" title="Icon User">
             </div>
         </div>
-    <?php endif; ?>
+            <?php endif; ?>
         </div>
         <!-- Navigation principale -->
         <nav class="header__nav">
