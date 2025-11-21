@@ -110,7 +110,14 @@ switch ($page) {
 
     case 'dashboard':
         require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/Templates/menu-dashboard.php';
         require_once __DIR__ . '/src/view/dashboard.php';
+        break;
+
+    case 'dashboard-impact':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/Templates/menu-dashboard.php';
+        require_once __DIR__ . '/src/view/Dashboard/presidence-impact.php';
         break;
     
     default:
