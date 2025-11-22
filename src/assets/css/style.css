@@ -3459,53 +3459,86 @@ footer {
   cursor: pointer;
 }
 
+/* Section rapports */
 .dashboard-rapports {
   background: #111;
-  border-radius: 11px;
-  padding: 16px 18px;
-  margin: 36px 0 20px 0;
+  border-radius: 13px;
+  padding: 28px 28px;
+  max-width: 950px;
+  margin: 44px auto 28px auto;
 }
+
 .rapports-title {
   color: #fff;
   font-weight: bold;
-  font-size: 1.25em;
-  margin-bottom: 12px;
+  font-size: 1.32em;
+  margin-bottom: 20px;
 }
-.rapports-list {
-  display: flex;
-  gap: 13px;
-  flex-wrap: wrap;
-  margin-bottom: 13px;
+
+.rapports-list-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 32px;
 }
-.rapport-item {
+
+.rapport-item{
   background: #d85a2c;
   color: #fff;
-  padding: 8px 23px 8px 40px;
   font-weight: bold;
-  border-radius: 5px;
+  font-size: 1.19em;
+  border-radius: 16px;
   text-decoration: none;
-  position: relative;
+  padding: 30px 65px 30px 70px; /* ← PADDING PLUS GRAND ! */
   display: flex;
   align-items: center;
+  position: relative;
+  box-shadow: 0 3px 18px #d85a2c25;
+  border: none;
+  transition: background 0.18s;
+  min-height: 66px;              /* ← Hauteur minimum augmentée */
 }
-.rapport-icon {
-  width: 24px; height: 24px;
-  background-image: url('/static/icon_download.svg');
-  background-size: cover;
-  position: absolute;
-  left: 8px; top: 50%;
-  transform: translateY(-50%);
-}
-.dashboard-btn-gen {
+
+.dashboard-btn-gen{
   background: #27306d;
   color: #fff;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 16px;
   border: none;
   font-size: 1.1em;
   padding: 10px 32px;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
 }
+
+.rapport-item:hover,
+.dashboard-btn-gen:hover {
+  background: #a03d13;
+}
+
+.rapport-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.rapport-icon.pdf {
+  left: 22px;
+  background: url('data:image/svg+xml;utf8,<svg ... />') center/contain no-repeat;
+}
+.rapport-icon.dl {
+  right: 21px;
+  background: url('data:image/svg+xml;utf8,<svg ... />') center/contain no-repeat;
+}
+
+@media (max-width: 800px) {
+  .dashboard-rapports { padding: 18px 8px; max-width: 97vw; }
+  .rapports-list-cols { grid-template-columns: 1fr; gap: 18px; }
+}
+
 
 .dashboard-bas {
   display: flex;

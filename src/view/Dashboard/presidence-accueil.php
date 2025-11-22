@@ -3,7 +3,6 @@ require_once __DIR__ . '/../../Model/model-statisitique-rapport.php';
  $nb_nouv_obj = getNewObjParMoisAuto();
  $nb_obj_recycles = getObjRecyclesParMois();   
  $nb_events = getNbeventsParMois();
- $rapports = getLastRapports();
  $mois = date('n');
 $annee = date('Y');
 ?>
@@ -38,18 +37,33 @@ $annee = date('Y');
     </div>
 
     <!-- Derniers rapports -->
-    <div class="dashboard-rapports">
-    <div class="rapports-title">VOS DERNIERS RAPPORTS</div>
-    <div class="rapports-list">
-        <?php foreach ($rapports as $rapport): ?>
-        <a href="<?php echo htmlspecialchars($rapport['lien']); ?>" class="rapport-item">
-            <span class="rapport-icon"></span>
-            <?php echo htmlspecialchars($rapport['nom']); ?>
-        </a>
-        <?php endforeach; ?>
-    </div>
-    <button class="dashboard-btn-gen">GÉNÉRER UN RAPPORT</button>
-    </div>
+   <div class="dashboard-rapports">
+  <div class="rapports-title">VOS DERNIERS RAPPORTS</div>
+  <div class="rapports-list-cols">
+    <a href="files/rapport_trim1.pdf" class="rapport-item" download>
+      <span class="rapport-icon pdf"></span>
+      Rapport statistiques trim1.pdf
+      <span class="rapport-icon dl"></span>
+    </a>
+    <a href="files/rapport_trim2.pdf" class="rapport-item" download>
+      <span class="rapport-icon pdf"></span>
+      Rapport statistiques trim2.pdf
+      <span class="rapport-icon dl"></span>
+    </a>
+    <a href="files/rapport_sem2.pdf" class="rapport-item" download>
+      <span class="rapport-icon pdf"></span>
+      Rapport statistiques sem2.pdf
+      <span class="rapport-icon dl"></span>
+    </a>
+    <a href="#rapport" class="dashboard-btn-gen">
+      <span class="rapport-icon pdf"></span>
+      GÉNÉRER UN RAPPORT
+      <span class="rapport-icon dl"></span>
+    </a>
+  </div>
+</div>
+
+    <!-- Bas de page du dashboard -->
 
     <div class="dashboard-bas">
     <div class="dashboard-card">
