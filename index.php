@@ -125,8 +125,12 @@ switch ($page) {
      case 'recuperer_reservation':
          require_once __DIR__ . '/src/Controller/ReservationsController.php';
          break;
-       
-    
+    case 'mesInscriptions':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/VosInscriptions.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
+        break;
+
     case 'rechercheObjet':
         require_once __DIR__ . '/src/controller/rechercheObjetController.php';
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
