@@ -4,15 +4,15 @@
   <div class="menu-dropdown">
     <ul class="menu-list">
     <?php if(get_nom_role($_SESSION['user']['roles'][0]) == 'Présidence'): ?>
-    <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#impact">Impact</a></li>
-    <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#communication">Communication</a></li>
-    <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#rapport">Rapport</a></li>
-    <?php else: ?> <!-- c'est un chef de departements  -->
-        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#inventaire">Inventaire</a></li>
-        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#communication">Communication</a></li>
-        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#impact">Impact</a></li>
-        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard#historique">Historique</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=impact">Impact</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=communication">Communication</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=rapport">Rapport</a></li>
+    <?php else: ?>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=inventaire">Inventaire</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=communication">Communication</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=impact">Impact</a></li>
+        <li><a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=historique">Historique</a></li> 
     <?php endif; ?>
-  </ul>
-</div>
+    </ul>
+  </div>
 </nav>

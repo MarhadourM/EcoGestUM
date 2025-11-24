@@ -41,24 +41,25 @@ $annee = date('Y');
   <div class="rapports-title">VOS DERNIERS RAPPORTS</div>
   <div class="rapports-list-cols">
     <a href="files/rapport_trim1.pdf" class="rapport-item" download>
-      <span class="rapport-icon pdf"></span>
       Rapport statistiques trim1.pdf
-      <span class="rapport-icon dl"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+        <path d="M24.1938 13.125H21.8751V5.83333C21.8751 5.03125 21.2188 4.375 20.4167 4.375H14.5834C13.7813 4.375 13.1251 5.03125 13.1251 5.83333V13.125H10.8063C9.50841 13.125 8.85216 14.7 9.77091 15.6187L16.4647 22.3125C17.0334 22.8812 17.9522 22.8812 18.5209 22.3125L25.2147 15.6187C26.1334 14.7 25.4917 13.125 24.1938 13.125ZM7.29175 27.7083C7.29175 28.5104 7.948 29.1667 8.75008 29.1667H26.2501C27.0522 29.1667 27.7084 28.5104 27.7084 27.7083C27.7084 26.9062 27.0522 26.25 26.2501 26.25H8.75008C7.948 26.25 7.29175 26.9062 7.29175 27.7083Z" fill="#ffffffff"/>
+      </svg>
     </a>
     <a href="files/rapport_trim2.pdf" class="rapport-item" download>
-      <span class="rapport-icon pdf"></span>
       Rapport statistiques trim2.pdf
-      <span class="rapport-icon dl"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+        <path d="M24.1938 13.125H21.8751V5.83333C21.8751 5.03125 21.2188 4.375 20.4167 4.375H14.5834C13.7813 4.375 13.1251 5.03125 13.1251 5.83333V13.125H10.8063C9.50841 13.125 8.85216 14.7 9.77091 15.6187L16.4647 22.3125C17.0334 22.8812 17.9522 22.8812 18.5209 22.3125L25.2147 15.6187C26.1334 14.7 25.4917 13.125 24.1938 13.125ZM7.29175 27.7083C7.29175 28.5104 7.948 29.1667 8.75008 29.1667H26.2501C27.0522 29.1667 27.7084 28.5104 27.7084 27.7083C27.7084 26.9062 27.0522 26.25 26.2501 26.25H8.75008C7.948 26.25 7.29175 26.9062 7.29175 27.7083Z" fill="#ffffffff"/>
+      </svg>
     </a>
     <a href="files/rapport_sem2.pdf" class="rapport-item" download>
-      <span class="rapport-icon pdf"></span>
       Rapport statistiques sem2.pdf
-      <span class="rapport-icon dl"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+        <path d="M24.1938 13.125H21.8751V5.83333C21.8751 5.03125 21.2188 4.375 20.4167 4.375H14.5834C13.7813 4.375 13.1251 5.03125 13.1251 5.83333V13.125H10.8063C9.50841 13.125 8.85216 14.7 9.77091 15.6187L16.4647 22.3125C17.0334 22.8812 17.9522 22.8812 18.5209 22.3125L25.2147 15.6187C26.1334 14.7 25.4917 13.125 24.1938 13.125ZM7.29175 27.7083C7.29175 28.5104 7.948 29.1667 8.75008 29.1667H26.2501C27.0522 29.1667 27.7084 28.5104 27.7084 27.7083C27.7084 26.9062 27.0522 26.25 26.2501 26.25H8.75008C7.948 26.25 7.29175 26.9062 7.29175 27.7083Z" fill="#ffffffff"/>
+      </svg>
     </a>
-    <a href="#rapport" class="dashboard-btn-gen">
-      <span class="rapport-icon pdf"></span>
-      GÉNÉRER UN RAPPORT
-      <span class="rapport-icon dl"></span>
+    <a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=rapport" class="dashboard-btn-gen">
+      <div class="dashboard-btn-gen-title">Générer un rapport</div>
     </a>
   </div>
 </div>
@@ -66,37 +67,17 @@ $annee = date('Y');
     <!-- Bas de page du dashboard -->
 
     <div class="dashboard-bas">
-    <div class="dashboard-card">
-        <div class="card-title">Meilleur mois de recyclage</div>
-        <div class="card-desc"><?php echo htmlspecialchars($best['desc']); ?></div>
-        <button class="dashboard-btn">Statistiques</button>
+    <div class="dashboard-card ">
+        <div class="card-title  ">Meilleur mois de recyclage</div>
+        <div class="card-desc"><strong>MARS</strong> avec 400 objets recyclables récupérés</div>
+        <a class="dashboard-btn best-stat" href="<?php echo getenv('BASE_URL'); ?>dashboard?section=impact">Statistiques</a>
     </div>
     <div class="dashboard-card card-comm">
         <div class="card-title comm-title">Communications officielles</div>
-        <div class="card-desc comm-desc">
-        Envoyez des actualités, rapports, campagnes de sensibilisation
-        </div>
-        <button class="dashboard-btn comm-btn">Communication</button>
-    </div>
+          <div class="card-desc comm-desc">
+          Envoyez des actualités, rapports, campagnes de sensibilisation
+          </div>
+          <a class="dashboard-btn comm-btn" href="<?php echo getenv('BASE_URL'); ?>dashboard?section=impact">Communication</a></button>
+      
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
