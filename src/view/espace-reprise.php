@@ -7,6 +7,11 @@
     <div class="espace-notif-success">Signalement enregistré avec succès !</div>
 <?php endif; ?>
 
+<?php if (isset($_GET['success']) && $_GET['success'] === 'besoin') : ?>
+    <div class="espace-notif-success">Formulaire de besoin d'objet publié !</div>
+<?php endif; ?>
+
+
 
 <div class="container-espace-reprise">
     <div class="action-block">
@@ -39,4 +44,19 @@
             <button class="action-btn">Carte</button>
         </a>
     </div>
+    <?php if (isset($_SESSION['user']['roles']) && in_array(3, $_SESSION['user']['roles'])) : ?>
+    <div class="action-block">
+        <span class="action-title">FORMULAIRE DE DEMANDE D'OBJET</span>
+        <a href="formBesoinObj">
+            <button class="action-btn">Demander un objet</button>
+        </a>
+    </div>
+    <div class="action-block">
+        <span class="action-title">ACCES AUX BESOINS DES ENSEIGNANTS </span>
+        <a href="besoinsObjEnseignants">
+            <button class="action-btn">Objets demandés</button>
+        </a>
+    </div>
+    <?php endif; ?>
+
 </div>
