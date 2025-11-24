@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../model/modelBDD.php';
 
-// Pas besoin de session_start ici car déjà lancé dans le routeur !
 
 // Gestion réservation : POST + form caché
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && 

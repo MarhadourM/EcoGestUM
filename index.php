@@ -74,10 +74,21 @@ switch ($page) {
         break;
     
     case 'messagerie':
-        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/controller/messagerieController.php';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'], $_POST['conv_id'])) {
+            // Le user_id, le conv_id et le message sont transmis
+            sendMessage($_POST['conv_id'], $_SESSION['user']['id_ut'], $_POST['message']);
+            // Redirection pour éviter le repost en cas de refresh :
+            header('Location: ?page=messagerie&conv=' . urlencode($_POST['conv_id']));
+            exit;
+        }
+
         require_once __DIR__ . '/src/view/messagerie.php';
-        require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
+
+
+    
 
     case 'objectifs':
         require_once __DIR__ . '/src/view/Templates/header.php';
@@ -92,7 +103,6 @@ switch ($page) {
         // Si c'est une action de réservation, traite-la AVANT TOUT AFFICHAGE !
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
             reserver_objet_action();
-            // header('Location...') fait exit, donc rien ne s’affiche après
         }
 
         require_once __DIR__ . '/src/view/Templates/header.php';

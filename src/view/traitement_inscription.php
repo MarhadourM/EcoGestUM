@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../model/utilisateur_model.php';
-session_start();
 
 function motdepasse_invalide($mdp, $mdp2) {
     $err = [];
