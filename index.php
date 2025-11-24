@@ -9,6 +9,7 @@ session_start();
 
 $page = $_GET['page'] ?? 'accueil';
 $section = $_GET['section'] ?? null;
+$action= $_GET['action'] ?? null;
 
 $role = null;
 if (isset($_SESSION['user']['roles'][0])) {
@@ -126,6 +127,7 @@ switch ($page) {
                 case 'communication':
                     require_once __DIR__ . '/src/view/Dashboard/presidence-communication.php';
                     break;
+                        
                 case 'rapport':
                     require_once __DIR__ . '/src/view/Dashboard/presidence-rapport.php';
                     break;
