@@ -108,13 +108,13 @@ function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
 function reserver_objet($idObj, $idUt) {
     $pdo = get_bdd();
 
-    // Vérifie qu'il n'y a pas déjà une réservation pour cet objet
     $test = $pdo->prepare("SELECT COUNT(*) as nb FROM reservation WHERE id_obj_recycl = ?");
     $test->execute([$idObj]);
-    if ($test->fetch()['nb'] > 0) {
-        // Il y a déjà une réservation, on peut lever une exception ou retourner false
+    $row = $test->fetch(PDO::FETCH_ASSOC);
+    if ($row['nb'] > 0) {
         return false;
     }
+
 
     // Insère la nouvelle réservation (statut "En préparation" = 2, adapte à ta table)
     $stmt = $pdo->prepare("
@@ -122,7 +122,6 @@ function reserver_objet($idObj, $idUt) {
         VALUES (CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY), 2, ?, ?)
     ");
     $stmt->execute([$idObj, $idUt]);
-
     $update = $pdo->prepare("UPDATE objet_recyclable SET id_statut_recyclage_obj = 2 WHERE id_obj_recycl = ?");
     $update->execute([$idObj]);
 

@@ -106,10 +106,6 @@ $pdo = get_bdd();
 
 <!-- POPUP et OVERLAY (form caché pour réservation) -->
 <?php require_once __DIR__ . '/Templates/popupObjet.php'; ?>
-<form id="form-reserver" action="" method="post" style="display:none;">
-    <input type="hidden" name="action" value="reserver">
-    <input type="hidden" name="id_obj_recycl" id="popup-form-id" value="">
-</form>
 
 <!-- INCLUSION DU JS -->
 <script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/popupObjet.js"></script>
