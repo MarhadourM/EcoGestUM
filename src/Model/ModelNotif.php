@@ -21,4 +21,18 @@ function delete_notification_user($id_notification, $id_ut) {
     $stmt->execute([$id_notification, $id_ut]);
 }
 
+function envoyer_notification($id_ut, $message_notif, $type_notif) {
+    $pdo = get_bdd();
+    $sql = "INSERT INTO NOTIFICATION (id_ut, message_notif, type_notif, date_notif, statut_notif)
+            VALUES (:id_ut, :message_notif, :type_notif, NOW(), 'non lu')";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':id_ut' => $id_ut,
+        ':message_notif' => $message_notif,
+        ':type_notif' => $type_notif
+    ]);
+    return $pdo->lastInsertId();
+}
+
+
 ?>
