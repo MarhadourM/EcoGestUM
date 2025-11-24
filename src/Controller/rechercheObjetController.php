@@ -3,7 +3,7 @@ require_once __DIR__ . '/../model/modelBDD.php';
 
 function reserver_objet_action() {
     $idObj = $_POST['id_obj_recycl'] ?? null;
-    $idUt = $_SESSION['id_ut'] ?? null;
+    $idUt = $_SESSION['user']['id_ut'] ?? null;
     if ($idObj && $idUt) {
         $ok = reserver_objet($idObj, $idUt);
         if ($ok) {
@@ -16,6 +16,7 @@ function reserver_objet_action() {
     header('Location: ?page=rechercheObjet&error=1');
     exit;
 }
+
 
 function afficher_recherche_objet() {
     $search = $_GET['search'] ?? '';
