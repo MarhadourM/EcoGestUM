@@ -159,7 +159,7 @@ switch ($page) {
 
     default:
         http_response_code(404);
-        echo "<h1>404 - Page non trouvée</h1>";
+        require_once __DIR__ . '/src/view/Templates/erreur.php';
         break;
 }
 ?>
