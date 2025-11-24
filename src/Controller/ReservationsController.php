@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id_res'])) {
         // Vérifie que la réservation appartient à l'utilisateur
         $stmt = $pdo->prepare("DELETE FROM reservation WHERE id_res = ? AND id_ut = ?");
         $stmt->execute([$id_res, $user_id]);
+        envoyer_notification($idUt, "Un objet a été supprimé de vos réservations. \nCause : Objet récupéré ", 2);
         header('Location: mesReservations?success_recup=1');
         exit;
     }

@@ -111,16 +111,20 @@ function deleteConversationEverywhere($conv_id) {
 // Crée une conversation partagée dans les deux boîtes de réception
 function createConversationForBothUsers($user_id, $dest_id) {
     $pdo = get_bdd();
-    // 1. Boîte de réception de chaque utilisateur
     $user_bdr = getOrCreateBoiteDeReception($user_id);
     $dest_bdr = getOrCreateBoiteDeReception($dest_id);
-    // 2. On crée pour le 1er utilisateur
+
+    // On crée pour le 1er utilisateur
     $stmtA = $pdo->prepare("INSERT INTO conversation (id_bdr) VALUES (:id_bdr)");
     $stmtA->execute(['id_bdr' => $user_bdr]);
     $id_conv = $pdo->lastInsertId();
-    // 3. On crée pour l'autre en imposant le même id_conv
-    $stmtB = $pdo->prepare("INSERT INTO conversation (id_conv, id_bdr) VALUES (:id_conv, :id_bdr)");
-    $stmtB->execute(['id_conv' => $id_conv, 'id_bdr' => $dest_bdr]);
+
+    // On crée pour l'autre SEULEMENT si ce n'est pas la même boîte !
+    if ($user_bdr != $dest_bdr) {
+        $stmtB = $pdo->prepare("INSERT INTO conversation (id_conv, id_bdr) VALUES (:id_conv, :id_bdr)");
+        $stmtB->execute(['id_conv' => $id_conv, 'id_bdr' => $dest_bdr]);
+    }
+
     return $id_conv;
 }
 

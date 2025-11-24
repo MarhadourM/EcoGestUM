@@ -23,16 +23,26 @@ function delete_notification_user($id_notification, $id_ut) {
 
 function envoyer_notification($id_ut, $message_notif, $type_notif) {
     $pdo = get_bdd();
-    $sql = "INSERT INTO NOTIFICATION (id_ut, message_notif, type_notif, date_notif, statut_notif)
-            VALUES (:id_ut, :message_notif, :type_notif, NOW(), 'non lu')";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ':id_ut' => $id_ut,
-        ':message_notif' => $message_notif,
-        ':type_notif' => $type_notif
-    ]);
-    return $pdo->lastInsertId();
+    try {
+        $sql = "INSERT INTO NOTIFICATION (message_notif, date_envoi_notif, id_statut_notif, id_type_notif)
+                VALUES (:message_notif, NOW(), 1, :type_notif)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':message_notif' => $message_notif,
+            ':type_notif' => $type_notif
+        ]);
+        $id_notification = $pdo->lastInsertId();
+
+        $stmt = $pdo->prepare("INSERT INTO notif_utilisateur (id_notification, id_ut) VALUES (?, ?)");
+        $stmt->execute([$id_notification, $id_ut]);
+
+        return $id_notification;
+    } catch (Exception $e) {
+        error_log('Erreur notif: '.$e->getMessage());
+    }
 }
+
+
 
 
 ?>

@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recuperer_res']) && !
         $stmt->execute([$id_res, $user_id]);
         $message = "Vous avez récupéré votre objet.";
     }
+    envoyer_notification($user_id, "Vous avez récupéré un objet. Il n'apparaîtera plus dans 'vos reservations'", 2);
 }
 
 // Gestion POST "Annuler" (suppression + objet remis disponible)
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['annuler_res']) && !em
             $pdo->prepare("UPDATE objet_recyclable SET id_statut_recyclage_obj = 1 WHERE id_obj_recycl = ?")->execute([$id_obj]);
             $message = "Votre réservation est annulée et l’objet est de nouveau disponible.";
         }
+        envoyer_notification($user_id, "Votre réservation d'objet à été annulée.", 2);
     }
 }
 

@@ -115,8 +115,6 @@ function reserver_objet($idObj, $idUt) {
         return false;
     }
 
-
-    // Insère la nouvelle réservation (statut "En préparation" = 2, adapte à ta table)
     $stmt = $pdo->prepare("
         INSERT INTO reservation (date_res, date_exp_res, id_statut_res, id_obj_recycl, id_ut)
         VALUES (CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY), 2, ?, ?)
@@ -145,5 +143,15 @@ function ajouter_photo_objet($id_objet, $filename) {
     $pdo->prepare("INSERT INTO photo_objet(id_photo, id_obj_recycl) VALUES (?, ?)")->execute([$id_photo, $id_objet]);
     $pdo->commit();
 }
+
+function getAuteurObjetRecyclable($idObj) {
+    $pdo = get_bdd();
+    $sql = "SELECT id_ut FROM FORMULAIRE_DONATION WHERE id_obj_recycl = :id_Obj";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':id_Obj' => $id_Obj]);
+    return $stmt->fetchColumn();
+}
+
+
 
 ?>

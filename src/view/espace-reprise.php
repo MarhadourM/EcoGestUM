@@ -8,6 +8,7 @@
 <?php endif; ?>
 
 <?php if (isset($_GET['success']) && $_GET['success'] === 'besoin') : ?>
+    <?php envoyer_notification($_SESSION['user']['id_ut'],"Votre demande d'objet a bien été prise en compte et transmise à la plateforme.",4); ?>
     <div class="espace-notif-success">Formulaire de besoin d'objet publié !</div>
 <?php endif; ?>
 

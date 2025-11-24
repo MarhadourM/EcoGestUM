@@ -53,13 +53,46 @@ function get_besoins_enseignants($page = 1, $parPage = 6, $search = '', $categor
 
 function updateBesoinEnseignant($idDemandeObj, $idUtilisateur) {
     $pdo = get_bdd();
-    $sql = "UPDATE DEMANDE_OBJET SET id_statut_demande_obj = 2, repondant_id = :idUtilisateur WHERE id_demande_obj = :idDemandeObj";
+    $sql = "UPDATE DEMANDE_OBJET SET id_statut_demande_obj = 2, id_ut = :idUtilisateur WHERE id_demande_obj = :idDemandeObj";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':idDemandeObj' => $idDemandeObj,
         ':idUtilisateur' => $idUtilisateur
     ]);
 }
+
+function getAuteurBesoin($idDemandeObj) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT id_ut FROM DEMANDE_OBJET WHERE id_demande_obj = ?");
+    $stmt->execute([$idDemandeObj]);
+    return $stmt->fetchColumn();
+}
+
+function supprimerBesoinEnseignant($idDemandeObj) {
+    $pdo = get_bdd();
+    $sql = "DELETE FROM DEMANDE_OBJET WHERE id_demande_obj = :idDemandeObj";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':idDemandeObj' => $idDemandeObj]);
+}
+
+function envoyerMessageReponseBesoin($idBesoin, $idUtilisateur, $idDestinataire) {
+    $pdo = get_bdd();
+    // Récupère les infos pour le message 
+    $stmt = $pdo->prepare("SELECT nom_demande_obj, desc_demande_obj FROM DEMANDE_OBJET WHERE id_demande_obj = ?");
+    $stmt->execute([$idBesoin]);
+    $besoin = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$besoin) return;
+
+    $convId = findConversationBetweenUsers($idUtilisateur, $idDestinataire);
+    if (!$convId) {
+        $convId = createConversationForBothUsers($idUtilisateur, $idDestinataire);
+    }
+
+    $message = "Bonjour, j'ai un objet qui correspond à votre demande : \"{$besoin['nom_demande_obj']}\" ({$besoin['desc_demande_obj']})";
+    sendMessage($convId, $idUtilisateur, $idDestinataire, $message);
+}
+
+
 
 
 ?>
