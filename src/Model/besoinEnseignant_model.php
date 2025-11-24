@@ -75,4 +75,24 @@ function supprimerBesoinEnseignant($idDemandeObj) {
     $stmt->execute([':idDemandeObj' => $idDemandeObj]);
 }
 
+function envoyerMessageReponseBesoin($idBesoin, $idUtilisateur, $idDestinataire) {
+    $pdo = get_bdd();
+    // Récupère les infos pour le message 
+    $stmt = $pdo->prepare("SELECT nom_demande_obj, desc_demande_obj FROM DEMANDE_OBJET WHERE id_demande_obj = ?");
+    $stmt->execute([$idBesoin]);
+    $besoin = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$besoin) return;
+
+    $convId = findConversationBetweenUsers($idUtilisateur, $idDestinataire);
+    if (!$convId) {
+        $convId = createConversationForBothUsers($idUtilisateur, $idDestinataire);
+    }
+
+    $message = "Bonjour, j'ai un objet qui correspond à votre demande : \"{$besoin['nom_demande_obj']}\" ({$besoin['desc_demande_obj']})";
+    sendMessage($convId, $idUtilisateur, $idDestinataire, $message);
+}
+
+
+
+
 ?>
