@@ -41,7 +41,7 @@ $error_message = $_GET['error'] ?? '';
                         <input class="messagerie-email-input" type="email" name="new_conv_email" placeholder="Ajouter un email..." required />
                         <button class="messagerie-add-btn" type="submit">➕</button>
                     </form>
-                    <!-- MESSAGE ERREUR : EN DESSOUS DU FORMULAIRE, HORS FLEX -->
+                    <!-- MESSAGE ERREUR -->
                     <?php if ($error_message): ?>
                         <div class="messagerie-error"><?= htmlspecialchars($error_message) ?></div>
                     <?php endif; ?>
