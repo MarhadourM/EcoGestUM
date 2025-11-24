@@ -91,7 +91,16 @@ switch ($page) {
         require_once __DIR__ . '/src/view/objectifs.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
-    
+
+    case 'mesReservation':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/MesReservations.php';
+        require_once __DIR__ . '/src/view/Templates/footer.php';
+        break;
+     case 'recuperer_reservation':
+         require_once __DIR__ . '/src/Controller/ReservationsController.php';
+         break;
+       
     
     case 'rechercheObjet':
         require_once __DIR__ . '/src/controller/rechercheObjetController.php';
