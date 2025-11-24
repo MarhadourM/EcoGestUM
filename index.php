@@ -75,15 +75,11 @@ switch ($page) {
     
     case 'messagerie':
         require_once __DIR__ . '/src/controller/messagerieController.php';
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'], $_POST['conv_id'])) {
-            // Le user_id, le conv_id et le message sont transmis
-            sendMessage($_POST['conv_id'], $_SESSION['user']['id_ut'], $_POST['message']);
-            // Redirection pour éviter le repost en cas de refresh :
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'], $_POST['conv_id'], $_POST['dest_id'])) {
+            sendMessage($_POST['conv_id'], $_SESSION['user']['id_ut'], $_POST['dest_id'], $_POST['message']);
             header('Location: ?page=messagerie&conv=' . urlencode($_POST['conv_id']));
             exit;
         }
-
         require_once __DIR__ . '/src/view/messagerie.php';
         break;
 
