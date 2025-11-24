@@ -151,6 +151,12 @@ switch ($page) {
             }
         }
         break;
+
+    case 'communications':
+    require_once __DIR__ . '/src/view/Templates/header.php';
+    require_once __DIR__ . '/src/view/communications-officielles.php';
+    require_once __DIR__ . '/src/view/Templates/footer.php';
+    break;
     
     default:
         http_response_code(404);
