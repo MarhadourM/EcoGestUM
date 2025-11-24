@@ -53,7 +53,7 @@ function get_besoins_enseignants($page = 1, $parPage = 6, $search = '', $categor
 
 function updateBesoinEnseignant($idDemandeObj, $idUtilisateur) {
     $pdo = get_bdd();
-    $sql = "UPDATE DEMANDE_OBJET SET id_statut_demande_obj = 2, repondant_id = :idUtilisateur WHERE id_demande_obj = :idDemandeObj";
+    $sql = "UPDATE DEMANDE_OBJET SET id_statut_demande_obj = 2, id_ut = :idUtilisateur WHERE id_demande_obj = :idDemandeObj";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':idDemandeObj' => $idDemandeObj,
@@ -61,5 +61,18 @@ function updateBesoinEnseignant($idDemandeObj, $idUtilisateur) {
     ]);
 }
 
+function getAuteurBesoin($idDemandeObj) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT id_ut FROM DEMANDE_OBJET WHERE id_demande_obj = ?");
+    $stmt->execute([$idDemandeObj]);
+    return $stmt->fetchColumn();
+}
+
+function supprimerBesoinEnseignant($idDemandeObj) {
+    $pdo = get_bdd();
+    $sql = "DELETE FROM DEMANDE_OBJET WHERE id_demande_obj = :idDemandeObj";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':idDemandeObj' => $idDemandeObj]);
+}
 
 ?>

@@ -1,8 +1,3 @@
-
-<?php if (isset($_GET['success']) && $_GET['success'] === 'reponse'): ?>
-  <div class="espace-notif-success">Votre réponse a bien été enregistrée !</div>
-<?php endif; ?>
-
 <section class="headerPages">
   <nav class="breadcrumb-besoins">
     <a href="besoinsObjEnseignants?page=accueil" class="breadcrumbitem">Accueil</a>
@@ -22,12 +17,16 @@
       <option value="">Toutes catégories</option>
       <?php
       $cats = get_categories_objet();
-      foreach ($cats as $cat)
+      foreach ($cats as $cat)   
         echo '<option value="'.$cat['id_cat_obj'].'"'.($categorie == $cat['id_cat_obj'] ? ' selected' : '').'>'.htmlspecialchars($cat['nom_cat_obj']).'</option>';
       ?>
     </select>
     <button type="submit" class="besoins-search-btn">Filtrer</button>
   </form>
+    
+    <?php if (isset($_GET['success']) && $_GET['success'] === 'reponse'): ?>
+        <div class="espace-notif-success">Votre réponse a bien été enregistrée !</div>
+    <?php endif; ?>
 
   <?php if(empty($besoins)): ?>
     <div class="no-besoins-msg">Aucun besoin enseignant à afficher pour le moment.</div>
@@ -51,7 +50,7 @@
                 <strong class="besoin-card-raison"> <?= htmlspecialchars($besoin['desc_demande_obj']) ?></strong>
                 <form method="POST" action="traitement_besoinObjEnseignant" style="display:inline;">
                     <input type="hidden" name="id_demande_obj" value="<?= $besoin['id_demande_obj'] ?>">
-                    <button type="submit" class="besoin-card-btn">Répondre à la demande</button>
+                    <button type="submit" class="besoin-card-btn" onclick="return confirm('Voulez-vous vraiment valider et supprimer ce besoin ?');">Répondre à la demande</button>
                 </form>
 
             </div>

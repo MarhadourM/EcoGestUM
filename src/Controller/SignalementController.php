@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($error_message)) {
         if (inserer_signalement_objet($description, $idres, $photoNamesSaved)) {
             $_SESSION['signalement_success'] = "Signalement enregistré avec succès.";
+            envoyer_notification( $_SESSION['user']['id_ut'],"Votre signalement a bien été enregistré. Merci pour votre contribution.",3);
             header('Location: espace-reprise?success=signalement');
             exit;
         } else {

@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($photoNamesSaved as $file) {
                 ajouter_photo_objet($id_objet, $file); // Doit gérer TABLE PHOTO + PHOTO_OBJET
             }
+            envoyer_notification($_SESSION['user']['id_ut'],"Votre objet a été ajouté avec succès à la plateforme ! Merci pour votre don.",4);
             header('Location: espace-reprise?success=don');
             exit;
         } else {

@@ -7,6 +7,13 @@ function reserver_objet_action() {
     if ($idObj && $idUt) {
         $ok = reserver_objet($idObj, $idUt);
         if ($ok) {
+            // Notification pour le réservant
+            envoyer_notification($idUt, "Un nouvel objet ajouté à vos réservations", 1);
+            // Notification pour l'auteur de l'objet recyclable
+            $idAuteur = getAuteurObjetRecyclable($idObj);
+            if ($idAuteur && $idAuteur != $idUt) {
+                envoyer_notification($idAuteur, "Votre objet recyclé a été réservé par un autre utilisateur", 1);
+            }
             header('Location: ?page=rechercheObjet&success=1');
         } else {
             header('Location: ?page=rechercheObjet&error=1');
@@ -16,6 +23,7 @@ function reserver_objet_action() {
     header('Location: ?page=rechercheObjet&error=1');
     exit;
 }
+
 
 
 function afficher_recherche_objet() {

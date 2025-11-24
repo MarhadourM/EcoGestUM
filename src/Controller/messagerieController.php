@@ -23,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_conv_email'])) {
     if (!$conv_id) {
         $conv_id = createConversationForBothUsers($user_id, $dest['id_ut']);
         sendMessage($conv_id, $user_id, $dest['id_ut'], "Coucou ! je viens de créer une conversation avec toi.");
+        // Notifie le destinataire de la nouvelle conversation
+        envoyer_notification($dest['id_ut'],"Vous avez reçu un nouveau message de " . htmlspecialchars($_SESSION['user']['nom_ut'] ?? 'un utilisateur') . ".",1);
+        // Notifie l'émetteur (facultatif, type confirmation)
+        envoyer_notification($user_id, "Votre première prise de contact a bien été envoyée à " . htmlspecialchars($dest['nom_ut']),4);
     }
 
     header("Location: ?page=messagerie&conv=$conv_id");
