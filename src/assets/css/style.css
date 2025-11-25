@@ -2117,7 +2117,6 @@ footer {
   gap: 16px;
   width: 100%;
   caret-color: black;
-
 }
 
 .profil-champs-inline input[type="email"] {
@@ -5492,6 +5491,223 @@ body {
     font-size: 0.95rem;
   }
 }
+
+.impact-stats-container {
+  background: var(--color-gray-light, #f5f5f5);
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Cartes du résumé principal : même taille et alignement horizontal */
+.stats-summary {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+.stats-summary .stats-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 120px;
+  max-height: 160px;
+  border-radius: 12px;
+  padding: 18px 14px;
+  box-sizing: border-box;
+}
+.stats-card.stats-white-card.stats-received-objects {
+  background-color: #e2f0ff;
+  box-shadow: 1px solid var(--color-border, #e0e0e0);
+}
+
+/* Cartes colorées avec variables */
+.stats-black-card {
+  background: var(--color-dark, #1f2121);
+  color: var(--color-white, #fff);
+}
+.stats-orange-card {
+  background: var(--color-primary, #c85a2c);
+  color: var(--color-white, #fff);
+}
+.stats-blue-card {
+  background: #e2f0ff;
+  color: var(--color-header, #2e2d5d);
+}
+.stats-grey-card {
+  background: var(--color-border, #e0e0e0);
+  color: var(--color-header, #2e2d5d);
+}
+.stats-white-card {
+  background: var(--color-white, #fff);
+  color: var(--color-header, #2e2d5d);
+}
+
+.stats-value {
+  font-size: 2.1em;
+  font-weight: bold;
+}
+.stats-label {
+  font-size: 1em;
+  display: block;
+  margin-top: 8px;
+  line-height: 1.2;
+}
+
+/* Section détails */
+.stats-details {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-direction: row;
+}
+
+.stats-details-part {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+/* Catégories recyclage */
+.stats-category-recycling {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  padding: 18px 14px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-weight: bold;
+  color: var(--color-header, #2e2d5d);
+  font-size: 1.1em;
+}
+.category-list {
+  margin: 12px 0 18px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cat-item {
+  font-size: 1.2em;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.cat-item.mobiliers {
+  color: #74c947;
+}
+.cat-item.informatique {
+  color: #2b75f6;
+}
+.cat-item.outils {
+  color: #ffb946;
+}
+.cat-item.livres-et-fournitures {
+  color: #f26d50;
+}
+.cat-item.tout-categorie {
+  color: #a57ee3;
+}
+.cat-count {
+  font-weight: bold;
+}
+
+.recycle-piechart {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: url("img/piechart-stat.png") no-repeat center center / contain;
+}
+
+.stats-donors,
+.stats-received-objects {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.donors-title,
+.received-title {
+  font-weight: bold;
+  color: var(--color-header, #2e2d5d);
+  font-size: 1.05em;
+}
+.donors-count,
+.received-count {
+  font-size: 2em;
+  color: var(--color-header, #2e2d5d);
+}
+.received-subtext {
+  font-size: 0.92em;
+  color: var(--color-gray, #77787c);
+  margin-top: 6px;
+}
+
+.stats-monthly-objects {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  padding: 22px 32px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.month-title {
+  font-size: 1.18em;
+  font-weight: bold;
+  color: var(--color-header, #2e2d5d);
+}
+.month-value {
+  font-size: 2em;
+  color: var(--color-primary, #c85a2c);
+  margin: 7px 0;
+}
+.month-label {
+  font-weight: bold;
+  color: var(--color-header, #2e2d5d);
+  margin-bottom: 6px;
+}
+.month-desc {
+  font-size: 1em;
+  color: var(--color-header, #2e2d5d);
+}
+
+#repartitionChart {
+  margin-top: 20px;
+}
+@media (max-width: 960px) {
+  .impact-stats-container {
+    max-width: 98vw;
+    padding: 16px;
+  }
+  .stats-summary,
+  .stats-details {
+    flex-direction: column;
+  }
+  .stats-summary .stats-card,
+  .stats-category-recycling,
+  .stats-donors,
+  .stats-received-objects,
+  .stats-month {
+    min-width: 98vw;
+    max-width: 98vw;
+  }
+}
 /* ===== PAGE CHEFDEP ACCEUIL ===== */
 /* ========================================
    DASHBOARD CHEF DEPARTEMENT - ACCUEIL
@@ -5517,7 +5733,6 @@ body {
   display: flex;
   gap: 10px;
   flex-direction: column;
-
 }
 
 /* Navigation mois */

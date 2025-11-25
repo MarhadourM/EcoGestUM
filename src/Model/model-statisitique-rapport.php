@@ -27,7 +27,7 @@ function getObjRecyclesParMois() {
     $annee = date('Y'); 
     $nb_jours = cal_days_in_month(CAL_GREGORIAN, $mois, $annee);
 
-    $sql2 = "SELECT COUNT(*) FROM OBJET_RECYCLABLE WHERE MONTH(date_obj_recycl) = ? AND YEAR(date_obj_recycl) = ? AND id_statut_recyclage_obj = 3";
+    $sql2 = "SELECT COUNT(*) FROM OBJET_RECYCLABLE WHERE MONTH(date_obj_recycl) = ? AND YEAR(date_obj_recycl) = ? AND id_statut_recyclage_obj = 2";
     $stmt2 = $pdo->prepare($sql2);
     $stmt2->execute([$mois, $annee]);
     $objets_recycles = $stmt2->fetchColumn();
@@ -70,6 +70,9 @@ function setNewStatsparMois($nb_jours,$titreStats, $nouveaux_objets) {
         ]);
         }
 }
+
+
+
 function getNomMois($mois) {
     $noms = [
         1 => "janvier", 2 => "février", 3 => "mars", 4 => "avril", 5 => "mai",
@@ -78,6 +81,23 @@ function getNomMois($mois) {
     ];
     return $noms[intval($mois)];
     
+}
+
+function getRepartitionObjetsParCategorie() {
+    $pdo = get_bdd();
+    $sql = "
+        SELECT 
+            cat.nom_cat_obj,
+            COUNT(o.id_obj_recycl) as nombre
+        FROM OBJET_RECYCLABLE o
+        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
+        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
+        INNER JOIN CATEGORIE_OBJET cat ON o.id_cat_obj = cat.id_cat_obj
+        GROUP BY cat.id_cat_obj, cat.nom_cat_obj
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
