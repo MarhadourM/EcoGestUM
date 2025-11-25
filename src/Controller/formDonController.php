@@ -50,7 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($error_message)) {
-        $id_objet = ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat);
+        $id_user = $_SESSION['user']['id_ut'];
+        $idinv = get_inventaire_by_idut($id_user);
+
+        $id_objet = ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat, $idinv);
         if ($id_objet) {
             foreach ($photoNamesSaved as $file) {
                 ajouter_photo_objet($id_objet, $file); // Doit gérer TABLE PHOTO + PHOTO_OBJET

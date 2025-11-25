@@ -137,14 +137,15 @@ function reserver_objet($idObj, $idUt) {
     return true;
 }
 
-function ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat) {
+function ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat, $idinv) {
     $pdo = get_bdd();
-    $sql = "INSERT INTO objet_recyclable (id_cat_obj, nom_obj_recycl, desc_obj_recycl, loca_obj_recycl, id_etat_obj, id_statut_recyclage_obj, date_obj_recycl)
-            VALUES (?, ?, ?, ?, ?, 1, NOW())";
+    $sql = "INSERT INTO objet_recyclable (id_cat_obj, nom_obj_recycl, desc_obj_recycl, loca_obj_recycl, id_etat_obj, id_statut_recyclage_obj, date_obj_recycl, id_inv)
+        VALUES (?, ?, ?, ?, ?, 1, NOW(), ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$categorie, $nom, $description, $localisation, $etat]);
+    $stmt->execute([$categorie, $nom, $description, $localisation, $etat, $idinv]);
     return $pdo->lastInsertId();
 }
+
 
 function ajouter_photo_objet($id_objet, $filename) {
     $pdo = get_bdd();
@@ -162,6 +163,36 @@ function getAuteurObjetRecyclable($idObj) {
     $stmt->execute([':id_Obj' => $idObj]);
     return $stmt->fetchColumn();
 }
+
+function get_inventaire_by_idut($idut) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT id_dept, id_comp, id_univ FROM utilisateur WHERE id_ut = ?");
+    $stmt->execute([$idut]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!empty($user['id_dept'])) {
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM departement WHERE id_dept = ?");
+        $stmt2->execute([$user['id_dept']]);
+        $id_inv = $stmt2->fetchColumn();
+        if ($id_inv) return $id_inv;
+    }
+    if (!empty($user['id_comp'])) {
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM composante WHERE id_comp = ?");
+        $stmt2->execute([$user['id_comp']]);
+        $id_inv = $stmt2->fetchColumn();
+        if ($id_inv) return $id_inv;
+    }
+    if (!empty($user['id_univ'])) {
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM universite WHERE id_univ = ?");
+        $stmt2->execute([$user['id_univ']]);
+        $id_inv = $stmt2->fetchColumn();
+        if ($id_inv) return $id_inv;
+    }
+    return null;
+}
+
+
+
 
 
 
