@@ -2116,6 +2116,8 @@ footer {
   align-items: center;
   gap: 16px;
   width: 100%;
+  caret-color: black;
+
 }
 
 .profil-champs-inline input[type="email"] {
