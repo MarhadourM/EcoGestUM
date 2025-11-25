@@ -5423,7 +5423,6 @@ body {
 
 .btn-telecharger-rapport:hover {
   background-color: #0052a3;
-  transform: scale(1.05);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -5488,5 +5487,546 @@ body {
   .btn-generer {
     padding: 0.7rem 1rem;
     font-size: 0.95rem;
+  }
+}
+/* ===== PAGE CHEFDEP ACCEUIL ===== */
+/* ========================================
+   DASHBOARD CHEF DEPARTEMENT - ACCUEIL
+   ======================================== */
+
+.dashboard-main-content {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #f5f5f5;
+}
+
+/* ========================================
+   SECTION DU HAUT - MOIS + STATS
+   ======================================== */
+
+.dashboard-top {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+/* Navigation mois */
+.timeline-nav-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.timeline-nav {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.timeline-nav:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+/* Statistiques principales */
+.stats-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid;
+  position: relative;
+  background: white;
+}
+
+.stat-icon.red {
+  border-color: #ff6b6b;
+}
+
+.stat-icon.blue {
+  border-color: #4dabf7;
+}
+
+.stat-icon.orange {
+  border-color: #ffa94d;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.stat-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ========================================
+   SECTION MILIEU - RÉPARTITION + IMPACT
+   ======================================== */
+.dashboard-middle {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.repartition-section,
+.impact-card {
+  flex: 1;
+}
+.dashboard-middle {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+/* Répartition des objets */
+.repartition-section {
+  background: #1e293b;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-title-dark {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.repartition-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.chart-container {
+  width: 200px;
+  height: 200px;
+}
+
+/* Légende du graphique */
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 15px;
+}
+
+.legend-bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item[data-color="0"] .legend-bullet {
+  background: #4dabf7;
+}
+
+.legend-item[data-color="1"] .legend-bullet {
+  background: #51cf66;
+}
+
+.legend-item[data-color="2"] .legend-bullet {
+  background: #ffd43b;
+}
+
+.legend-item[data-color="3"] .legend-bullet {
+  background: #ff6b6b;
+}
+
+.legend-item[data-color="4"] .legend-bullet {
+  background: #a78bfa;
+}
+
+.legend-item[data-color="5"] .legend-bullet {
+  background: #f472b6;
+}
+
+.legend-label {
+  flex: 1;
+}
+
+.legend-value {
+  margin-left: auto;
+  font-weight: 600;
+  min-width: 35px;
+  text-align: right;
+  font-size: 16px;
+}
+
+/* Impact total */
+.impact-card {
+  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  padding: 40px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.impact-number {
+  font-size: 72px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.impact-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+/* ========================================
+   BAS DE PAGE DU DASHBOARD
+   ======================================== */
+
+.dashboard-bas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.dashboard-card {
+  padding: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-comm {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 0.3px;
+}
+
+.comm-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+.comm-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+/* Boutons */
+.dashboard-btn {
+  background: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.best-stat,
+.btn-impact {
+  color: #334155;
+}
+
+.comm-btn {
+  color: #dc2626;
+}
+
+.dashboard-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .dashboard-middle {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-cards {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main-content {
+    padding: 15px;
+  }
+
+  .dashboard-top {
+    padding: 15px;
+  }
+
+  .dashboard-bas {
+    grid-template-columns: 1fr;
+  }
+
+  .repartition-section {
+    padding: 25px;
+  }
+
+  .repartition-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .chart-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .impact-number {
+    font-size: 56px;
+  }
+
+  .impact-card {
+    padding: 25px;
+  }
+
+  .stat-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .timeline-nav-container {
+    flex-direction: column;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-nav {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .stat-title {
+    font-size: 13px;
+  }
+
+  .stat-desc {
+    font-size: 11px;
+  }
+
+  .section-title-dark {
+    font-size: 18px;
+  }
+
+  .impact-number {
+    font-size: 48px;
+  }
+
+  .card-title,
+  .comm-title {
+    font-size: 16px;
+  }
+
+  .card-desc,
+  .comm-desc {
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   BAS DE PAGE DU DASHBOARD
+   ======================================== */
+.dashboard-bas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.dashboard-card {
+  padding: 25px;
+  border-radius: 12px;
+  background: white;
+  border: 2px solid #282f63;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-comm {
+  background: white;
+  border: 2px solid #d4451b;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 0.3px;
+  color: #333;
+}
+
+.comm-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: auto;
+  color: #333;
+  flex: 1;
+}
+
+.comm-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: auto;
+  color: #333;
+  flex: 1;
+}
+
+.card-desc strong {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Boutons */
+.dashboard-btn {
+  background: white;
+  border: 2px solid;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.best-stat {
+  color: #282f63;
+  border-color: #282f63;
+}
+
+.comm-btn {
+  color: #d4451b;
+  border-color: #d4451b;
+}
+
+.dashboard-btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-bas {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 20px;
   }
 }

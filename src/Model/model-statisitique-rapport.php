@@ -57,6 +57,7 @@ function getNbeventsParMois() {
 
 
 function setNewStatsparMois($nb_jours,$titreStats, $nouveaux_objets) {
+    $pdo = get_bdd();
     $jour = date('j');
     if($jour == $nb_jours){
 
