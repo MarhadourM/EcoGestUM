@@ -148,7 +148,7 @@ function getAuteurObjetRecyclable($idObj) {
     $pdo = get_bdd();
     $sql = "SELECT id_ut FROM FORMULAIRE_DONATION WHERE id_obj_recycl = :id_Obj";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':id_Obj' => $id_Obj]);
+    $stmt->execute([':id_Obj' => $idObj]);
     return $stmt->fetchColumn();
 }
 

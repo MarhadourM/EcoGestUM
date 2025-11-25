@@ -95,14 +95,15 @@ if ($user_id) {
                 <p class="reservation-id">Réservation n° <?php echo htmlspecialchars($res['id_res']); ?></p>
             </div>
             <div class="btns-res-row">
-                <form method="post">
+                <form method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir annuler cette réservation ?');">
                     <input type="hidden" name="id_res" value="<?php echo htmlspecialchars($res['id_res']); ?>">
                     <button type="submit" name="annuler_res" class="btn-annuler-res">Annuler ma réservation</button>
                 </form>
-                <form method="post">
+                <form method="post" onsubmit="return confirm('Confirmez-vous avoir récupéré cet objet ?');">
                     <input type="hidden" name="id_res" value="<?php echo htmlspecialchars($res['id_res']); ?>">
                     <button type="submit" name="recuperer_res" class="btn-recuperer-res">Récupéré</button>
                 </form>
+
             </div>
         </div>
         <?php

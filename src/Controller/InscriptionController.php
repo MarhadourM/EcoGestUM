@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['annuler_event']) && !
         $stmt = $pdo->prepare("DELETE FROM billet WHERE id_event = ? AND id_ut = ?");
         $stmt->execute([$id_event, $user_id]);
         $message = "Votre inscription à l'événement a été annulée.";
+        $event_name = getEventNameById($id_event);
+        envoyer_notification($user_id, "Annulation de l'inscription pour l'événement : " . htmlspecialchars($event_name), 2);
+
     }
 }
 

@@ -41,10 +41,11 @@ require_once __DIR__ . '/../Controller/InscriptionController.php';
           Prix : <span style="color:#D4451B;font-weight:600;"><?php echo ($ev['prix_event'] == 0) ? 'Gratuit' : htmlspecialchars($ev['prix_event']) . "€"; ?></span>
         </div>
       </div>
-      <form method="post" class="btns-res-row">
-        <input type="hidden" name="id_event" value="<?php echo htmlspecialchars($ev['id_event']); ?>">
-        <button type="submit" name="annuler_event" class="btn-annuler-res">Annuler mon inscription</button>
-      </form>
+      <form method="post" class="btns-res-row" onsubmit="return confirm('Êtes-vous sûr de vouloir annuler votre inscription ?');">
+  <input type="hidden" name="id_event" value="<?php echo htmlspecialchars($ev['id_event']); ?>">
+  <button type="submit" name="annuler_event" class="btn-annuler-res">Annuler mon inscription</button>
+</form>
+
     </div>
     <?php
         $imgIndex = ($imgIndex % 6) + 1;

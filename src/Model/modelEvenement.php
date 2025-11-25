@@ -55,5 +55,10 @@ function getInscriptions($user_id) {
 function getUserEvents($user_id) {
     return getInscriptions($user_id);
 }
-
+function getEventNameById($event_id) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare('SELECT nom_event FROM evenement WHERE id_event = ?');
+    $stmt->execute([$event_id]);
+    return $stmt->fetchColumn();
+}
 ?>
