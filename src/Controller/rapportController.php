@@ -26,14 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($nom) || empty($periode)) {
             $messagesup = "Veuillez remplir tous les champs obligatoires.";
         } else {
-            // Ajouter en base de données
-            if (ajouterRapport($nom, $description, $id_periode, $id_ut)) {
-                $messagesup = "Rapport généré avec succès !";
+            if (existeRapportParNom($nom)) {
+                $messagesup = "Un rapport avec ce nom existe déjà. Veuillez choisir un autre nom.";
             } else {
-                $messagesup = "Erreur lors de la génération du rapport.";
-            }
+                if (ajouterRapport($nom, $description, $id_periode, $id_ut)) {
+                    $messagesup = "Rapport généré avec succès !";
+                } else {
+                    $messagesup = "Erreur lors de la génération du rapport.";
+                }
         }
     }
-
-
-    ?>
+}
+?>

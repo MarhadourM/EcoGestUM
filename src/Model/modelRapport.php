@@ -55,4 +55,13 @@ function supprimerRapport($id_rapport) {
     $stmt = $pdo->prepare("DELETE FROM RAPPORT WHERE id_rapport = ?");
     return $stmt->execute([$id_rapport]);
 }
+
+
+function existeRapportParNom($nom) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM RAPPORT WHERE nom_rapport = ?");
+    $stmt->execute([$nom]);
+    return $stmt->fetchColumn() > 0;
+}
+
 ?>
