@@ -45,6 +45,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", Arial, sans-serif;
+  caret-color: transparent;
   background-color: #f5f5f5;
 }
 
@@ -1504,6 +1505,7 @@ footer {
   .breadcrumb {
     font-size: 0.95em;
     padding: 5px 10px;
+    caret-color: transparent;
   }
 }
 /* PAGE STATISTIQUES ET RAPPORTS */
@@ -1522,6 +1524,7 @@ footer {
   color: #24358e;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.22s;
 }
 .breadcrumbitem.active {
   font-weight: bold;
@@ -4258,6 +4261,7 @@ body {
 /* ===== MENU BURGER ===== */
 .menu-burger-zone {
   position: sticky;
+  cursor: pointer;
   top: 60px; /* hauteur exacte de ton header */
   width: auto;
   z-index: 1101;
@@ -4316,6 +4320,250 @@ body {
 }
 
 /* ===== FIN Menu Burger ===== */
+/*===== DASHBOARD GENERAL =====*/
+.dashboard-main-content {
+  transition: margin-left 0.22s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stat top responsive */
+.dashboard-top,
+.stats-cards {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.stats-cards {
+  margin-bottom: 12px;
+}
+.stat-card {
+  background: #c7c7c7;
+  border-radius: 14px;
+  box-shadow: 0 1px 8px #27306d12;
+  padding: 22px 48px;
+  min-width: 240px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 30vw;
+  box-sizing: border-box;
+}
+.stat-title {
+  color: #27306d;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 2.1em;
+  font-weight: bold;
+  color: #d85a2c;
+  margin-bottom: 7px;
+}
+.stat-desc {
+  font-size: 1.01em;
+  color: #222;
+  text-align: center;
+}
+@media (max-width: 1200px) {
+  .stat-card {
+    width: 45vw;
+    min-width: 220px;
+  }
+}
+@media (max-width: 900px) {
+  .stat-card {
+    width: 97vw;
+    min-width: unset;
+    max-width: 98vw;
+  }
+}
+@media (max-width: 600px) {
+  .stats-cards,
+  .dashboard-top {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .stat-card {
+    width: 98vw;
+    min-width: unset;
+    max-width: 99vw;
+    padding: 12px 3vw;
+  }
+}
+
+/* Cartes rapport & dashboard responsive */
+.dashboard-rapports {
+  background: #111;
+  border-radius: 13px;
+  padding: 28px 16px;
+  max-width: 950px;
+  margin: 44px auto 28px auto;
+  width: 99vw;
+  box-sizing: border-box;
+}
+.rapports-list-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 32px;
+}
+@media (max-width: 800px) {
+  .dashboard-rapports {
+    padding: 14px 6px;
+    max-width: 100vw;
+    min-width: unset;
+  }
+  .rapports-list-cols {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Cards bas de dashboard responsive */
+.dashboard-bas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 34px;
+  justify-content: center;
+}
+.dashboard-card {
+  background: #fff;
+  border: 2px solid #27306d;
+  border-radius: 12px;
+  padding: 20px 26px;
+  flex: 1 1 320px;
+  margin: 10px;
+  min-width: 235px;
+  max-width: 99vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.card-title {
+  font-weight: bold;
+  color: #27306d;
+  margin-bottom: 9px;
+}
+.card-desc {
+  margin-bottom: 18px;
+  font-size: 1em;
+  color: #333;
+}
+.dashboard-btn {
+  background: #fff;
+  color: #27306d;
+  border: 2px solid #27306d;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 8px 26px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none !important;
+  caret-color: transparent;
+}
+.dashboard-btn.best-stat:hover {
+  background: #253180;
+  color: #fff;
+}
+.dashboard-btn.comm-btn:hover {
+  background: #d85a2c;
+  color: #fff;
+}
+
+.dashboard-card.card-comm {
+  background: #fff;
+  color: #d85a2c;
+  border: 2px solid #d85a2c;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.12em;
+  padding: 12px 38px;
+  display: block;
+  margin: 22px auto 0 auto;
+  min-width: 100px;
+  box-shadow: none;
+  text-align: center;
+  transition: background 0.18s, color 0.14s, border-color 0.15s;
+  cursor: pointer;
+  margin: 10px 10px 10px 10px;
+  text-decoration: none;
+}
+.comm-title {
+  color: #d85a2c;
+  font-weight: bold;
+  font-size: 1.18em;
+}
+.comm-desc {
+  color: #333;
+  text-align: center;
+  font-size: 1.06em;
+  margin-bottom: 12px;
+}
+.comm-btn {
+  border-color: #d85a2c;
+  color: #d85a2c;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .dashboard-card.card-comm {
+    min-width: 90vw;
+    max-width: 95vw;
+    padding: 16px 20px;
+    margin: 10px auto;
+  }
+  .comm-title {
+    font-size: 1.1em;
+  }
+  .comm-desc {
+    font-size: 1em;
+  }
+  .comm-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}
+@media (max-width: 600px) {
+  .dashboard-card.card-comm {
+    padding: 12px 16px;
+    margin: 8px auto;
+  }
+  .comm-title {
+    font-size: 1.05em;
+  }
+  .comm-desc {
+    font-size: 0.95em;
+  }
+}
+@media (max-width: 600px) {
+  .dashboard-bas {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dashboard-card {
+    min-width: 95vw;
+    max-width: 99vw;
+    padding: 10px 3vw;
+    box-sizing: border-box;
+  }
+}
 
 /* ===== DASHBOARD STYLES ===== */
 .dashboard-main-content {
@@ -4492,10 +4740,10 @@ body {
   min-width: 240px;
   flex: 1;
   margin: 10px 10px 10px 10px;
-  display: flex; /* Ajoute flexbox */
-  flex-direction: column; /* Colonne */
-  align-items: center; /* Centre horizontalement */
-  justify-content: center; /* Centre verticalement */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 .card-title {
@@ -4537,7 +4785,7 @@ body {
   font-size: 1.12em;
   padding: 12px 38px;
   display: block;
-  margin: 22px auto 0 auto; /* centre le bouton horizontalement */
+  margin: 22px auto 0 auto;
   min-width: 100px;
   box-shadow: none;
   text-align: center;
