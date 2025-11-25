@@ -3951,6 +3951,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 50px;
   width: 100%;
   align-items: center; /* Centre les cards */
 }
@@ -4085,11 +4086,10 @@ footer {
   border-radius: 12px;
   font-weight: 600;
   padding: 24px 18px;
-  margin: 48px auto 0 auto;
+  margin: 48px auto 60px auto;
   box-shadow: 0 1px 8px #24458c16;
   max-width: 420px;
   letter-spacing: 0.5px;
-  margin-bottom: 50px;
 }
 /* ===== PAGE VOS INSCRIPTIONS ===== */
 .reservation-card {
