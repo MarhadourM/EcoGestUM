@@ -26,7 +26,7 @@ if (
     $prenom = $_POST['prenom'];
     $mdp = $_POST['motdepasse'];
     $mdp2 = $_POST['confirmer_mdp'];
-    $idrole = 1; // étudiant par défaut
+    $idrole = 4; // étudiant par défaut
     $iduniv = $_POST['iduniv'];
     $idcomp = $_POST['idcomp'];
     $iddept = $_POST['iddept'];
