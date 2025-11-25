@@ -55,11 +55,6 @@ require_once __DIR__ . '/../../Controller/PresAcceuilController.php';
         </div>
     </div>
 
-    <!-- Section du milieu avec répartition et impact -->
-    <div class="dashboard-middle">
-        
-    </div>
-
     <!-- Derniers rapports -->
     <div class="dashboard-rapports">
         <div class="rapports-title">VOS DERNIERS RAPPORTS</div>
