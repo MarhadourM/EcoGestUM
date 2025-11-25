@@ -101,6 +101,3 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
         </section>
     </div>
 </div>
-
-<!-- Script de génération PDF -->
-<script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/genRapport.js"></script>
