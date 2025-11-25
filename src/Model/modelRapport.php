@@ -37,18 +37,21 @@ function getRapportById($id_rapport) {
         SELECT 
             r.id_rapport,
             r.nom_rapport,
-            r.description_rapport,
-            r.periode_rapport,
+            r.desc_rapport,
+            p.nom_periode,
             r.date_creation,
             u.nom_ut,
             u.pren_ut
         FROM RAPPORT r
         JOIN UTILISATEUR u ON r.id_ut = u.id_ut
+        JOIN PERIODE p ON r.id_periode = p.id_periode
         WHERE r.id_rapport = ?
     ");
     $stmt->execute([$id_rapport]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+
 
 function supprimerRapport($id_rapport) {
     $pdo = get_bdd();

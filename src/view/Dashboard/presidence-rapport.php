@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../../Model/modelRapport.php';
 require_once __DIR__ . '/../../Controller/rapportController.php';
 ?>
@@ -11,7 +10,7 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
             <h2 class="section-title">Personnalisez votre rapport</h2>
             <?php if ($messagesup): ?>
                 <div class="message-success"><?php echo htmlspecialchars($messagesup); ?></div>
-                <?php endif; ?>
+            <?php endif; ?>
             <form method="POST" action="<?php echo getenv('BASE_URL'); ?>dashboard?section=rapport&action=generer" class="rapport-form">
                 
                 <div class="form-group">
@@ -51,7 +50,6 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
                     Générer le rapport
                 </button>
             </form>
-                
         </section>
 
         <!-- Historique des rapports -->
@@ -79,7 +77,7 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
                                 </span>
                             </div>
 
-                           <p class="rapport-card-description"><?php echo htmlspecialchars($rapport['desc_rapport']); ?></p>
+                            <p class="rapport-card-description"><?php echo htmlspecialchars($rapport['desc_rapport']); ?></p>
 
                             <div class="rapport-card-footer">
                                 <div class="rapport-card-info">
@@ -90,10 +88,11 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
                                         Créé par : <?php echo htmlspecialchars($rapport['nom_ut'] . ' ' . $rapport['pren_ut']); ?>
                                     </span>
                                 </div>
-                                <a href="<?php echo getenv('BASE_URL'); ?>telecharger_rapport?id=<?php echo $rapport['id_rapport']; ?>" 
-                                   class="btn-telecharger-rapport">
+                                <button 
+                                    onclick="telechargerRapportPDF(<?php echo $rapport['id_rapport']; ?>)" 
+                                    class="btn-telecharger-rapport">
                                     📥 Télécharger
-                                </a>
+                                </button>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -102,3 +101,6 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
         </section>
     </div>
 </div>
+
+<!-- Script de génération PDF -->
+<script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/genRapport.js"></script>
