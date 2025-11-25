@@ -1,9 +1,14 @@
+<?php
+require_once __DIR__ . '/../model/modelBDD.php';
+$nb_objets_recycles = get_nb_objets_reserves();
+?>
+
 <main class="main-content">
     <!-- Section Hero avec compteur -->
     <section class="hero-section" style="background-image: url('<?php echo getenv('BASE_URL')."src/assets/Images/ObjRecyclTotalImg.png"; ?>');">
         <div class="counter-card">
             <div class="counter-label">Déjà</div>
-            <div class="counter-number">18 065</div>
+            <div class="counter-number"><?= $nb_objets_recycles ?></div>
             <div class="counter-text">objets recyclés</div>
         </div>
     </section>
@@ -55,7 +60,7 @@
     // Animation du compteur
     function animateCounter() {
         const counter = document.querySelector('.counter-number');
-        const target = 18065;
+        const target = <?= (int)$nb_objets_recycles ?>;
         const duration = 2000;
         const steps = 60;
         const increment = target / steps;

@@ -81,6 +81,17 @@ function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function get_nb_objets_reserves() {
+    $pdo = get_bdd();
+    $sql = "SELECT COUNT(*) AS total
+            FROM objet_recyclable
+            WHERE id_statut_recyclage_obj != 1"; 
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return (int)$stmt->fetchColumn();
+}
+
+
 
 function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
