@@ -88,11 +88,11 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
                                         Créé par : <?php echo htmlspecialchars($rapport['nom_ut'] . ' ' . $rapport['pren_ut']); ?>
                                     </span>
                                 </div>
-                                <button 
-                                    onclick="telechargerRapportPDF(<?php echo $rapport['id_rapport']; ?>)" 
-                                    class="btn-telecharger-rapport">
+                                <a 
+                                    href="rapport.pdf?id=<?php echo urlencode($rapport['id_rapport']); ?>" 
+                                    download class="btn-telecharger-rapport">
                                     📥 Télécharger
-                                </button>
+                                </a>
                             </div>
                         </div>
                     <?php endforeach; ?>
