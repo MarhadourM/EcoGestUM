@@ -163,6 +163,4 @@ function getAuteurObjetRecyclable($idObj) {
     return $stmt->fetchColumn();
 }
 
-
-
 ?>

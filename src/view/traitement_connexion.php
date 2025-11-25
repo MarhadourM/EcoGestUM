@@ -15,7 +15,8 @@ if (!empty($_POST['email']) && !empty($_POST['motdepasse'])) {
             'nom_ut' => $user['nom_ut'],
             'prenom_ut' => $user['pren_ut'],
             'email_ut' => $user['email_ut'],
-            'roles' => $user['roles']
+            'roles' => $user['roles'],
+            'id_dept' => $user['id_dept'] ?? null
         ];
         header('Location: '.$_ENV['BASE_URL']);
         exit();

@@ -177,7 +177,7 @@ switch ($page) {
                 default:
                     require_once __DIR__ . '/src/view/Dashboard/presidence-accueil.php';
             }
-        } elseif ($role === 'Chef-Dep') {
+        } elseif ($role === 'Chef de département') {
             switch ($section) {
                 case 'inventaire':
                     require_once __DIR__ . '/src/view/Dashboard/chef-dep-inventaire.php';
@@ -192,7 +192,7 @@ switch ($page) {
                     require_once __DIR__ . '/src/view/Dashboard/chef-dep-historique.php';
                     break;
                 default:
-                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-accueil.php';
+                    require_once __DIR__ . '/src/view/Dashboard/chefdep-acceuil.php';
             }
         }
         break;

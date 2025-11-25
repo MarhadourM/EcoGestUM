@@ -1,4 +1,5 @@
 <?php require_once 'modelBDD.php';
+require_once 'ModelChefDep.php';
 
 
 function get_users(){
@@ -45,7 +46,7 @@ function connexion_utilisateur($email, $motdepasse) {
         $stmtRole = $pdo->prepare("SELECT id_role FROM ROLE_UTILISATEUR WHERE id_ut=?");
         $stmtRole->execute([$user['id_ut']]);
         $roles = $stmtRole->fetchAll(PDO::FETCH_COLUMN);
-
+        $user['id_dept'] = get_idDept($user['id_ut']);
         $user['roles'] = $roles;
         return $user;
     }
