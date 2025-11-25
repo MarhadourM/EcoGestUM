@@ -5511,6 +5511,10 @@ body {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 25px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
 }
 
 /* Navigation mois */

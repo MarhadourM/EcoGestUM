@@ -10,7 +10,7 @@ function get_users(){
     return $users;
 }
 
-function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp, $id_dept, $idrole = 1) {
+function inscription_utilisateur($nom, $prenom, $email, $mdp, $id_univ, $id_comp, $id_dept, $idrole = 4) {
     $pdo = get_bdd();
     $pdo->beginTransaction();
     try {
