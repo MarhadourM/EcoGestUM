@@ -70,8 +70,6 @@ function setNewStatsparMois($nb_jours,$titreStats, $nouveaux_objets) {
         ]);
         }
 }
-
-
 function getNomMois($mois) {
     $noms = [
         1 => "janvier", 2 => "février", 3 => "mars", 4 => "avril", 5 => "mai",
