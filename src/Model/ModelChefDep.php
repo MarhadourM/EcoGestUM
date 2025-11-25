@@ -33,22 +33,6 @@ function getRepartitionObjetsParCategorie($id_dept) {
     $stmt->execute([$id_dept]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-function getTotalObjetsRecycles($id_dept) {
-    $pdo = get_bdd();
-    
-    // Via INVENTAIRE lié au département
-    $sql = "
-        SELECT COUNT(*) 
-        FROM OBJET_RECYCLABLE o
-        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
-        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
-        WHERE o.id_statut_recyclage_obj = 3 
-        AND d.id_dept = ?
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id_dept]);
-    return $stmt->fetchColumn();
-}
 
 function getStatsMois($mois, $annee, $id_dept) {
     $pdo = get_bdd();
@@ -67,16 +51,17 @@ function getStatsMois($mois, $annee, $id_dept) {
     $stmt->execute([$mois, $annee, $id_dept]);
     $nouveaux_objets = $stmt->fetchColumn();
     
-    $sql_recycles = "
-        SELECT COUNT(*) 
-        FROM OBJET_RECYCLABLE o
-        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
-        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
-        WHERE MONTH(o.date_obj_recycl) = ? 
-        AND YEAR(o.date_obj_recycl) = ? 
-        AND o.id_statut_recyclage_obj = 3 
-        AND d.id_dept = ?
-    ";
+   $sql_recycles = "
+    SELECT COUNT(*) 
+    FROM OBJET_RECYCLABLE o
+    INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
+    INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
+    WHERE MONTH(o.date_obj_recycl) = ? 
+    AND YEAR(o.date_obj_recycl) = ? 
+    AND o.id_statut_recyclage_obj = 2 
+    AND d.id_dept = ?
+";
+
     $stmt = $pdo->prepare($sql_recycles);
     $stmt->execute([$mois, $annee, $id_dept]);
     $objets_recycles = $stmt->fetchColumn();

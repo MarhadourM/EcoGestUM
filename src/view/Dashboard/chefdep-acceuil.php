@@ -69,9 +69,9 @@ require_once __DIR__ . '/../../Controller/ChefDepAcceuilController.php';
             </div>
         </div>
         <div class="impact-card">
-            <div class="impact-number"><?php echo $impact_total; ?></div>
+            <div class="impact-number"><?php echo get_nb_objets_reserves(); ?></div>
             <div class="impact-text">
-                objets recyclés au sein du département depuis le lancement de la plateforme EcoGestUM
+                objets recyclés au sein de l'université du Mans depuis le lancement de la plateforme EcoGestUM
             </div>
             <a href="<?php echo getenv('BASE_URL'); ?>dashboard?section=impact" class="dashboard-btn btn-impact">
                 Statistiques et impact
