@@ -35,14 +35,7 @@ require_once __DIR__ . '/../Controller/communicationController.php';
                         <?php echo date('d/m/Y', strtotime($comm['date_comm'])); ?>
                     </span>
                 </div>
-                <?php if (get_nom_role($_SESSION['user']['roles'][0])==='Présidence'): ?>
-                    <form method="POST" action="<?php echo getenv('BASE_URL'); ?>communications?action=supprimer">
-                        <input type="hidden" name="id_comm" value="<?php echo $comm['id_comm']; ?>">
-                        <button type="submit" class="btn-delete-link" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette communication ?');" >
-                            🗑️ Supprimer
-                        </button>
-                    </form>
-                <?php endif; ?>
+                
 
                 <div class="communication-content">
                     <p class="communication-description">
@@ -57,6 +50,14 @@ require_once __DIR__ . '/../Controller/communicationController.php';
                             <?php echo htmlspecialchars($comm['nom_ut'] . ' ' . $comm['pren_ut']); ?>
                         </span>
                     </div>
+                    <?php if (get_nom_role($_SESSION['user']['roles'][0])==='Présidence'): ?>
+                    <form method="POST" action="<?php echo getenv('BASE_URL'); ?>communications?action=supprimer">
+                        <input type="hidden" name="id_comm" value="<?php echo $comm['id_comm']; ?>">
+                        <button type="submit" class="btn-delete-link" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette communication ?');" >
+                            Supprimer
+                        </button>
+                    </form>
+                <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; ?>

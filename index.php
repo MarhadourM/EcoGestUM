@@ -131,6 +131,7 @@ switch ($page) {
                 case 'rapport':
                     require_once __DIR__ . '/src/view/Dashboard/presidence-rapport.php';
                     break;
+            
                 default:
                     require_once __DIR__ . '/src/view/Dashboard/presidence-accueil.php';
             }
