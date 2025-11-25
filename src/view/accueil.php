@@ -47,6 +47,12 @@ $nb_objets_recycles = get_nb_objets_reserves();
             </div>
         </div>
     </section>
+    <!-- Section Communications officielles -->
+    <section class="communications-section">
+        <h2 class="communications-title">Communications Officielles</h2>
+        <p class="communications-text">Restez informé des dernières actualités et annonces importantes d'EcoGestUM</p>
+        <a href="<?php echo getenv('BASE_URL'); ?>communications" class="communications-btn">Accéder aux Communications</a>
+    </section>
 
     <!-- Section Points de collecte -->
     <section class="collect-section">
@@ -54,6 +60,8 @@ $nb_objets_recycles = get_nb_objets_reserves();
         <p class="collect-text">Découvrez nos points de collectes et de distribution d'objets et matériaux sur notre carte interactive</p>
         <button class="collect-btn">Voir la Carte</button>
     </section>
+
+    
 </main>
 
 <script>

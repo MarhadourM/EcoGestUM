@@ -59,4 +59,13 @@ function email_existe($email) {
     $count = $stmt->fetchColumn();
     return $count > 0;
 }
+
+function get_nom_role($id_role) {
+    $pdo = get_bdd();
+    $stmt = $pdo->prepare("SELECT nom_role FROM roles WHERE id_role = ?");
+    $stmt->execute([$id_role]);
+    return $stmt->fetchColumn();
+}
+
+
 ?>

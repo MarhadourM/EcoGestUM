@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/src/model/utilisateur_model.php';
 require_once __DIR__ . '/src/Model/modelNotif.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -8,6 +9,13 @@ $dotenv->load();
 session_start();
 
 $page = $_GET['page'] ?? 'accueil';
+$section = $_GET['section'] ?? null;
+$action= $_GET['action'] ?? null;
+
+$role = null;
+if (isset($_SESSION['user']['roles'][0])) {
+    $role = get_nom_role($_SESSION['user']['roles'][0]);
+}
 
 // Router les pages
 switch ($page) {
@@ -150,6 +158,51 @@ switch ($page) {
         require_once __DIR__.'/src/controller/formDonController.php';
         break;
 
+    case 'dashboard':
+        require_once __DIR__ . '/src/view/Templates/header.php';
+        require_once __DIR__ . '/src/view/Templates/menu-dashboard.php';
+        if ($role === 'Présidence') {
+            switch ($section) {
+                case 'impact':
+                    require_once __DIR__ . '/src/view/Dashboard/presidence-impact.php';
+                    break;
+                case 'communication':
+                    require_once __DIR__ . '/src/view/Dashboard/presidence-communication.php';
+                    break;
+                        
+                case 'rapport':
+                    require_once __DIR__ . '/src/view/Dashboard/presidence-rapport.php';
+                    break;
+            
+                default:
+                    require_once __DIR__ . '/src/view/Dashboard/presidence-accueil.php';
+            }
+        } elseif ($role === 'Chef-Dep') {
+            switch ($section) {
+                case 'inventaire':
+                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-inventaire.php';
+                    break;
+                case 'communication':
+                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-communication.php';
+                    break;
+                case 'impact':
+                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-impact.php';
+                    break;
+                case 'historique':
+                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-historique.php';
+                    break;
+                default:
+                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-accueil.php';
+            }
+        }
+        break;
+
+    case 'communications':
+    require_once __DIR__ . '/src/view/Templates/header.php';
+    require_once __DIR__ . '/src/view/communications-officielles.php';
+    require_once __DIR__ . '/src/view/Templates/footer.php';
+    break;
+    
     case 'signalementObj':
         require_once __DIR__ . '/src/view/signalementObj.php';
         break;
