@@ -18,18 +18,18 @@ require_once __DIR__ . '/../../Model/utilisateur_model.php';
 <body>
     <header class="header">
         <!-- Top bar -->
-        <div class="header__top">
-            <div id="logo_accueil" class="header__logo">
+        <div class="header_top">
+            <div id="logo_accueil" class="header_logo">
                 <div class="LogoAcceuil">
                     <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université">
                 </div>
-                <span class="header__separator">|</span>
-                <span class="header__site-name">EcoGestUM</span>
+                <span class="header_separator">|</span>
+                <span class="header_site-name">EcoGestUM</span>
             </div>
             <?php if (empty($_SESSION['isConnected']) || $_SESSION['isConnected'] !== true): ?>
-                <button class="header__connect-btn">SE CONNECTER</button>
+                <button class="header_connect-btn">SE CONNECTER</button>
             <?php else: ?>
-        <div class="header__right">
+        <div class="header_right">
             <?php if(get_nom_role($_SESSION['user']['roles'][0]) == 'Présidence' || get_nom_role($_SESSION['user']['roles'][0]) == 'Chef de département'): ?>
             <div id= "dashbord">
                 <button class="button-dashboard" ><a href="<?php echo getenv('BASE_URL'); ?>dashboard">DASHBOARD</a></button>
@@ -45,57 +45,57 @@ require_once __DIR__ . '/../../Model/utilisateur_model.php';
             <?php endif; ?>
         </div>
         <!-- Navigation principale -->
-        <nav class="header__nav">
+        <nav class="header_nav">
             <div class="nav">
-                <div class="nav__item <?php if($page == 'statistiques'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>statistiques" class="nav__link">
-                        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav_item <?php if($page == 'statistiques'){echo 'active';} ?>">
+                    <a href="<?php echo getenv('BASE_URL'); ?>statistiques" class="nav_link">
+                        <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M18 17V9M13 17v-5M8 17v-3" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav__text">Statistiques</span>
+                        <span class="nav_text">Statistiques</span>
                     </a>
                 </div>
 
-                <div class="nav__item <?php if($page == 'notre-politique'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="nav__link">
-                        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav_item <?php if($page == 'notre-politique'){echo 'active';} ?>">
+                    <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="nav_link">
+                        <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
                             <polyline points="17 21 17 13 7 13 7 21" stroke-linecap="round" stroke-linejoin="round"/>
                             <polyline points="7 3 7 8 15 8" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav__text">Notre politique</span>
+                        <span class="nav_text">Notre politique</span>
                     </a>
                 </div>
 
-                <div class="nav__item <?php if($page == 'espace-reprise'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>espace-reprise" class="nav__link">
-                        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav_item <?php if($page == 'espace-reprise'){echo 'active';} ?>">
+                    <a href="<?php echo getenv('BASE_URL'); ?>espace-reprise" class="nav_link">
+                        <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav__text">Espace Reprise</span>
+                        <span class="nav_text">Espace Reprise</span>
                     </a>
                 </div>
 
-                <div class="nav__item <?php if($page == 'evenements'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>evenements" class="nav__link">
-                        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav_item <?php if($page == 'evenements'){echo 'active';} ?>">
+                    <a href="<?php echo getenv('BASE_URL'); ?>evenements" class="nav_link">
+                        <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav__text">Évènements</span>
+                        <span class="nav_text">Évènements</span>
                     </a>
                 </div>
 
-                <div class="nav__item <?php if($page == 'messagerie'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>messagerie" class="nav__link">
-                        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav_item <?php if($page == 'messagerie'){echo 'active';} ?>">
+                    <a href="<?php echo getenv('BASE_URL'); ?>messagerie" class="nav_link">
+                        <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav__text">Messagerie</span>
+                        <span class="nav_text">Messagerie</span>
                     </a>
                 </div>
             </div>
@@ -105,9 +105,9 @@ require_once __DIR__ . '/../../Model/utilisateur_model.php';
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Animation fluide de la navigation
-        document.querySelectorAll('.nav__item').forEach(item => {
+        document.querySelectorAll('.nav_item').forEach(item => {
             item.addEventListener('click', function(e) {
-                document.querySelectorAll('.nav__item').forEach(navItem => {
+                document.querySelectorAll('.nav_item').forEach(navItem => {
                     navItem.classList.remove('active');
                 });
                 this.classList.add('active');
@@ -131,7 +131,7 @@ require_once __DIR__ . '/../../Model/utilisateur_model.php';
         });
 
         // Gestion du bouton de connexion
-        let connectBtn = document.querySelector('.header__connect-btn');
+        let connectBtn = document.querySelector('.header_connect-btn');
         if(connectBtn) {
             connectBtn.addEventListener('click', function() {
                 window.location.href = '<?php echo getenv('BASE_URL'); ?>connexion';

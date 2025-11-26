@@ -60,7 +60,7 @@ body {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.header__top {
+.header_top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +72,7 @@ body {
   transition: padding 0.3s ease;
 }
 
-.header__logo {
+.header_logo {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -80,11 +80,11 @@ body {
   transition: transform 0.3s ease;
 }
 
-.header__logo:hover {
+.header_logo:hover {
   transform: scale(1.05);
 }
 
-.header__logo-img {
+.header_logo-img {
   width: 32px;
   height: 32px;
   background-color: var(--color-white);
@@ -96,41 +96,41 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.header__logo-img:hover {
+.header_logo-img:hover {
   transform: rotate(5deg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.header__logo-text,
-.header__separator,
-.header__site-name {
+.header_logo-text,
+.header_separator,
+.header_site-name {
   transition: color 0.3s ease;
 }
 
-.header__logo-text {
+.header_logo-text {
   color: var(--color-white);
   font-size: 18px;
   font-weight: 500;
 }
 
-.header__separator {
+.header_separator {
   color: var(--color-white);
   font-size: 18px;
   margin: 0 8px;
 }
 
-.header__site-name {
+.header_site-name {
   color: var(--color-white);
   font-size: 18px;
   font-weight: 400;
 }
-.header__separator,
-.header__site-name {
+.header_separator,
+.header_site-name {
   user-select: none;
   pointer-events: none;
   cursor: default;
 }
-.header__connect-btn {
+.header_connect-btn {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
@@ -144,11 +144,11 @@ body {
   transition: background-color 0.2s;
 }
 
-.header__connect-btn:hover {
+.header_connect-btn:hover {
   background-color: #b14f25;
 }
 
-.header__nav {
+.header_nav {
   background-color: var(--color-white);
   border-top: 1px solid var(--color-border);
 }
@@ -188,7 +188,7 @@ body {
   cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.8s ease;
 }
-.header__right {
+.header_right {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -212,13 +212,13 @@ body {
   }
 }
 
-.nav__text {
+.nav_text {
   font-size: 13px;
   font-weight: 500;
   color: var(--color-dark);
 }
 
-.nav__item.active .nav__text {
+.nav_item.active .nav_text {
   color: var(--color-header);
 }
 
@@ -226,7 +226,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.header__connect-btn {
+.header_connect-btn {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
@@ -242,7 +242,7 @@ body {
   overflow: hidden;
 }
 
-.header__connect-btn::before {
+.header_connect-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -258,22 +258,22 @@ body {
   transition: left 0.5s ease;
 }
 
-.header__connect-btn:hover::before {
+.header_connect-btn:hover::before {
   left: 100%;
 }
 
-.header__connect-btn:hover {
+.header_connect-btn:hover {
   background-color: #b14f25;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(193, 90, 44, 0.4);
 }
 
-.header__connect-btn:active {
+.header_connect-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(193, 90, 44, 0.3);
 }
 
-.header__nav {
+.header_nav {
   background-color: var(--color-white);
   border-top: 1px solid var(--color-border);
   overflow: hidden;
@@ -287,7 +287,7 @@ body {
   margin: 0 auto;
 }
 
-.nav__item {
+.nav_item {
   flex: 1;
   text-align: center;
   padding: 16px 12px;
@@ -297,7 +297,7 @@ body {
   position: relative;
 }
 
-.nav__item::before {
+.nav_item::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -309,24 +309,29 @@ body {
   transform: translateX(-50%);
 }
 
-.nav__item:hover::before {
+.nav_item:hover::before {
   width: 100%;
 }
 
-.nav__item:hover {
+.nav_item:hover {
   background-color: var(--color-gray-light);
   transform: translateY(-2px);
 }
 
-.nav__item.active {
+.nav_item.active {
   border-bottom-color: var(--color-primary);
 }
 
-.nav__item.active::before {
+.nav_item.active::before {
   width: 100%;
+  height: 0.5px;
+}
+.nav_item.active:hover {
+  background-color: inherit;
+  transform: none;
 }
 
-.nav__link {
+.nav_link {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -336,35 +341,35 @@ body {
   transition: transform 0.3s ease;
 }
 
-.nav__icon {
+.nav_icon {
   width: 28px;
   height: 28px;
   color: var(--color-gray);
   transition: all 0.3s ease;
 }
 
-.nav__item:hover .nav__icon {
+.nav_item:hover .nav_icon {
   transform: scale(1.1);
   color: var(--color-primary);
 }
 
-.nav__item.active .nav__icon {
+.nav_item.active .nav_icon {
   color: var(--color-primary);
 }
 
-.nav__text {
+.nav_text {
   font-size: 13px;
   font-weight: 500;
   color: var(--color-dark);
   transition: all 0.3s ease;
 }
 
-.nav__item:hover .nav__text {
+.nav_item:hover .nav_text {
   color: var(--color-primary);
   font-weight: 600;
 }
 
-.nav__item.active .nav__text {
+.nav_item.active .nav_text {
   color: var(--color-primary);
   font-weight: 600;
 }
@@ -395,23 +400,23 @@ body {
   }
 }
 
-.nav__item {
+.nav_item {
   animation: fadeInUp 0.5s ease-out backwards;
 }
 
-.nav__item:nth-child(1) {
+.nav_item:nth-child(1) {
   animation-delay: 0.1s;
 }
-.nav__item:nth-child(2) {
+.nav_item:nth-child(2) {
   animation-delay: 0.2s;
 }
-.nav__item:nth-child(3) {
+.nav_item:nth-child(3) {
   animation-delay: 0.3s;
 }
-.nav__item:nth-child(4) {
+.nav_item:nth-child(4) {
   animation-delay: 0.5s;
 }
-.nav__item:nth-child(5) {
+.nav_item:nth-child(5) {
   animation-delay: 0.8s;
 }
 
@@ -649,24 +654,24 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header__top {
+  .header_top {
     padding: 12px 16px;
   }
 
-  .header__top {
+  .header_top {
     padding: 12px 16px;
   }
 
-  .header__logo-text,
-  .header__site-name {
+  .header_logo-text,
+  .header_site-name {
     font-size: 16px;
   }
 
-  .nav__text {
+  .nav_text {
     font-size: 11px;
   }
 
-  .nav__item {
+  .nav_item {
     padding: 12px 8px;
   }
 }
@@ -848,7 +853,7 @@ footer {
     padding: 12px 24px;
     font-size: 1.1rem;
   }
-  .nav__item {
+  .nav_item {
     padding: 12px 8px;
   }
 
@@ -1365,14 +1370,14 @@ footer {
 /*====== politique =====*/
 
 /* Section intro, full-width, background blanc */
-.politique__intro {
+.politique_intro {
   width: 100%;
   background: #fff;
   /*  box-shadow: 0 1px 10px rgba(39,60,170,0.06);*/
   border-radius: 0;
   padding: 28px 0 24px 0;
 }
-.politique__intro p {
+.politique_intro p {
   font-size: 1.18em;
   font-weight: bold;
   color: #000;
@@ -1385,10 +1390,10 @@ footer {
 }
 
 /* Sections sur toute la largeur, fond très clair */
-.politique__engagements,
-.politique__objectifs,
-.politique__conseils,
-.politique__campus {
+.politique_engagements,
+.politique_objectifs,
+.politique_conseils,
+.politique_campus {
   background: #f6fafd;
   width: 100%;
   box-sizing: border-box;
@@ -1397,7 +1402,7 @@ footer {
 }
 
 /* Sous-titres larges */
-.politique__subtitle {
+.politique_subtitle {
   font-size: 2em;
   color: #24358e;
   font-weight: 700;
@@ -1407,10 +1412,10 @@ footer {
 }
 
 /* Listes centrées et larges */
-.politique__list,
-.politique__objectifs ul,
-.politique__conseils ul,
-.politique__campus ul {
+.politique_list,
+.politique_objectifs ul,
+.politique_conseils ul,
+.politique_campus ul {
   list-style: none;
   max-width: 900px;
   margin: 0 auto;
@@ -1419,10 +1424,10 @@ footer {
   text-align: left;
 }
 
-.politique__list li,
-.politique__objectifs li,
-.politique__conseils li,
-.politique__campus li {
+.politique_list li,
+.politique_objectifs li,
+.politique_conseils li,
+.politique_campus li {
   background: #fff;
   margin: 18px 0;
   padding: 20px 24px;
@@ -1435,10 +1440,10 @@ footer {
 }
 
 /* Icône devant chaque liste */
-.politique__list li::before,
-.politique__objectifs li::before,
-.politique__conseils li::before,
-.politique__campus li::before {
+.politique_list li::before,
+.politique_objectifs li::before,
+.politique_conseils li::before,
+.politique_campus li::before {
   content: "•";
   color: #c85a2c;
   font-size: 1.08em;
@@ -1447,19 +1452,19 @@ footer {
   vertical-align: middle;
 }
 
-.politique__list strong,
-.politique__campus strong {
+.politique_list strong,
+.politique_campus strong {
   color: #193fc9;
   font-weight: bold;
   font-size: 1.07em;
 }
 
-.politique__statlink {
+.politique_statlink {
   color: #c85a2c;
   text-decoration: underline;
   font-weight: 600;
 }
-.politique__objectifs span {
+.politique_objectifs span {
   color: #ca8000;
   font-weight: 800;
   font-style: italic;
@@ -1468,37 +1473,37 @@ footer {
 
 /* Responsive full width */
 @media (max-width: 970px) {
-  .politique__title {
+  .politique_title {
     font-size: 1.4em;
   }
-  .politique__intro p,
-  .politique__list li,
-  .politique__objectifs li,
-  .politique__conseils li,
-  .politique__campus li {
+  .politique_intro p,
+  .politique_list li,
+  .politique_objectifs li,
+  .politique_conseils li,
+  .politique_campus li {
     font-size: 1em;
     padding: 17px 8vw;
   }
-  .politique__engagements,
-  .politique__objectifs,
-  .politique__conseils,
-  .politique__campus {
+  .politique_engagements,
+  .politique_objectifs,
+  .politique_conseils,
+  .politique_campus {
     padding: 22px 0;
   }
 }
 @media (max-width: 600px) {
-  .politique__title {
+  .politique_title {
     font-size: 1em;
     margin-top: 13px;
   }
-  .politique__subtitle {
+  .politique_subtitle {
     font-size: 0.97em;
   }
-  .politique__intro p,
-  .politique__list li,
-  .politique__objectifs li,
-  .politique__conseils li,
-  .politique__campus li {
+  .politique_intro p,
+  .politique_list li,
+  .politique_objectifs li,
+  .politique_conseils li,
+  .politique_campus li {
     font-size: 0.98em;
     padding: 13px 4vw;
   }
