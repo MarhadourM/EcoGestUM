@@ -1,5 +1,5 @@
 <?php require_once 'modelBDD.php';
-require_once 'ModelChefDep.php';
+require_once 'modelChefDep.php';
 
 
 function get_users(){

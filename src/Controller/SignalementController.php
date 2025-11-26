@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once __DIR__ . '/../model/modelBDD.php';
-require_once __DIR__ . '/../model/ModelSignalement.php';
-require_once __DIR__ . '/../model/ModelReservations.php';
+require_once __DIR__ . '/../model/modelSignalement.php';
+require_once __DIR__ . '/../model/modelReservations.php';
 
 $error_message = '';
 

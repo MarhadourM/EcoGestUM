@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/ModelReservations.php';
+require_once __DIR__ . '/../model/modelReservations.php';
 $error_message = $_SESSION['signalement_error'] ?? '';
 unset($_SESSION['signalement_error']);
 $user_id = $_SESSION['user']['id_ut'] ?? null;

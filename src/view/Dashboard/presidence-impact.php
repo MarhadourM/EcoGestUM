@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../model/model-statisitique-rapport.php';
+require_once __DIR__ . '/../../model/modelStatistiqueRapport.php';
 require_once __DIR__. '/../../model/modelBDD.php';
 $data = getRepartitionObjetsParCategorie();
 $nb_objets_recycles = get_nb_objets_reserves();

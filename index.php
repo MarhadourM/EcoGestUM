@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/src/model/utilisateur_model.php';
+require __DIR__ . '/src/model/modelUtilisateur.php';
 require_once __DIR__ . '/src/Model/modelNotif.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
