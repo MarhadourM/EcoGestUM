@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../model/modelHistoriqueOpRecyclage.php';
 
 // Sécurité session
 if (!isset($_SESSION['user'])) {

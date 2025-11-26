@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/ModelReservations.php';
+require_once __DIR__ . '/../model/modelReservations.php';
 $error_message = $_SESSION['signalement_error'] ?? '';
 unset($_SESSION['signalement_error']);
 $user_id = $_SESSION['user']['id_ut'] ?? null;
@@ -15,18 +15,18 @@ $reservations = $user_id ? get_user_reservations_sans_signalement($user_id) : []
 </head>
 <body>
 <div class="connexion-page" style="background-image:url('<?php echo getenv('BASE_URL')."src/assets/Images/ConnexionImg.png"; ?>');">
-    <div class="formdon-back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>espace-reprise'">
+    <div class="formDon-back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>espace-reprise'">
         <svg viewBox="0 0 24 24" fill="none" stroke="#1B2963" stroke-width="2" width="36" height="36">
             <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-    <div class="formdon-container">
-        <div class="formdon-logo">
+    <div class="formDon-container">
+        <div class="formDon-logo">
             <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
         </div>
-        <h2 class="formdon-title">FORMULAIRE DE SIGNALEMENT</h2>
-        <form class="formdon-form" method="POST" action="traitement_signalement" enctype="multipart/form-data">
-            <div class="formdon-group" style="margin-bottom:24px;">
+        <h2 class="formDon-title">FORMULAIRE DE SIGNALEMENT</h2>
+        <form class="formDon-form" method="POST" action="traitement_signalement" enctype="multipart/form-data">
+            <div class="formDon-group" style="margin-bottom:24px;">
                 <label>Sélectionner un objet réservé :</label>
                 <select name="idres" required>
                     <option value="">Choisir une réservation</option>
@@ -37,29 +37,29 @@ $reservations = $user_id ? get_user_reservations_sans_signalement($user_id) : []
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="formdon-group">
+            <div class="formDon-group">
                 <label for="description">Description du problème</label>
                 <textarea name="description" id="description" rows="4" placeholder="Décrivez le problème de l'objet" required></textarea>
             </div>
-            <div class="formdon-group" style="margin-bottom:20px">
+            <div class="formDon-group" style="margin-bottom:20px">
                 <label>Photo du signalement :</label>
-                <label class="formdon-file-label">
+                <label class="formDon-file-label">
                     <input type="file" name="photos[]" accept="image/jpeg, image/png" multiple required>
                     <span>Sélectionner un fichier</span>
                 </label>
                 <small>Format : JPEG, PNG</small>
             </div>
             <?php if (!empty($error_message)): ?>
-                <div class="formdon-error">
+                <div class="formDon-error">
                     <?php echo htmlspecialchars($error_message); ?>
                 </div>
             <?php endif; ?>
             <?php if (!empty($_GET['success']) && $_GET['success'] === 'signalement'): ?>
-                <div class="formdon-success">
+                <div class="formDon-success">
                     Signalement transmis avec succès !
                 </div>
             <?php endif; ?>
-            <button type="submit" class="formdon-btn">CONFIRMER LE SIGNALEMENT</button>
+            <button type="submit" class="formDon-btn">CONFIRMER LE SIGNALEMENT</button>
         </form>
     </div>
 </div>

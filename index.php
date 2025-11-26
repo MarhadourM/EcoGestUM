@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/src/model/utilisateur_model.php';
+require __DIR__ . '/src/model/modelUtilisateur.php';
 require_once __DIR__ . '/src/Model/modelNotif.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -38,7 +38,7 @@ switch ($page) {
         break;
 
     case 'traitement_connexion':
-        require_once __DIR__ . '/src/view/traitement_connexion.php';
+        require_once __DIR__ . '/src/controller/traitement_connexion.php';
         break;
 
     case 'deconnexion':
@@ -49,7 +49,7 @@ switch ($page) {
         break;
 
     case 'traitement_inscription':
-        require_once __DIR__ . '/src/view/traitement_inscription.php';
+        require_once __DIR__ . '/src/controller/traitement_inscription.php';
         break;
 
     case 'profil':
@@ -100,18 +100,18 @@ switch ($page) {
         require_once __DIR__ . '/src/view/messagerie.php';
         break;
 
-    case 'formBesoinObj':
-        require_once __DIR__.'/src/view/formBesoinObj.php';
+    case 'form-besoin-objet':
+        require_once __DIR__.'/src/view/form-besoin-objet.php';
         break;
 
-    case 'traitement_formBesoinObj':
+    case 'traitement_form-besoin-objet':
         require_once __DIR__.'/src/controller/formBesoinController.php';
         break;
 
-    case 'besoinsObjEnseignants':
-        require_once __DIR__ . '/src/controller/besoinsObjEnseignantsController.php';
+    case 'besoins-objet-enseignants':
+        require_once __DIR__ . '/src/controller/besoins-objet-enseignantsController.php';
         require_once __DIR__ . '/src/view/Templates/header.php';
-        require_once __DIR__.'/src/view/besoinsObjEnseignants.php';
+        require_once __DIR__.'/src/view/besoins-objet-enseignants.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
 
@@ -128,15 +128,15 @@ switch ($page) {
 
     case 'mesReservation':
         require_once __DIR__ . '/src/view/Templates/header.php';
-        require_once __DIR__ . '/src/view/MesReservations.php';
+        require_once __DIR__ . '/src/view/mes-reservations.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
      case 'recuperer_reservation':
-         require_once __DIR__ . '/src/Controller/ReservationsController.php';
+         require_once __DIR__ . '/src/Controller/reservationsController.php';
          break;
     case 'mesInscriptions':
         require_once __DIR__ . '/src/view/Templates/header.php';
-        require_once __DIR__ . '/src/view/VosInscriptions.php';
+        require_once __DIR__ . '/src/view/vos-inscriptions.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
 
@@ -151,7 +151,7 @@ switch ($page) {
         break;
 
     case 'formDon':
-        require_once __DIR__.'/src/view/formDon.php';
+        require_once __DIR__.'/src/view/form-don.php';
         break;
 
     case 'traitement_formDon':
@@ -180,7 +180,7 @@ switch ($page) {
         } elseif ($role === 'Chef de département') {
             switch ($section) {
                 case 'inventaire':
-                    require_once __DIR__ . '/src/view/Dashboard/dashboardInventaireDep.php';
+                    require_once __DIR__ . '/src/view/Dashboard/chefdep-inventaire.php';
                     break;
                 case 'communication':
                     require_once __DIR__ . '/src/view/Dashboard/chefdep-communication.php';
@@ -189,7 +189,7 @@ switch ($page) {
                     require_once __DIR__ . '/src/view/Dashboard/chefdep-impact.php';
                     break;
                 case 'historique':
-                    require_once __DIR__ . '/src/view/Dashboard/HistoriqueOpRecyclageChefDep.php';
+                    require_once __DIR__ . '/src/view/Dashboard/chefdep-historique-operation.php';
                     break;
                 default:
                     require_once __DIR__ . '/src/view/Dashboard/chefdep-acceuil.php';
@@ -204,11 +204,11 @@ switch ($page) {
     break;
     
     case 'signalementObj':
-        require_once __DIR__ . '/src/view/signalementObj.php';
+        require_once __DIR__ . '/src/view/signalement-objet.php';
         break;
 
     case 'traitement_signalement':
-        require_once __DIR__ . '/src/controller/SignalementController.php';
+        require_once __DIR__ . '/src/controller/signalementController.php';
         break;
 
     case 'telecharger_rapport':

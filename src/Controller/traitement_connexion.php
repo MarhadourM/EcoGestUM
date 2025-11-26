@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/utilisateur_model.php';
+require_once __DIR__ . '/../model/modelUtilisateur.php';
 
 if (!empty($_POST['email']) && !empty($_POST['motdepasse'])) {
     $email = $_POST['email'];

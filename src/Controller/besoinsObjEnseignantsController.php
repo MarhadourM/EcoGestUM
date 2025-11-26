@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/besoinEnseignant_model.php';
+require_once __DIR__ . '/../model/modelBesoinEnseignant.php';
 
 // Initialiser tout pour la vue
 $search = $_GET['search'] ?? '';

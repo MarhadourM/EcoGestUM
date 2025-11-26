@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../Controller/EvenementController.php';
+require_once __DIR__ . '/../Controller/evenementController.php';
 $imgIndex = 1;
 $message = $message ?? '';
 

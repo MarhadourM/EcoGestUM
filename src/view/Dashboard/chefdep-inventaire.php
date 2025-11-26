@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../../Controller/InventaireDepController.php'; ?>
+<?php require_once __DIR__ . '/../../Controller/inventaireDepController.php'; ?>
 <div class="invdep-main-content">
     <div class="invdep-header">
         <h1 class="invdep-title">Inventaire du département</h1>

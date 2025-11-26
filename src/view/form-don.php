@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
+require_once __DIR__ . '/../model/modelFormulaireDon.php';
 $error_message = $_SESSION['formDon_error'] ?? '';
 unset($_SESSION['formDon_error']);
 $etats_objet = get_etats_objet();
@@ -16,27 +16,27 @@ $categories = get_categories_objet();
 </head>
 <body>
     <div class="connexion-page" style="background-image:url('<?php echo getenv('BASE_URL')."src/assets/Images/ConnexionImg.png"; ?>');">
-    <div class="formdon-back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>espace-reprise'">
+    <div class="formDon-back-arrow" onclick="window.location.href='<?php echo getenv('BASE_URL'); ?>espace-reprise'">
         <svg viewBox="0 0 24 24" fill="none" stroke="#1B2963" stroke-width="2" width="36" height="36">
             <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-        <div class="formdon-container">
-            <div class="formdon-logo">
+        <div class="formDon-container">
+            <div class="formDon-logo">
                 <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
             </div>
-            <h2 class="formdon-title">FORMULAIRE DE DONATION</h2>
-            <form class="formdon-form" method="POST" action="traitement_formDon" enctype="multipart/form-data">
-                <div class="formdon-group" style="margin-bottom:24px;">
+            <h2 class="formDon-title">FORMULAIRE DE DONATION</h2>
+            <form class="formDon-form" method="POST" action="traitement_formDon" enctype="multipart/form-data">
+                <div class="formDon-group" style="margin-bottom:24px;">
                     <label>Photos de l'objet :</label>
-                    <label class="formdon-file-label">
+                    <label class="formDon-file-label">
                         <input type="file" name="photos[]" accept="image/jpeg, image/png" multiple required>
                         <span>Sélectionner des fichiers</span>
                     </label>
                     <small>Formats supportés : JPEG, PNG</small>
                 </div>
-                <div class="formdon-row" style="display:flex; gap:20px;">
-                    <div class="formdon-group">
+                <div class="formDon-row" style="display:flex; gap:20px;">
+                    <div class="formDon-group">
                         <label for="categorie">Catégorie de l'objet</label>
                         <select name="categorie" id="categorie" required>
                             <option value="">Choisir une catégorie</option>
@@ -47,21 +47,21 @@ $categories = get_categories_objet();
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="formdon-group">
+                    <div class="formDon-group">
                         <label for="nom">Nom de l'objet</label>
                         <input type="text" name="nom" id="nom" placeholder="Nom de l'objet" required>
                     </div>
                 </div>
-                <div class="formdon-group">
+                <div class="formDon-group">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" rows="4" placeholder="Description détaillée de l'objet" required></textarea>
                 </div>
-                <div class="formdon-row" style="display:flex; gap:20px;">
-                    <div class="formdon-group">
+                <div class="formDon-row" style="display:flex; gap:20px;">
+                    <div class="formDon-group">
                         <label for="localisation">Localisation</label>
                         <input type="text" name="localisation" id="localisation" placeholder="Lieu de dépôt (bâtiment, étage, etc.)" required>
                     </div>
-                    <div class="formdon-group">
+                    <div class="formDon-group">
                         <label for="etat">État</label>
                         <select name="etat" id="etat" required>
                             <option value="">Choisir l'état</option>
@@ -74,17 +74,17 @@ $categories = get_categories_objet();
                     </div>
                 </div>
                 <?php if (!empty($error_message)): ?>
-                    <div class="formdon-error">
+                    <div class="formDon-error">
                         <?php echo htmlspecialchars($error_message); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if (!empty($_GET['success'])): ?>
-                    <div class="formdon-success">
+                    <div class="formDon-success">
                         Votre don a été enregistré avec succès !
                     </div>
                 <?php endif; ?>
-                <button type="submit" class="formdon-btn">CONFIRMER LE FORMULAIRE</button>
+                <button type="submit" class="formDon-btn">CONFIRMER LE FORMULAIRE</button>
             </form>
         </div>
     </div>

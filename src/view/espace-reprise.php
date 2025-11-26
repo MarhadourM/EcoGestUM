@@ -48,13 +48,13 @@
     <?php if (isset($_SESSION['user']['roles']) && in_array(3, $_SESSION['user']['roles'])) : ?>
     <div class="action-block">
         <span class="action-title">FORMULAIRE DE DEMANDE D'OBJET</span>
-        <a href="formBesoinObj">
+        <a href="form-besoin-objet">
             <button class="action-btn">Demander un objet</button>
         </a>
     </div>
     <div class="action-block">
         <span class="action-title">ACCES AUX BESOINS DES ENSEIGNANTS </span>
-        <a href="besoinsObjEnseignants">
+        <a href="besoins-objet-enseignants">
             <button class="action-btn">Objets demandés</button>
         </a>
     </div>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     $idUt = $_SESSION['id_ut'] ?? null;
     if ($idUt) {
         reserver_objet($idObj, $idUt);
-        header('Location: rechercheObjet.php?success=1');
+        header('Location: recherche-objet.php?success=1');
         exit;
     }
 }

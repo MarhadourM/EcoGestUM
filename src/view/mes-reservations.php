@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Model/ModelReservations.php';
+require_once __DIR__ . '/../Model/modelReservations.php';
 require_once __DIR__ . '/../Model/modelBDD.php'; // connexion PDO
 
 $user_id = $_SESSION['user']['id_ut'] ?? null;

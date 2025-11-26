@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/utilisateur_model.php';
+require_once __DIR__ . '/../model/modelUtilisateur.php';
 $errors = [];
 if (!empty($_SESSION['inscription_error'])) {
   $errors = $_SESSION['inscription_error'];

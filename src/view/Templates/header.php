@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../Model/utilisateur_model.php';
+require_once __DIR__ . '/../../Model/modelUtilisateur.php';
 
 ?>
 

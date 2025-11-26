@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../../Controller/HistoriqueOpRecyclageController.php'; ?>
+<?php require_once __DIR__ . '/../../Controller/historiqueOpRecyclageController.php'; ?>
 <div class="histop-main-content">
     <div class="histop-header">
         <h1 class="histop-title">Historique des opérations de recyclage</h1>

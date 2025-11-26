@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../model/demande_Objet_model.php';
+require_once __DIR__ . '/../model/modelDemandeObjet.php';
 require_once __DIR__ . '/../model/modelBDD.php';
-require_once __DIR__ . '/../model/ModelNotif.php';
+require_once __DIR__ . '/../model/modelNotif.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categorie = $_POST['categorie_besoin'];

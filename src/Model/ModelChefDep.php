@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/modelBDD.php';
-require_once __DIR__ . '/model-statisitique-rapport.php';
+require_once __DIR__ . '/modelStatistiqueRapport.php';
 function get_idDept($id_ut){
     $pdo = get_bdd();
     
