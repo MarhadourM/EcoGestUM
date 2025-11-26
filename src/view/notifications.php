@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . '/../controller/NotificationsController.php'; 
+require_once __DIR__ . '/../controller/notificationsController.php'; 
 
 ?>
 <!DOCTYPE html>

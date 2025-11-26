@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controller/ProfilController.php';
+require_once __DIR__ . '/../controller/profilController.php';
 
 $user_id = $_SESSION['user']['id_ut'] ?? null;
 $user = null;

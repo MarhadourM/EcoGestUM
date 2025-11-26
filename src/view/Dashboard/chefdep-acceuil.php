@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../../Controller/ChefDepAcceuilController.php';
+require_once __DIR__ . '/../../Controller/chefDepAcceuilController.php';
 ?>
 <div class="dashboard-main-content">
     <div class="dashboard-top">

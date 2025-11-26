@@ -38,7 +38,7 @@ switch ($page) {
         break;
 
     case 'traitement_connexion':
-        require_once __DIR__ . '/src/view/traitement_connexion.php';
+        require_once __DIR__ . '/src/controller/traitement_connexion.php';
         break;
 
     case 'deconnexion':
@@ -49,7 +49,7 @@ switch ($page) {
         break;
 
     case 'traitement_inscription':
-        require_once __DIR__ . '/src/view/traitement_inscription.php';
+        require_once __DIR__ . '/src/controller/traitement_inscription.php';
         break;
 
     case 'profil':
@@ -132,7 +132,7 @@ switch ($page) {
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
      case 'recuperer_reservation':
-         require_once __DIR__ . '/src/Controller/ReservationsController.php';
+         require_once __DIR__ . '/src/Controller/reservationsController.php';
          break;
     case 'mesInscriptions':
         require_once __DIR__ . '/src/view/Templates/header.php';
@@ -208,7 +208,7 @@ switch ($page) {
         break;
 
     case 'traitement_signalement':
-        require_once __DIR__ . '/src/controller/SignalementController.php';
+        require_once __DIR__ . '/src/controller/signalementController.php';
         break;
 
     case 'telecharger_rapport':

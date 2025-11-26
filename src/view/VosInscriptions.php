@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../Controller/InscriptionController.php';
+require_once __DIR__ . '/../Controller/inscriptionController.php';
 ?>
 <section class="headerPages">
   <nav class="breadcrumb">
