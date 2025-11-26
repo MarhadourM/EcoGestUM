@@ -180,7 +180,7 @@ switch ($page) {
         } elseif ($role === 'Chef de département') {
             switch ($section) {
                 case 'inventaire':
-                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-inventaire.php';
+                    require_once __DIR__ . '/src/view/Dashboard/dashboardInventaireDep.php';
                     break;
                 case 'communication':
                     require_once __DIR__ . '/src/view/Dashboard/chefdep-communication.php';

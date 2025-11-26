@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp\htdocs\EcoGestUM\src\Model\modelCommunication.php
 
 require_once __DIR__ . '/modelBDD.php';
 
