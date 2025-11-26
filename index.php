@@ -183,7 +183,7 @@ switch ($page) {
                     require_once __DIR__ . '/src/view/Dashboard/chef-dep-inventaire.php';
                     break;
                 case 'communication':
-                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-communication.php';
+                    require_once __DIR__ . '/src/view/Dashboard/chefdep-communication.php';
                     break;
                 case 'impact':
                     require_once __DIR__ . '/src/view/Dashboard/chef-dep-impact.php';
