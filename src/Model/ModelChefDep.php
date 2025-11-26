@@ -86,4 +86,50 @@ function getStatsMois($mois, $annee, $id_dept) {
     ];
 }
 
+function get_nb_objets_recycles_dept($id_dept) {
+    $pdo = get_bdd();
+    $sql = "
+        SELECT COUNT(*)
+        FROM OBJET_RECYCLABLE o
+        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
+        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
+        WHERE o.id_statut_recyclage_obj = 2
+        AND d.id_dept = ?
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id_dept]);
+    return $stmt->fetchColumn();
+}
+function getNewObjParMoisDept($mois, $annee, $id_dept) {
+    $pdo = get_bdd();
+    $sql = "
+        SELECT COUNT(*)
+        FROM OBJET_RECYCLABLE o
+        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
+        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
+        WHERE MONTH(o.date_obj_recycl) = ?
+        AND YEAR(o.date_obj_recycl) = ?
+        AND d.id_dept = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$mois, $annee, $id_dept]);
+    return $stmt->fetchColumn();
+}
+function get_nb_donateurs_dept($id_dept) {
+    $pdo = get_bdd();
+    // Récupérer l'id de l'inventaire du département
+    $sql = "
+        SELECT COUNT(DISTINCT fd.id_ut)
+        FROM FORMULAIRE_DONATION fd
+        INNER JOIN OBJET_RECYCLABLE o ON fd.id_obj_recycl = o.id_obj_recycl
+        INNER JOIN INVENTAIRE inv ON o.id_inv = inv.id_inv
+        INNER JOIN DEPARTEMENT d ON inv.id_inv = d.id_inv
+        WHERE d.id_dept = ?
+          AND fd.id_ut IS NOT NULL
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id_dept]);
+    return $stmt->fetchColumn();
+}
+
+
 ?>

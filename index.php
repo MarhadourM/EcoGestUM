@@ -186,7 +186,7 @@ switch ($page) {
                     require_once __DIR__ . '/src/view/Dashboard/chefdep-communication.php';
                     break;
                 case 'impact':
-                    require_once __DIR__ . '/src/view/Dashboard/chef-dep-impact.php';
+                    require_once __DIR__ . '/src/view/Dashboard/chefdep-impact.php';
                     break;
                 case 'historique':
                     require_once __DIR__ . '/src/view/Dashboard/HistoriqueOpRecyclageChefDep.php';
