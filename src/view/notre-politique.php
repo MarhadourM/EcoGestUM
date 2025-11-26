@@ -8,7 +8,7 @@
   </section>
 <main class="main-content politique">
   
-  <div class="politique__intro">
+  <div class="politique_intro">
     <p>
       <strong>
         Le Mans Université mène une politique active de recyclage et de réemploi de l’ensemble de ses équipements et matériels, dans le cadre de son engagement pour le développement durable et la responsabilité sociétale. Cette politique se traduit par la mise en place de la plateforme ÉcoGestUM, qui centralise les dispositifs de tri, collecte et réutilisation des objets issus de nos différentes composantes et services.
@@ -18,9 +18,9 @@
   </section>
 
   <!-- Section engagements -->
-  <section class="politique__engagements">
-    <h2 class="politique__subtitle">Les engagements</h2>
-    <ul class="politique__list">
+  <section class="politique_engagements">
+    <h2 class="politique_subtitle">Les engagements</h2>
+    <ul class="politique_list">
       <li>
         <strong>1 – Recyclage total</strong><br>
         Nous nous engageons à recycler 100&nbsp;% des équipements électroniques et matériels pédagogiques obsolètes sur l’ensemble de nos campus d’ici 2030, en partenariat avec des filières locales de revalorisation.
@@ -39,14 +39,14 @@
       </li>
       <li>
         <strong>5 – Transparence et reporting</strong><br>
-        Une fois par an, nous publierons un rapport détaillé sur le volume d’objets recyclés, les économies réalisées et les impacts environnementaux accessibles sur la page <a href="<?php echo getenv('BASE_URL'); ?>statistiques" target="_blank" class="politique__statlink">statistiques</a>.
+        Une fois par an, nous publierons un rapport détaillé sur le volume d’objets recyclés, les économies réalisées et les impacts environnementaux accessibles sur la page <a href="<?php echo getenv('BASE_URL'); ?>statistiques" target="_blank" class="politique_statlink">statistiques</a>.
       </li>
     </ul>
   </section>
 
   <!-- Objectifs -->
-  <section class="politique__objectifs">
-    <h2 class="politique__subtitle">Objectifs 2030 – 2050 <a style="color: #d35400; font-style: italic;" href ="<?php echo getenv('BASE_URL'); ?>objectifs" >(objectifs du moment)</a></h2>
+  <section class="politique_objectifs">
+    <h2 class="politique_subtitle">Objectifs 2030 – 2050 <a style="color: #d35400; font-style: italic;" href ="<?php echo getenv('BASE_URL'); ?>objectifs" >(objectifs du moment)</a></h2>
     <ul>
       <li>Atteindre un taux de recyclage et réemploi supérieur à 90&nbsp;% des objets collectés sur l’ensemble des campus.</li>
       <li>Intégrer systématiquement des modules de sensibilisation au recyclage dans toutes les formations.</li>
@@ -56,8 +56,8 @@
   </section>
 
   <!-- Conseils pratiques -->
-  <section class="politique__conseils">
-    <h2 class="politique__subtitle">Conseils pour adopter des pratiques responsables</h2>
+  <section class="politique_conseils">
+    <h2 class="politique_subtitle">Conseils pour adopter des pratiques responsables</h2>
     <p>Pour chaque étudiant, enseignant ou personnel administratif, nous recommandons&nbsp;:</p>
     <ul>
       <li>Anticiper le cycle de vie des objets&nbsp;: réfléchir à la durée de vie selon l’utilisation, la réutilisation possible et le recyclage possible avant l’acquisition de matériel ou de fournitures.</li>
@@ -69,8 +69,8 @@
   </section>
 
   <!-- Bonnes pratiques sur le campus -->
-  <section class="politique__campus">
-    <h2 class="politique__subtitle">Bonnes pratiques mises en œuvre sur nos campus</h2>
+  <section class="politique_campus">
+    <h2 class="politique_subtitle">Bonnes pratiques mises en œuvre sur nos campus</h2>
     <ul>
       <li>
         <strong>Plateforme EcoGestUM :</strong>
