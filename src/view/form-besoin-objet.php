@@ -25,7 +25,7 @@ $categories = get_categories_objet();
                 <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS.png"; ?>" alt="Le Mans Université">
             </div>
             <h2 class="besoin-title">DEMANDE D'UN BESOIN MATERIEL</h2>
-            <form class="besoin-form" method="POST" action="traitement_formBesoinObj">
+            <form class="besoin-form" method="POST" action="traitement_form-besoin-objet">
                 <div class="besoin-field">
                     <label for="categorie_besoin">Catégorie de l'objet</label>
                     <select name="categorie_besoin" id="categorie_besoin" required>

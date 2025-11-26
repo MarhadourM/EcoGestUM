@@ -42,6 +42,6 @@ function afficher_recherche_objet() {
     $success = isset($_GET['success']);
 
     // Met à disposition pour la vue :
-    require __DIR__ . '/../view/rechercheObjet.php';
+    require __DIR__ . '/../view/recherche-objet.php';
 }
 ?>

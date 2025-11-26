@@ -1,8 +1,8 @@
 <section class="headerPages">
   <nav class="breadcrumb-besoins">
-    <a href="besoinsObjEnseignants?page=accueil" class="breadcrumbitem">Accueil</a>
+    <a href="besoins-objet-enseignants?page=accueil" class="breadcrumbitem">Accueil</a>
     <span class="breadcrumbseparator">></span>
-    <a href="besoinsObjEnseignants?page=espace-reprise" class="breadcrumbitem">Espace Reprise</a>
+    <a href="besoins-objet-enseignants?page=espace-reprise" class="breadcrumbitem">Espace Reprise</a>
     <span class="breadcrumbseparator">></span>
     <span class="breadcrumbitem active">Besoins d'enseignants</span>
   </nav>
@@ -11,7 +11,7 @@
 
 <main class="main-content-besoins-enseignants">
   <form method="get" class="besoins-filter-bar">
-    <input type="hidden" name="page" value="besoinsObjEnseignants" />
+    <input type="hidden" name="page" value="besoins-objet-enseignants" />
     <input type="text" name="search" placeholder="Rechercher..." value="<?= htmlspecialchars($search ?? '') ?>" class="besoins-search-box" />
     <select name="categorie" class="besoins-categorie-select">
       <option value="">Toutes catégories</option>
@@ -61,7 +61,7 @@
   </div>
   <div class="besoins-pagination">
     <?php for($i=1; $i<=$nbPages; $i++): ?>
-        <a href="?page=besoinsObjEnseignants&num=<?= $i ?>&search=<?= urlencode($search) ?>&categorie=<?= urlencode($categorie) ?>"
+        <a href="?page=besoins-objet-enseignants&num=<?= $i ?>&search=<?= urlencode($search) ?>&categorie=<?= urlencode($categorie) ?>"
             class="besoins-pagination-btn<?= ($page==$i?' active':'') ?>"><?= $i ?>
         </a>
 

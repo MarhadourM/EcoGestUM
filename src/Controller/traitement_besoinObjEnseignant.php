@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id_demande_obj'])) {
     envoyerMessageReponseBesoin($idBesoin, $idUtilisateur, $idAuteur); // Passe le bon destinataire
     supprimerBesoinEnseignant($idBesoin);
 
-    header('Location: ?page=besoinsObjEnseignants&success=reponse');
+    header('Location: ?page=besoins-objet-enseignants&success=reponse');
     exit();
 
 
 } else {
-    header('Location: ?page=besoinsObjEnseignants');
+    header('Location: ?page=besoins-objet-enseignants');
     exit();
 }
 ?>

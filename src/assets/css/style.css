@@ -3023,7 +3023,7 @@ footer {
 
 /* == Form Don  == */
 
-.formdon-container {
+.formDon-container {
   max-width: 920px;
   background: #fff;
   border-radius: 22px;
@@ -3033,15 +3033,15 @@ footer {
   position: relative;
   z-index: 2;
 }
-.formdon-logo {
+.formDon-logo {
   display: flex;
   justify-content: center;
   margin-bottom: 8px;
 }
-.formdon-logo img {
+.formDon-logo img {
   max-height: 66px;
 }
-.formdon-title {
+.formDon-title {
   color: #1b2963;
   font-size: 2.1em;
   letter-spacing: 1px;
@@ -3049,18 +3049,18 @@ footer {
   text-align: center;
   margin-bottom: 36px;
 }
-.formdon-form .formdon-group {
+.formDon-form .formDon-group {
   margin-bottom: 18px;
 }
-.formdon-group label {
+.formDon-group label {
   font-size: 1.13em;
   font-weight: 600;
   color: #232552;
   margin-bottom: 7px;
 }
-.formdon-group input[type="text"],
-.formdon-group textarea,
-.formdon-group select {
+.formDon-group input[type="text"],
+.formDon-group textarea,
+.formDon-group select {
   width: 100%;
   border: 1.5px solid #dde0ea;
   border-radius: 12px;
@@ -3072,25 +3072,25 @@ footer {
   outline: none;
   transition: border 0.2s;
 }
-.formdon-group input[type="text"]:focus,
-.formdon-group textarea:focus,
-.formdon-group select:focus {
+.formDon-group input[type="text"]:focus,
+.formDon-group textarea:focus,
+.formDon-group select:focus {
   border: 1.5px solid #c85a2c;
   background: #fdfaf4;
 }
-.formdon-group textarea {
+.formDon-group textarea {
   min-height: 72px;
   resize: vertical;
   font-family: inherit;
 }
-.formdon-row {
+.formDon-row {
   display: flex;
   gap: 24px;
 }
-.formdon-row > .formdon-group {
+.formDon-row > .formDon-group {
   flex: 1;
 }
-.formdon-error {
+.formDon-error {
   color: #dc3838;
   background: #fdd8d2;
   border-radius: 8px;
@@ -3100,7 +3100,7 @@ footer {
   margin-top: 7px;
   font-size: 1.05em;
 }
-.formdon-btn {
+.formDon-btn {
   margin-top: 34px;
   background: #cf5222;
   color: #fff;
@@ -3115,17 +3115,17 @@ footer {
   transition: background 0.15s;
   cursor: pointer;
 }
-.formdon-btn:hover {
+.formDon-btn:hover {
   background: #d76633;
 }
-.formdon-form small {
+.formDon-form small {
   color: #9ca7b6;
   margin-top: 4px;
   display: block;
   font-size: 0.97em;
 }
 /* Label custom pour input fichier */
-.formdon-file-label {
+.formDon-file-label {
   display: inline-block;
   padding: 10px 18px;
   background: #f6f7fb;
@@ -3137,25 +3137,25 @@ footer {
   margin-top: 4px;
   transition: background 0.14s, color 0.14s, border 0.14s;
 }
-.formdon-file-label input[type="file"] {
+.formDon-file-label input[type="file"] {
   display: none;
 }
-.formdon-file-label:hover {
+.formDon-file-label:hover {
   background: #fff5ec;
   border: 1.4px solid #cf5222;
   color: #d25e26;
 }
 @media (max-width: 900px) {
-  .formdon-container {
+  .formDon-container {
     padding: 24px 3vw 24px 3vw;
   }
-  .formdon-row {
+  .formDon-row {
     flex-direction: column;
     gap: 0;
   }
 }
 
-.formdon-back-arrow {
+.formDon-back-arrow {
   position: absolute;
   top: 35px;
   left: 38px;
@@ -3172,7 +3172,7 @@ footer {
   border: 1.5px solid #e1e2e5;
   transition: box-shadow 0.18s, transform 0.18s;
 }
-.formdon-back-arrow:hover {
+.formDon-back-arrow:hover {
   box-shadow: 0 7px 22px rgba(190, 80, 44, 0.16);
   transform: scale(1.08);
 }
