@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../Controller/communicationChefDepController.php';
             <div class="message-success"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         <section class="communication-form-section">
-            <h2 class="section-title">Envoyer une Notification</h2>
+            <h2 class="section-title">Envoyer une notification à un utilisateur</h2>
             <form method="POST" class="communication-form">
                 <div class="form-group">
                     <label for="destinataires" class="form-label">Destinataires (login ou email)</label>
