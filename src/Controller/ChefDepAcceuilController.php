@@ -14,6 +14,6 @@ $nom_mois = getNomMois($mois);
 
 // Récupération des statistiques
 $stats_mois_actuel = getStatsMois($mois, $annee, $id_dept);
-$repartition = getRepartitionObjetsParCategorie($id_dept);
+$repartition = getRepartitionObjetsParCategorieDept($id_dept);
 
 ?>

@@ -13,7 +13,7 @@ function get_idDept($id_ut){
     return $result ? $result['id_dept'] : null;
 }
 
-function getRepartitionObjetsParCategorie($id_dept) {
+function getRepartitionObjetsParCategorieDept($id_dept) {
     $pdo = get_bdd();
     
     // OBJET_RECYCLABLE a un champ id_dept directement
