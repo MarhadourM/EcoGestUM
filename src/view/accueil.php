@@ -1,8 +1,6 @@
-<?php
-require_once __DIR__ . '/../model/modelBDD.php';
-$nb_objets_recycles = get_nb_objets_reserves();
+<?php 
+require_once __DIR__ . '/../controller/AccueilController.php';
 ?>
-
 <main class="main-content">
     <!-- Section Hero avec compteur -->
     <section class="hero-section" style="background-image: url('<?php echo getenv('BASE_URL')."src/assets/Images/ObjRecyclTotalImg.png"; ?>');">
