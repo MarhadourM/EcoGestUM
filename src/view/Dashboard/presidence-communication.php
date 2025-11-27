@@ -1,10 +1,7 @@
 
 <?php
-// filepath: c:\xampp\htdocs\EcoGestUM\src\view\Dashboard\presidence-communication.php
-
 require_once __DIR__ . '/../../Model/modelCommunication.php';
 require_once __DIR__ . '/../../Controller/communicationController.php';
-
 ?>
 
 <div class="dashboard-main-content">

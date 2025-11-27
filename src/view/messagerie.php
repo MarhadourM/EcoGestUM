@@ -1,11 +1,5 @@
 <?php
 require_once __DIR__ . '/../controller/messagerieController.php';
-
-$user_id = $_SESSION['user']['id_ut'];
-$conversations = getUserConversations($user_id);
-$selectedConv = $_GET['conv'] ?? ($conversations[0]['id_conv'] ?? null);
-$messages = $selectedConv ? getConversationMessages($selectedConv) : [];
-$error_message = $_GET['error'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

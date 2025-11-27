@@ -80,18 +80,14 @@ require_once __DIR__ . '/../../Controller/chefDepAcceuilController.php';
     </div>
 <div class="dashboard-bas">
     <div class="dashboard-card">
-        <div class="card-title">Meilleure opération de recyclage</div>
-        <div class="card-desc">
-            <strong>Voir les opérations de recyclage du département</strong>
-        </div>
+        <div class="card-title">Voir les opérations de recyclage du département</div>
         <a class="dashboard-btn best-stat" href="<?php echo getenv('BASE_URL'); ?>dashboard?section=historique">
             Historique
         </a>
     </div>
 
     <div class="dashboard-card card-comm">
-        <div class="card-title comm-title">Dernier message envoyé</div>
-            <div class="card-desc comm-desc">Voir les communications récentes du département</div>
+        <div class="card-title comm-title">Voir les communications récentes du département</div>
         <a class="dashboard-btn comm-btn" href="<?php echo getenv('BASE_URL'); ?>dashboard?section=communication">
             Communication
         </a>

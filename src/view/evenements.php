@@ -1,13 +1,5 @@
 <?php 
 require_once __DIR__ . '/../Controller/evenementController.php';
-$imgIndex = 1;
-$message = $message ?? '';
-
-$idUt = $_SESSION['id_ut'] ?? null;
-    if ($idUt) {
-
-      exit;
-    }
 ?>
 <section class="headerPages">
   <nav class="breadcrumb">

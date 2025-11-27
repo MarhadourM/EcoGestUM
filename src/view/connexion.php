@@ -1,10 +1,4 @@
-<?php
-$error_message = '';
-if (isset($_SESSION['connexion_error'])) {
-    $error_message = $_SESSION['connexion_error'];
-    unset($_SESSION['connexion_error']);
-}
-?>
+<?php require_once __DIR__ . '/../Controller/connexionController.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">

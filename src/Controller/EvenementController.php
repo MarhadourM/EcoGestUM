@@ -19,4 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscrire_event'])) {
     }
 }
 $events = getEvents();
+$imgIndex = 1;
+$message = $message ?? '';
+
+$idUt = $_SESSION['id_ut'] ?? null;
+    if ($idUt) {
+
+      exit;
+    }
 ?>

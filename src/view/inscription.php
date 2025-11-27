@@ -1,13 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelUtilisateur.php';
-$errors = [];
-if (!empty($_SESSION['inscription_error'])) {
-  $errors = $_SESSION['inscription_error'];
-  unset($_SESSION['inscription_error']);
-}
-$universites = get_universites();
-$composantes = get_composantes();
-$departements = get_departements();
+require_once __DIR__ . '/../controller/InscriptionController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

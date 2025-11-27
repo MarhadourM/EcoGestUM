@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../Controller/inscriptionController.php';
+require_once __DIR__ . '/../Controller/inscriptionEventController.php';
 ?>
 <section class="headerPages">
   <nav class="breadcrumb">
@@ -30,7 +30,6 @@ require_once __DIR__ . '/../Controller/inscriptionController.php';
         <?php if (!empty($ev['desc_event'])): ?>
           <div class="reservation-attr"><?php echo htmlspecialchars($ev['desc_event']); ?></div>
         <?php endif; ?>
-        <!-- lieu_event est optionnel si ta BDD a le champ -->
         <?php if (!empty($ev['lieu_event'])): ?>
           <div class="reservation-attr">Lieu : <?php echo htmlspecialchars($ev['lieu_event']); ?></div>
         <?php endif; ?>

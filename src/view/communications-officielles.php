@@ -1,5 +1,4 @@
 <?php 
-require_once __DIR__ . '/../Model/modelCommunication.php';
 require_once __DIR__ . '/../Controller/communicationController.php';
 ?>
 

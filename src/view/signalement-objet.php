@@ -1,14 +1,11 @@
 <?php
-require_once __DIR__ . '/../model/modelReservations.php';
-$error_message = $_SESSION['signalement_error'] ?? '';
-unset($_SESSION['signalement_error']);
-$user_id = $_SESSION['user']['id_ut'] ?? null;
-$reservations = $user_id ? get_user_reservations_sans_signalement($user_id) : [];
+require_once __DIR__ . '/../Controller/SignalementController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signaler un objet - EcoGestUM</title>
     <link href="<?php echo getenv('BASE_URL'); ?>src/assets/css/style.css" rel="stylesheet" />

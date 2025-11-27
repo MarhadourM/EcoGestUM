@@ -1,11 +1,5 @@
 <?php
-require_once __DIR__ . '/../../model/modelStatistiqueRapport.php';
-require_once __DIR__. '/../../model/modelBDD.php';
-$data = getRepartitionObjetsParCategorie();
-$nb_objets_recycles = get_nb_objets_reserves();
-$nb_nouv_obj = getNewObjParMoisAuto();
-$mois = date('n');
-$annee = date('Y');
+require_once __DIR__ . '/../../controller/PresImpactController.php';
 ?>
 
 <div class="impact-stats-container">

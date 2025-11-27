@@ -69,4 +69,10 @@ function invdep_get_categories_inventaire($id_inv) {
     $stmt->execute([$id_inv]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function get_etats_objet() {
+    $pdo = get_bdd();
+    $req = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM ETAT_OBJET");
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>

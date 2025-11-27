@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/model-statisitique-rapport.php';
+require_once __DIR__ . '/../model/modelStatistiqueRapport.php';
 require_once __DIR__ . '/../model/modelBDD.php';
 
 
