@@ -21,4 +21,17 @@ function creer_notification_communication(string $destinataire, string $message_
     // Le message_notif contient déjà tout (expéditeur - titre - description)
     return envoyer_notification($id_ut, $message_notif, $type_notif);
 }
+
+
+function get_expediteur_nom(int $user_id): string {
+    $pdo = get_bdd();
+    $sql = "SELECT nom_ut, pren_ut FROM utilisateur WHERE id_ut = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$user_id]);
+    if ($infos = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $expediteur_nom = $infos['pren_ut'] . ' ' . $infos['nom_ut'];
+        return $expediteur_nom;
+    }
+    return '';
+}
 ?>
