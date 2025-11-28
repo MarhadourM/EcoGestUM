@@ -71,7 +71,6 @@
 <?php endforeach; ?>
 </div>
 
-
 <div class="pagination">
     <?php for ($i = 1; $i <= $nbPages; $i++): ?>
         <a href="?page=rechercheObjet&num=<?= $i ?>&search=<?= urlencode($search) ?>&etat=<?= urlencode($etat) ?>&categorie=<?= urlencode($categorie) ?>"
@@ -81,8 +80,6 @@
     <?php endfor; ?>
 </div>
 
-<!-- POPUP et OVERLAY (form caché pour réservation) -->
 <?php require_once __DIR__ . '/Templates/popupObjet.php'; ?>
 
-<!-- INCLUSION DU JS -->
-<script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/popupObjet.js"></script>
+<script src="<?= getenv('BASE_URL'); ?>src/assets/js/popupObjet.js"></script>
