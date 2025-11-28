@@ -142,13 +142,16 @@ switch ($page) {
 
     case 'rechercheObjet':
         require_once __DIR__ . '/src/controller/rechercheObjetController.php';
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'reserver') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'
+            && isset($_POST['action'])
+            && $_POST['action'] === 'reserver') {
             reserver_objet_action();
         }
         require_once __DIR__ . '/src/view/Templates/header.php';
         afficher_recherche_objet();
         require_once __DIR__ . '/src/view/Templates/footer.php';
         break;
+
 
     case 'formDon':
         require_once __DIR__.'/src/view/form-don.php';

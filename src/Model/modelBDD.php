@@ -12,61 +12,19 @@ function get_bdd(){
 
 function get_universites() {
     $pdo = get_bdd();
-    // Table UNIVERSITE (id_univ, nom_univ)
     $stmt = $pdo->query("SELECT id_univ, nom_univ FROM universite");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 function get_composantes() {
     $pdo = get_bdd();
-    // Table COMPOSANTE (id_comp, nom_comp)
     $stmt = $pdo->query("SELECT id_comp, nom_comp FROM composante");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 function get_departements() {
     $pdo = get_bdd();
-    // Table DEPARTEMENT (id_dept, nom_dept)
     $stmt = $pdo->query("SELECT id_dept, nom_dept FROM departement");
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '', $categorie = '') {
-    $pdo = get_bdd();
-    $offset = ($page - 1) * $parPage;
-    $where = "WHERE o.id_statut_recyclage_obj = 1";
-    if ($search !== '') {
-        $where .= " AND (o.nom_obj_recycl LIKE :search OR o.desc_obj_recycl LIKE :search)";
-    }
-    if ($etat !== '') {
-        $where .= " AND o.id_etat_obj = :etat";
-    }
-    if ($categorie !== '') {
-        $where .= " AND o.id_cat_obj = :categorie";
-    }
-    $sql = "
-        SELECT 
-            o.id_obj_recycl,
-            o.nom_obj_recycl,
-            o.desc_obj_recycl,
-            o.loca_obj_recycl,
-            o.date_obj_recycl,
-            et.nom_etat_obj,
-            cat.nom_cat_obj,
-            p.lien_photo
-        FROM objet_recyclable o
-        INNER JOIN photo_objet po ON o.id_obj_recycl = po.id_obj_recycl
-        INNER JOIN photo p ON po.id_photo = p.id_photo
-        INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
-        INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
-        $where
-        ORDER BY o.date_obj_recycl DESC
-        LIMIT $offset, $parPage
-    ";
-    $stmt = $pdo->prepare($sql);
-    if ($search !== '') $stmt->bindValue(':search', "%$search%");
-    if ($etat !== '') $stmt->bindValue(':etat', $etat);
-    if ($categorie !== '') $stmt->bindValue(':categorie', $categorie);
-    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -78,31 +36,6 @@ function get_nb_objets_reserves() {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return (int)$stmt->fetchColumn();
-}
-
-
-
-function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
-    $pdo = get_bdd();
-    $where = "WHERE o.id_statut_recyclage_obj = 1";
-    if ($search !== '') $where .= " AND (o.nom_obj_recycl LIKE :search OR o.desc_obj_recycl LIKE :search)";
-    if ($etat !== '') $where .= " AND o.id_etat_obj = :etat";
-    if ($categorie !== '') $where .= " AND o.id_cat_obj = :categorie";
-    $sql = "
-        SELECT COUNT(*) as total
-        FROM objet_recyclable o
-        INNER JOIN photo_objet po ON o.id_obj_recycl = po.id_obj_recycl
-        INNER JOIN photo p ON po.id_photo = p.id_photo
-        INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
-        INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
-        $where
-    ";
-    $stmt = $pdo->prepare($sql);
-    if ($search !== '') $stmt->bindValue(':search', "%$search%");
-    if ($etat !== '') $stmt->bindValue(':etat', $etat);
-    if ($categorie !== '') $stmt->bindValue(':categorie', $categorie);
-    $stmt->execute();
-    return (int)$stmt->fetch()['total'];
 }
 
 function reserver_objet($idObj, $idUt) {
@@ -120,6 +53,7 @@ function reserver_objet($idObj, $idUt) {
         VALUES (CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY), 2, ?, ?)
     ");
     $stmt->execute([$idObj, $idUt]);
+
     $update = $pdo->prepare("UPDATE objet_recyclable SET id_statut_recyclage_obj = 2 WHERE id_obj_recycl = ?");
     $update->execute([$idObj]);
 
@@ -134,7 +68,6 @@ function ajouter_objet_recyclable($categorie, $nom, $description, $localisation,
     $stmt->execute([$categorie, $nom, $description, $localisation, $etat, $idinv]);
     return $pdo->lastInsertId();
 }
-
 
 function ajouter_photo_objet($id_objet, $filename) {
     $pdo = get_bdd();
@@ -179,10 +112,3 @@ function get_inventaire_by_idut($idut) {
     }
     return null;
 }
-
-
-
-
-
-
-?>
