@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../Model/modelBDD.php'; // pour get_bdd()
 require_once __DIR__ . '/../Model/modelChefDepCommunication.php';
 
 $message = null;
@@ -15,13 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id !== null) {
     // Récupère le nom complet de l'expéditeur en base
     $expediteur_nom = '';
     if ($user_id !== null) {
-        $pdo = get_bdd();
-        $sql = "SELECT nom_ut, pren_ut FROM utilisateur WHERE id_ut = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$user_id]);
-        if ($infos = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $expediteur_nom = $infos['pren_ut'] . ' ' . $infos['nom_ut'];
-        }
+        $expediteur_nom = get_expediteur_nom($user_id);
     }
 
     if ($destinataire !== '' && $titre !== '' && $description !== '') {
