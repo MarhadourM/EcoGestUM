@@ -63,46 +63,9 @@ require_once __DIR__ . '/../controller/AccueilController.php';
 </main>
 
 <script>
-    // Animation du compteur
-    function animateCounter() {
-        const counter = document.querySelector('.counter-number');
-        const target = <?= (int)$nb_objets_recycles ?>;
-        const duration = 2000;
-        const steps = 60;
-        const increment = target / steps;
-        let current = 0;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                counter.textContent = target.toLocaleString('fr-FR');
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current).toLocaleString('fr-FR');
-            }
-        }, duration / steps);
-    }
-
-    // Lancer l'animation au chargement
-    window.addEventListener('load', animateCounter);
-
-    // Gestion des boutons
-    document.querySelector('.donation-btn').addEventListener('click', function() {
-        window.location.href = "<?php echo getenv('BASE_URL'); ?>formulaire-donation";
-    });
-
-    document.querySelectorAll('.why-card-btn').forEach((btn, index) => {
-        btn.addEventListener('click', function() {
-            if (index === 0) {
-                window.location.href = "<?php echo getenv('BASE_URL'); ?>notre-politique";
-            } else {
-                window.location.href = "<?php echo getenv('BASE_URL'); ?>statistiques";
-            }
-        });
-    });
-
-    document.querySelector('.collect-btn').addEventListener('click', function() {
-        window.location.href = "<?php echo getenv('BASE_URL'); ?>carte";
-    });
+  window.accueilData = {
+    nbObjetsRecycles: <?= (int)$nb_objets_recycles ?>,
+    baseUrl: "<?= getenv('BASE_URL'); ?>"
+  };
 </script>
-
+<script src="<?= getenv('BASE_URL'); ?>src/assets/js/Accueil.js"></script>
