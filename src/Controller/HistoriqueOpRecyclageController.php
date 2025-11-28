@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../Model/modelBDD.php';
+require_once __DIR__ . '/../Model/modelHistoriqueOpRecyclage.php';
 
 // Sécurité session
 if (!isset($_SESSION['user'])) {
