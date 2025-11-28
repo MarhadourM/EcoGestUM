@@ -1,10 +1,7 @@
 <?php
-require_once __DIR__ . '/modelBDD.php';
 require_once __DIR__ . '/modelStatistiqueRapport.php';
 
-/**
- * Récupère les statistiques mensuelles pour l'université
- */
+//Récupère les statistiques mensuelles pour l'université
 function getStatsMoisUniversite($mois, $annee) {
     $pdo = get_bdd();
     

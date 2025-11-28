@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/modelBDD.php';
-
+// Récupère les objets recyclables d'un inventaire donné avec pagination et filtres optionnels
 function invdep_get_objets_by_inventaire($id_inv, $page = 1, $parPage = 10, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
     $offset = ($page - 1) * $parPage;
@@ -42,7 +42,7 @@ function invdep_get_objets_by_inventaire($id_inv, $page = 1, $parPage = 10, $sea
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
+// Récupère le nombre total d'objets dans un inventaire donné avec des filtres optionnels
 function invdep_get_nb_objets_inventaire($id_inv, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
     $where = "WHERE id_inv = :id_inv";
@@ -58,7 +58,7 @@ function invdep_get_nb_objets_inventaire($id_inv, $search = '', $etat = '', $cat
     $stmt->execute();
     return (int)$stmt->fetch()['total'];
 }
-
+// Récupère toutes les catégories d'objets présentes dans un inventaire donné
 function invdep_get_categories_inventaire($id_inv) {
     $pdo = get_bdd();
     $sql = "SELECT DISTINCT cat.id_cat_obj, cat.nom_cat_obj
@@ -69,7 +69,7 @@ function invdep_get_categories_inventaire($id_inv) {
     $stmt->execute([$id_inv]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
+// Récupère tous les états d'objets disponibles
 function get_etats_objet() {
     $pdo = get_bdd();
     $req = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM ETAT_OBJET");

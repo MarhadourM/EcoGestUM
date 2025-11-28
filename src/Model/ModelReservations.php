@@ -41,7 +41,6 @@
         $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-// modelReservations.php
 
 // Supprimer une réservation (récupéré)
 function deleteReservationByIdAndUser(int $id_res, int $id_ut): bool {
@@ -68,5 +67,4 @@ function setObjetDisponible(int $id_obj): bool {
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([$id_obj]);
 }
-
-    ?>
+?>

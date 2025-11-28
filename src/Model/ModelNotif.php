@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
+require_once __DIR__ . '/modelBDD.php'; 
+// Récupère toutes les notifications pour un utilisateur donné
 function get_notifs_user($user_id) {
     $pdo = get_bdd();
     $sql = "
@@ -15,12 +16,13 @@ function get_notifs_user($user_id) {
     $stmt->execute([$user_id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+// Supprime une notification pour un utilisateur donné
 function delete_notification_user($id_notification, $id_ut) {
     $pdo = get_bdd();
     $stmt = $pdo->prepare("DELETE FROM notif_utilisateur WHERE id_notification = ? AND id_ut = ?");
     $stmt->execute([$id_notification, $id_ut]);
 }
-
+// Envoie une notification à un utilisateur
 function envoyer_notification($id_ut, $message_notif, $type_notif) {
     $pdo = get_bdd();
     try {
@@ -41,8 +43,4 @@ function envoyer_notification($id_ut, $message_notif, $type_notif) {
         error_log('Erreur notif: '.$e->getMessage());
     }
 }
-
-
-
-
 ?>

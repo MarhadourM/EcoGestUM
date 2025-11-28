@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/modelBDD.php';
+// Récupère tous les objectifs de développement durable avec leur statut
 function getObjectifs() {
     $pdo= get_bdd();
     $sql = "
@@ -21,6 +22,4 @@ function getObjectifs() {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
-
 ?>

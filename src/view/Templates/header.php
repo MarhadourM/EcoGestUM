@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../../Model/modelUtilisateur.php';
 ?>
 
@@ -99,10 +100,53 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
             </div>
         </nav>
     </header>
-    <!--Header.js-->
+
     <script>
-    window.headerData = {
-        baseUrl: "<?php echo getenv('BASE_URL'); ?>"
-    };
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation fluide de la navigation
+        document.querySelectorAll('.nav_item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav_item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Header sticky avec ombre au scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop && st > header.offsetHeight) {
+                // Scroll vers le bas, cacher le header
+                header.classList.add('hide');
+            } else {
+                // Scroll vers le haut, montrer le header
+                header.classList.remove('hide');
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // Pour Mobile ou scroll up
+        });
+
+        // Gestion du bouton de connexion
+        let connectBtn = document.querySelector('.header_connect-btn');
+        if(connectBtn) {
+            connectBtn.addEventListener('click', function() {
+                window.location.href = '<?php echo getenv('BASE_URL'); ?>connexion';
+            });
+        }
+
+        // Redirection logo accueil
+        document.getElementById('logo_accueil').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>accueil';
+        }
+        // Redirection notifications et profil
+        document.getElementById('notifications').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>notifications';
+        }
+        document.getElementById('profil').onclick = function() {
+            window.location.href = '<?php echo getenv('BASE_URL'); ?>profil';
+        }
+    });
     </script>
-    <script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/Header.js"></script>

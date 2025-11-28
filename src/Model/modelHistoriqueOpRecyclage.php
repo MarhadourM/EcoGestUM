@@ -37,7 +37,7 @@ function historique_get_operations($id_inv, $page=1, $parPage=10, $search='', $c
     }
     return $rows;
 }
-
+// Nombre total d’opérations pour la pagination
 function historique_get_nb_operations($id_inv, $search='', $categorie='') {
     $pdo = get_bdd();
     $where = "WHERE op.id_dept = (SELECT id_dept FROM departement WHERE id_inv = :id_inv)";

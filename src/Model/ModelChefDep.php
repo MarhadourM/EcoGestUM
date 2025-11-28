@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/modelBDD.php';
 require_once __DIR__ . '/modelStatistiqueRapport.php';
 function get_idDept($id_ut){
     $pdo = get_bdd();
@@ -33,7 +32,6 @@ function getRepartitionObjetsParCategorieDept($id_dept) {
     $stmt->execute([$id_dept]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 function getStatsMois($mois, $annee, $id_dept) {
     $pdo = get_bdd();
     
@@ -130,6 +128,4 @@ function get_nb_donateurs_dept($id_dept) {
     $stmt->execute([$id_dept]);
     return $stmt->fetchColumn();
 }
-
-
 ?>

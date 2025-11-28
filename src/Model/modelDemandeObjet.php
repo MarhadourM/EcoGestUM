@@ -1,6 +1,6 @@
 <?php 
-require_once __DIR__ . '/../model/modelBDD.php';
-
+require_once __DIR__ . '/modelBDD.php'; 
+//Ajoute une nouvelle demande d'objet
 function ajouterDemandeObjet($categorie, $nom, $desc, $date, $localisation, $idStatut, $idUtilisateur) {
     $pdo = get_bdd();
     $sql = 'INSERT INTO DEMANDE_OBJET 
@@ -18,6 +18,4 @@ function ajouterDemandeObjet($categorie, $nom, $desc, $date, $localisation, $idS
     ]);
     return $pdo->lastInsertId();
 }
-
-
 ?>

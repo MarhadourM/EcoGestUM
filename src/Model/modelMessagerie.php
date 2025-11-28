@@ -115,5 +115,4 @@ function findConversationBetweenUsers($user_id, $dest_id) {
     $existing = $stmt->fetch(PDO::FETCH_ASSOC);
     return $existing ? $existing['id_conv'] : false;
 }
-
 ?>

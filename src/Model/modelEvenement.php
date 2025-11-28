@@ -1,5 +1,5 @@
 <?php
-require_once 'modelBDD.php';
+require_once __DIR__ . '/modelBDD.php'; 
 
 // Récupère tous les événements
 function getEvents() {
@@ -33,7 +33,7 @@ function inscrireEvent($id_event, $id_ut) {
     }
     return false;
 }
-
+// Récupère les inscriptions d'un utilisateur
 function getInscriptions($user_id) {
     $pdo = get_bdd();
     $sql = "
@@ -52,9 +52,11 @@ function getInscriptions($user_id) {
     $stmt->execute([$user_id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+// Récupère les événements d'un utilisateur
 function getUserEvents($user_id) {
     return getInscriptions($user_id);
 }
+// Récupère le nom d'un événement par son ID
 function getEventNameById($event_id) {
     $pdo = get_bdd();
     $stmt = $pdo->prepare('SELECT nom_event FROM evenement WHERE id_event = ?');

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
+require_once __DIR__ . '/modelBDD.php'; 
 
 // Compte le nombre total de besoins d'enseignants avec option filtres
 function get_nb_besoins_enseignants($search = '', $categorie = '') {
@@ -91,8 +91,4 @@ function envoyerMessageReponseBesoin($idBesoin, $idUtilisateur, $idDestinataire)
     $message = "Bonjour, j'ai un objet qui correspond à votre demande : \"{$besoin['nom_demande_obj']}\" ({$besoin['desc_demande_obj']})";
     sendMessage($convId, $idUtilisateur, $idDestinataire, $message);
 }
-
-
-
-
 ?>

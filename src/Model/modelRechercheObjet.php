@@ -1,27 +1,21 @@
 <?php
 require_once __DIR__ . '/modelBDD.php';
 
-/**
- * Récupère la liste des états d'objet.
- */
+//Récupère la liste des états d'objet.
 function get_etats_objet() {
     $pdo = get_bdd();
     $stmt = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM etat_objet");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-/**
- * Récupère la liste des catégories d'objet.
- */
+//Récupère la liste des catégories d'objet.
 function get_categories_objet() {
     $pdo = get_bdd();
     $stmt = $pdo->query("SELECT id_cat_obj, nom_cat_obj FROM categorie_objet");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-/**
- * Récupère les objets disponibles avec pagination et filtres.
- */
+//Récupère les objets disponibles avec pagination et filtres.
 function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
     $offset = ($page - 1) * $parPage;
@@ -73,9 +67,7 @@ function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-/**
- * Nombre total d'objets disponibles (pour la pagination).
- */
+//Nombre total d'objets disponibles (pour la pagination).
 function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
 
@@ -114,5 +106,36 @@ function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
 
     $stmt->execute();
     return (int)$stmt->fetch()['total'];
+}
+
+//Réserve un objet pour un utilisateur.
+function reserver_objet($idObj, $idUt) {
+    $pdo = get_bdd();
+
+    $test = $pdo->prepare("SELECT COUNT(*) as nb FROM reservation WHERE id_obj_recycl = ?");
+    $test->execute([$idObj]);
+    $row = $test->fetch(PDO::FETCH_ASSOC);
+    if ($row['nb'] > 0) {
+        return false;
+    }
+
+    $stmt = $pdo->prepare("
+        INSERT INTO reservation (date_res, date_exp_res, id_statut_res, id_obj_recycl, id_ut)
+        VALUES (CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY), 2, ?, ?)
+    ");
+    $stmt->execute([$idObj, $idUt]);
+
+    $update = $pdo->prepare("UPDATE objet_recyclable SET id_statut_recyclage_obj = 2 WHERE id_obj_recycl = ?");
+    $update->execute([$idObj]);
+
+    return true;
+}
+//Récupère l'auteur d'un objet recyclable.
+function getAuteurObjetRecyclable($idObj) {
+    $pdo = get_bdd();
+    $sql = "SELECT id_ut FROM FORMULAIRE_DONATION WHERE id_obj_recycl = :id_Obj";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':id_Obj' => $idObj]);
+    return $stmt->fetchColumn();
 }
 ?>
