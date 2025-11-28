@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../controller/profilController.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,8 +33,7 @@ require_once __DIR__ . '/../controller/profilController.php';
             <img src="<?= getenv('BASE_URL'); ?>src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"
                  class="profil-header-logo" alt="Logo LMU">
         </div>
-
-        <!-- MAIN CARD -->
+        <!-- PROFIL -> MAIN CARD -->
         <div class="profil-main-card">
             <div class="profil-info-align">
                 <img src="<?= getenv('BASE_URL'); ?>src/assets/Images/user_icon.png"
@@ -57,14 +55,14 @@ require_once __DIR__ . '/../controller/profilController.php';
                 <div class="profil-success"><?= htmlspecialchars($success_message) ?></div>
             <?php endif; ?>
             <form class="profil-champs-table" method="POST" action="">
-  <div class="profil-champs-full">
-    <label class="profil-label-email">E-mail personnel</label>
-    <div class="profil-champs-inline">
-      <input type="email" name="new_email" value="<?= htmlspecialchars($user['email_ut']); ?>" required>
-      <button type="submit" class="profil-btn-modif">Modifier</button>
-    </div>
-  </div>
-</form>
+                <div class="profil-champs-full">
+                    <label class="profil-label-email">E-mail personnel</label>
+                    <div class="profil-champs-inline">
+                    <input type="email" name="new_email" value="<?= htmlspecialchars($user['email_ut']); ?>" required>
+                    <button type="submit" class="profil-btn-modif">Modifier</button>
+                    </div>
+                </div>
+            </form>
             <!-- AFFECTATION -->
             <div class="profil-affectation-card">
                 <div class="profil-aff-title">État de votre(vos) affectation(s)</div>

@@ -15,9 +15,7 @@ require_once __DIR__ . '/../Controller/communicationController.php';
 <?php endif; ?>
 
 <div class="communications-container">
-    <?php 
-    $communications = getCommunications(); 
-    
+    <?php     
     if (empty($communications)): 
     ?>
         <div class="no-communications">

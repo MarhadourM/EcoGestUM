@@ -46,9 +46,3 @@ require_once __DIR__ . '/../Controller/evenementController.php';
   </div>
 </main>
 
-
-
-<script src="src/assets/js/event.js"></script>
-
-
-

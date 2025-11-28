@@ -16,7 +16,6 @@
     </p>
   </div>
   </section>
-
   <!-- Section engagements -->
   <section class="politique_engagements">
     <h2 class="politique_subtitle">Les engagements</h2>
@@ -43,7 +42,6 @@
       </li>
     </ul>
   </section>
-
   <!-- Objectifs -->
   <section class="politique_objectifs">
     <h2 class="politique_subtitle">Objectifs 2030 – 2050 <a style="color: #d35400; font-style: italic;" href ="<?php echo getenv('BASE_URL'); ?>objectifs" >(objectifs du moment)</a></h2>
@@ -67,7 +65,6 @@
       <li>Participer aux actions de sensibilisation&nbsp;: assister aux ateliers et challenges organisés sur le campus pour comprendre l’impact environnemental de nos comportements.</li>
     </ul>
   </section>
-
   <!-- Bonnes pratiques sur le campus -->
   <section class="politique_campus">
     <h2 class="politique_subtitle">Bonnes pratiques mises en œuvre sur nos campus</h2>

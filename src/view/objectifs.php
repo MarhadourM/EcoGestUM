@@ -1,4 +1,6 @@
-<?php require_once __DIR__ . '/../Controller/ObjectifsUnivController.php';?>
+<?php 
+require_once __DIR__ . '/../Controller/ObjectifsUnivController.php';
+?>
 <section class="headerPages"> 
     <nav class="breadcrumb">
         <a href="<?php echo getenv('BASE_URL'); ?>accueil" class="breadcrumbitem">Accueil</a>
@@ -9,7 +11,6 @@
     </nav>
     <h1 class="breadcrumb_title">Objectifs</h1>
 </section>
-
 <div class="objectifs-container">
 <?php foreach ($objectifs as $objectif): ?>
   <div class="objectif-card objectif-<?php echo strtolower(str_replace([' ', 'é'], ['-', 'e'], $objectif['statut'])); ?>">
