@@ -42,3 +42,6 @@
 
 /* DASHBOARD GENERAL */
 @import url("./pages/dashboard.css");
+
+/* ERREUR - PAGE 404 */
+@import url("./pages/erreur.css");
