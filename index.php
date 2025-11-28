@@ -109,7 +109,7 @@ switch ($page) {
         break;
 
     case 'besoins-objet-enseignants':
-        require_once __DIR__ . '/src/controller/besoins-objet-enseignantsController.php';
+        require_once __DIR__ . '/src/Controller/besoinsObjEnseignantsController.php';
         require_once __DIR__ . '/src/view/Templates/header.php';
         require_once __DIR__.'/src/view/besoins-objet-enseignants.php';
         require_once __DIR__ . '/src/view/Templates/footer.php';

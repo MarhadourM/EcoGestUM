@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/modelBDD.php';
+require_once __DIR__ . '/modelRechercheObjet.php';
 // Récupère les objets recyclables d'un inventaire donné avec pagination et filtres optionnels
 function invdep_get_objets_by_inventaire($id_inv, $page = 1, $parPage = 10, $search = '', $etat = '', $categorie = '') {
     $pdo = get_bdd();
@@ -69,10 +70,5 @@ function invdep_get_categories_inventaire($id_inv) {
     $stmt->execute([$id_inv]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-// Récupère tous les états d'objets disponibles
-function get_etats_objet() {
-    $pdo = get_bdd();
-    $req = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM ETAT_OBJET");
-    return $req->fetchAll(PDO::FETCH_ASSOC);
-}
+
 ?>
