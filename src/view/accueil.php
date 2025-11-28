@@ -15,7 +15,11 @@ require_once __DIR__ . '/../controller/AccueilController.php';
     <section class="donation-section">
         <div class="donation-card">
             <img src="<?php echo getenv('BASE_URL')."src/assets/Images/FormulaireDonAcceuil.png"; ?>" alt="Campus & Moi" class="donation-icon">
-            <button class="donation-btn">Formulaire de donation</button>
+            <?php if ($user_id): ?>
+            <a href="<?php echo getenv('BASE_URL'); ?>formDon" class="donation-btn">Formulaire de donation</a>
+            <?php else: ?>
+            <a href="<?php echo getenv('BASE_URL'); ?>connexion" class="donation-btn">Formulaire de donation</a>
+            <?php endif; ?>
         </div>
         <div class="donation-content">
             <h2>Vous avez des objets en bon état dont vous ne vous servez plus ?</h2>
@@ -52,14 +56,18 @@ require_once __DIR__ . '/../controller/AccueilController.php';
         <a href="<?php echo getenv('BASE_URL'); ?>communications" class="communications-btn">Accéder aux Communications</a>
     </section>
 
-    <!-- Section Points de collecte -->
-    <section class="collect-section">
-        <h2 class="collect-title">RENDEZ-VOUS À NOS POINTS DE COLLECTE</h2>
-        <p class="collect-text">Découvrez nos points de collectes et de distribution d'objets et matériaux sur notre carte interactive</p>
-        <button class="collect-btn">Voir la Carte</button>
-    </section>
+        <!-- Section Points de collecte -->
+        <section class="collect-section">
+            <h2 class="collect-title">RENDEZ-VOUS À NOS POINTS DE COLLECTE</h2>
+            <p class="collect-text">Découvrez nos points de collectes et de distribution d'objets et matériaux sur notre carte interactive</p>
+            <?php if ($user_id): ?>
+                <a href="<?= getenv('BASE_URL'); ?>carte" class="collect-btn">Voir la carte</a>
+            <?php else: ?>
+                <a href="<?= getenv('BASE_URL'); ?>connexion" class="collect-btn">Voir la carte</a>
+            <?php endif; ?>
+        </section>
 
-    
+
 </main>
 
 <script>

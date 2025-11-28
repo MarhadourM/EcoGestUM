@@ -88,6 +88,7 @@
   cursor: pointer;
   margin-top: 16px;
   transition: background-color var(--transition-fast);
+  text-decoration: none;
 }
 
 .donation-btn:hover {
@@ -168,16 +169,17 @@
 
 .why-card-btn,
 .collect-btn {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
-  padding: 9px 22px;
+  padding: 13px 38px;
   border-radius: 22px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 14px;
-  transition: background-color var(--transition-fast);
+  margin-top: 15px;
+  transition: background-color 0.2s;
+  text-decoration: none;
 }
 
 .why-card-btn:hover,
