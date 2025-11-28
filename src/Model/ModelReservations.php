@@ -67,4 +67,6 @@ function setObjetDisponible(int $id_obj): bool {
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([$id_obj]);
 }
+
+
 ?>
