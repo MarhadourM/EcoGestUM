@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
         <div class="header_top">
             <div id="logo_accueil" class="header_logo">
                 <div class="LogoAcceuil">
-                    <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université">
+                    <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université" width="90" height="40">
                 </div>
                 <span class="header_separator">|</span>
                 <span class="header_site-name">EcoGestUM</span>

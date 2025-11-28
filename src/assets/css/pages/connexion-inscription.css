@@ -70,7 +70,8 @@
   font-size: 15px;
   background: #fafbfc;
   margin-bottom: 2px;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
   outline: none;
 }
 
@@ -258,4 +259,69 @@
     padding: 11px 11px;
     font-size: 14px;
   }
+}
+
+/* ===== MESSAGES (Erreurs & Succès) ===== */
+.message-error,
+.message.error {
+  background: #ffe5ed;
+  color: #a4254a;
+  border: 1.5px solid #e9b5c7;
+  border-radius: 14px;
+  padding: 18px 22px 16px 22px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  margin: 12px auto 24px auto;
+  max-width: 98%;
+}
+
+.message-success {
+  background: #e0ffe0;
+  color: #020202;
+  border: 1.5px solid #71d867;
+  border-radius: 14px;
+  padding: 18px 22px 16px 22px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  margin: 12px auto 24px auto;
+  max-width: 98%;
+}
+
+.message-error ul,
+.message.error ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: inside disc;
+  text-align: center;
+}
+
+.message-error li,
+.message.error li {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #a4254a;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.message-error li:last-child,
+.message.error li:last-child {
+  margin-bottom: 0;
+}
+
+.message-error li::marker,
+.message.error li::marker {
+  color: #b72d60;
+  font-size: 20px;
+}
+
+.form-error {
+  color: #c32f2f;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 500;
 }

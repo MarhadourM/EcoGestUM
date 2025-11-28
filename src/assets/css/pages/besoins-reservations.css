@@ -1,6 +1,5 @@
-/* ===== BESOINS & RÉSERVATIONS ===== */
+/* ===== PAGE FORMULAIRE DE BESOINS ===== */
 
-/* Form Besoins Objets */
 .besoin-page-bg {
   min-height: 100vh;
   display: flex;
@@ -103,20 +102,24 @@
   background-color: #a4481a;
 }
 
+/* Responsive formulaire besoins */
 @media (max-width: 600px) {
   .besoin-form-wrapper {
     padding: 20px 8px;
     max-width: 95vw;
   }
+
   .besoin-title {
     font-size: 1.16rem;
   }
+
   .besoin-logo img {
     max-width: 110px;
   }
 }
 
-/* Page des besoins des enseignants */
+/* ===== PAGE LISTE DES BESOINS ENSEIGNANTS ===== */
+
 .headerPages {
   width: 100%;
   background: linear-gradient(90deg, #e9edfa 65%, #ddeaf6 100%);
@@ -126,7 +129,8 @@
   margin-bottom: 18px;
 }
 
-.breadcrumb-besoins {
+.breadcrumb-besoins,
+.breadcrumb {
   margin: 0 auto 8px auto;
   font-size: 1.05rem;
   background: rgba(255, 255, 255, 0.7);
@@ -137,7 +141,23 @@
   font-weight: 500;
 }
 
-.breadcrumb_title {
+.breadcrumbitem {
+  color: #24458c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumbitem.active {
+  color: #d45336;
+}
+
+.breadcrumbseparator {
+  color: #9bb6e0;
+  margin: 0 7px;
+}
+
+.breadcrumb_title,
+.breadcrumbtitle {
   font-size: 2.3em;
   font-weight: 800;
   color: #213198;
@@ -290,6 +310,7 @@
   color: #fff;
 }
 
+/* Responsive liste besoins */
 @media (max-width: 850px) {
   .besoins-list,
   .main-content-besoins-enseignants {
@@ -297,9 +318,11 @@
     padding-left: 5vw;
     padding-right: 5vw;
   }
+
   .besoin-card-main {
     flex-direction: column;
   }
+
   .besoin-card-img {
     width: 99vw;
     max-width: 220px;
@@ -314,7 +337,8 @@
   margin: 48px 0 48px 0;
 }
 
-/* PAGE RÉSERVATIONS */
+/* ===== PAGE RÉSERVATIONS ===== */
+
 .reservation-cards {
   display: flex;
   flex-direction: column;
@@ -420,12 +444,14 @@
   background: #102857;
 }
 
+/* Responsive réservations */
 @media (max-width: 900px) {
   .reservation-card {
     width: 95%;
     padding: 16px 8px;
     gap: 15px;
   }
+
   .reservation-img {
     width: 96px;
     height: 68px;
@@ -439,9 +465,11 @@
     align-items: stretch;
     gap: 8px;
   }
+
   .btns-res-row {
     align-items: stretch;
   }
+
   .reservation-img {
     margin-right: 0;
     width: 90vw;
