@@ -1,20 +1,22 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
-function get_user_info($id) {
-    $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT u.*, un.nom_univ, comp.nom_comp, dept.nom_dept
-                           FROM utilisateur u
-                           LEFT JOIN universite un ON un.id_univ = u.id_univ
-                           LEFT JOIN composante comp ON comp.id_comp = u.id_comp
-                           LEFT JOIN departement dept ON dept.id_dept = u.id_dept
-                           WHERE u.id_ut = ?");
-    $stmt->execute([$id]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
-function update_user_email($id, $new_email) {
-    $pdo = get_bdd();
-    $stmt = $pdo->prepare("UPDATE utilisateur SET email_ut = ? WHERE id_ut = ?");
-    $stmt->execute([$new_email, $id]);
-}
+require_once __DIR__ . '/../model/ModelUtilisateur.php';
 
+$user_id = $_SESSION['user']['id_ut'] ?? null;
+$user = null;
+$error_message = '';
+$success_message = '';
+
+if ($user_id) {
+    // Modification email
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_email'])) {
+        $new_email = trim($_POST['new_email']);
+        if (filter_var($new_email, FILTER_VALIDATE_EMAIL)) {
+            update_user_email($user_id, $new_email);
+            $success_message = "E-mail modifié avec succès !";
+        } else {
+            $error_message = "E-mail invalide.";
+        }
+    }
+    $user = get_user_info($user_id);
+}
 ?>

@@ -50,4 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'
     header("Location: ?page=messagerie&conv=$conv_id");
     exit;
 }
+
+$user_id = $_SESSION['user']['id_ut'];
+$conversations = getUserConversations($user_id);
+$selectedConv = $_GET['conv'] ?? ($conversations[0]['id_conv'] ?? null);
+$messages = $selectedConv ? getConversationMessages($selectedConv) : [];
+$error_message = $_GET['error'] ?? '';
 ?>

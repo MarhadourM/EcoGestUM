@@ -1,11 +1,5 @@
 <?php
-require_once __DIR__ . '/../../model/modelStatistiqueRapport.php';
-require_once __DIR__. '/../../model/modelBDD.php';
-$data = getRepartitionObjetsParCategorie();
-$nb_objets_recycles = get_nb_objets_reserves();
-$nb_nouv_obj = getNewObjParMoisAuto();
-$mois = date('n');
-$annee = date('Y');
+require_once __DIR__ . '/../../controller/PresImpactController.php';
 ?>
 
 <div class="impact-stats-container">
@@ -75,31 +69,13 @@ $annee = date('Y');
   </section>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Injection des données pour le JS -->
 <script>
-const repartitionData = <?php echo json_encode($data);?>;
-const labels = repartitionData.map(item => item.nom_cat_obj);
-const data = repartitionData.map(item => item.nombre); // <-- Utilise 'data' ensuite
-const colors = ['#74C947', '#2B75F6', '#FFB946', '#F26D50', '#A57EE3'];
-
-const ctx = document.getElementById('repartitionChart').getContext('2d');
-new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: labels,
-    datasets: [{
-      data: data, // <-- Correction ici
-      backgroundColor: colors.slice(0, data.length),
-      borderWidth: 0
-    }]
-  },
-  options: {
-    plugins: {
-      legend: { display: false }
-    },
-    cutout: '70%' // optionnelle : pour le style "donut"
-  }
-});
-
+  window.dashboardData = {
+    repartition: <?php echo json_encode($data); ?>,
+    mois: <?php echo (int)$mois; ?>,
+    annee: <?php echo (int)$annee; ?>
+  };
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="<?php echo getenv('BASE_URL'); ?>src/assets/js/Pres.js"></script>

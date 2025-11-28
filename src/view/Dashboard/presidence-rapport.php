@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../../Model/modelRapport.php';
 require_once __DIR__ . '/../../Controller/rapportController.php';
 ?>
 
@@ -56,9 +55,7 @@ require_once __DIR__ . '/../../Controller/rapportController.php';
         <section class="rapports-history-section">
             <h2 class="section-title">Historique des Rapports</h2>
             
-            <?php 
-            $rapports = getRapports();
-            
+            <?php             
             if (empty($rapports)): 
             ?>
                 <div class="no-data">

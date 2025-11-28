@@ -41,5 +41,32 @@
         $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+// modelReservations.php
+
+// Supprimer une réservation (récupéré)
+function deleteReservationByIdAndUser(int $id_res, int $id_ut): bool {
+    $pdo = get_bdd();
+    $sql = "DELETE FROM reservation WHERE id_res = ? AND id_ut = ?";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([$id_res, $id_ut]);
+}
+
+// Récupérer l'objet lié à une réservation
+function getObjetIdByReservation(int $id_res, int $id_ut): ?int {
+    $pdo = get_bdd();
+    $sql = "SELECT id_obj_recycl FROM reservation WHERE id_res = ? AND id_ut = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id_res, $id_ut]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ? (int)$row['id_obj_recycl'] : null;
+}
+
+// Mettre un objet en "disponible"
+function setObjetDisponible(int $id_obj): bool {
+    $pdo = get_bdd();
+    $sql = "UPDATE objet_recyclable SET id_statut_recyclage_obj = 1 WHERE id_obj_recycl = ?";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([$id_obj]);
+}
 
     ?>

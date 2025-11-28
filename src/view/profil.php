@@ -1,26 +1,6 @@
 <?php
 require_once __DIR__ . '/../controller/profilController.php';
-
-$user_id = $_SESSION['user']['id_ut'] ?? null;
-$user = null;
-$error_message = '';
-$success_message = '';
-
-if ($user_id) {
-    // Modification email
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_email'])) {
-        $new_email = trim($_POST['new_email']);
-        if (filter_var($new_email, FILTER_VALIDATE_EMAIL)) {
-            update_user_email($user_id, $new_email);
-            $success_message = "E-mail modifié avec succès !";
-        } else {
-            $error_message = "E-mail invalide.";
-        }
-    }
-    $user = get_user_info($user_id);
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,8 +33,7 @@ if ($user_id) {
             <img src="<?= getenv('BASE_URL'); ?>src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"
                  class="profil-header-logo" alt="Logo LMU">
         </div>
-
-        <!-- MAIN CARD -->
+        <!-- PROFIL -> MAIN CARD -->
         <div class="profil-main-card">
             <div class="profil-info-align">
                 <img src="<?= getenv('BASE_URL'); ?>src/assets/Images/user_icon.png"
@@ -76,14 +55,14 @@ if ($user_id) {
                 <div class="profil-success"><?= htmlspecialchars($success_message) ?></div>
             <?php endif; ?>
             <form class="profil-champs-table" method="POST" action="">
-  <div class="profil-champs-full">
-    <label class="profil-label-email">E-mail personnel</label>
-    <div class="profil-champs-inline">
-      <input type="email" name="new_email" value="<?= htmlspecialchars($user['email_ut']); ?>" required>
-      <button type="submit" class="profil-btn-modif">Modifier</button>
-    </div>
-  </div>
-</form>
+                <div class="profil-champs-full">
+                    <label class="profil-label-email">E-mail personnel</label>
+                    <div class="profil-champs-inline">
+                    <input type="email" name="new_email" value="<?= htmlspecialchars($user['email_ut']); ?>" required>
+                    <button type="submit" class="profil-btn-modif">Modifier</button>
+                    </div>
+                </div>
+            </form>
             <!-- AFFECTATION -->
             <div class="profil-affectation-card">
                 <div class="profil-aff-title">État de votre(vos) affectation(s)</div>

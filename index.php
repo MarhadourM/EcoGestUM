@@ -105,7 +105,7 @@ switch ($page) {
         break;
 
     case 'traitement_form-besoin-objet':
-        require_once __DIR__.'/src/controller/formBesoinController.php';
+        require_once __DIR__.'/src/controller/formBesoinTraitementController.php';
         break;
 
     case 'besoins-objet-enseignants':
@@ -158,7 +158,7 @@ switch ($page) {
         break;
 
     case 'traitement_formDon':
-        require_once __DIR__.'/src/controller/formDonController.php';
+        require_once __DIR__.'/src/controller/formDonTraitementController.php';
         break;
 
     case 'dashboard':

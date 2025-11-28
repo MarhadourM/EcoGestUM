@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../controller/BesoinEnsController.php';
+?>
 <section class="headerPages">
   <nav class="breadcrumb-besoins">
     <a href="besoins-objet-enseignants?page=accueil" class="breadcrumbitem">Accueil</a>
@@ -16,7 +19,6 @@
     <select name="categorie" class="besoins-categorie-select">
       <option value="">Toutes catégories</option>
       <?php
-      $cats = get_categories_objet();
       foreach ($cats as $cat)   
         echo '<option value="'.$cat['id_cat_obj'].'"'.($categorie == $cat['id_cat_obj'] ? ' selected' : '').'>'.htmlspecialchars($cat['nom_cat_obj']).'</option>';
       ?>

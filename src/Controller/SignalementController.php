@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../model/modelBDD.php';
 require_once __DIR__ . '/../model/modelSignalement.php';
 require_once __DIR__ . '/../model/modelReservations.php';
@@ -62,4 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: signalementObj');
     exit;
 }
+
+$error_message = $_SESSION['signalement_error'] ?? '';
+unset($_SESSION['signalement_error']);
+$user_id = $_SESSION['user']['id_ut'] ?? null;
+$reservations = $user_id ? get_user_reservations_sans_signalement($user_id) : [];
 ?>
