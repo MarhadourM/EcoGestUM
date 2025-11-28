@@ -1,3 +1,51 @@
+/* ===== BREADCRUMB & HEADER PAGES ===== */
+.breadcrumb,
+.breadcrumb-besoins {
+  margin: 0 auto 8px auto;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  padding: 7px 22px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(34, 50, 170, 0.08);
+  font-weight: 500;
+}
+
+.breadcrumbitem {
+  color: #24458c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumbitem.active {
+  color: #d45336;
+  font-weight: bold;
+}
+
+.breadcrumbseparator {
+  color: #9bb6e0;
+  margin: 0 7px;
+}
+
+.headerPages {
+  width: 100%;
+  background: linear-gradient(90deg, #e9edfa 65%, #ddeaf6 100%);
+  padding: 30px 0 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(35, 50, 170, 0.09);
+  margin-bottom: 18px;
+}
+
+.breadcrumb_title {
+  font-size: 2.3em;
+  font-weight: 800;
+  color: #213198;
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.2;
+  margin: 22px 0 13px 0;
+}
+
 /* ===== STATISTIQUES PAGE ===== */
 .main-content {
   display: flex;
@@ -180,129 +228,4 @@
     font-size: 0.95em;
     padding: 5px 10px;
   }
-}
-
-/* PAGE espace reprise */
-.container-espace-reprise {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.action-block {
-  background: #dbdbdb;
-  border-radius: 16px;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 26px;
-}
-
-.action-link {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  text-decoration: none;
-}
-
-.action-title {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  font-size: 1.18em;
-  font-weight: bold;
-  color: #232369;
-  flex: 1;
-  letter-spacing: 0.5px;
-}
-
-.action-btn {
-  background-color: #dd5227;
-  color: #fff;
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  border: none;
-  border-radius: 21px;
-  padding: 9px 24px;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-left: 24px;
-}
-
-.action-btn:hover {
-  background-color: #b04322;
-}
-
-/* HEADER large */
-.headerPages {
-  width: 100%;
-  min-width: 0px;
-  background: linear-gradient(90deg, #e9edfa 65%, #ddeaf6 100%);
-  padding: 30px 0;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(35, 50, 170, 0.09);
-  margin-bottom: 22px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-/* Fil d'ariane */
-.breadcrumb {
-  margin: 0 auto 10px auto;
-  font-size: 1.08rem;
-  background: rgba(255, 255, 255, 0.8);
-  display: inline-block;
-  padding: 7px 22px;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(34, 50, 170, 0.06);
-  font-weight: 500;
-}
-
-.breadcrumbitem {
-  color: #24458c;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.breadcrumbitem.active {
-  color: #d45336;
-}
-
-.breadcrumbseparator {
-  color: #9bb6e0;
-  margin: 0 7px;
-}
-
-/* Titre typé */
-.carte__title {
-  margin: 18px 0 0 0;
-  color: #28426d;
-  font-size: 1.7em;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-.main-content-carte {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 38px;
-}
-
-.carte-wrapper {
-  margin: 0 auto;
-  background: #f6f8fb;
-  border-radius: 9px;
-  box-shadow: 0 2px 10px rgba(70, 100, 150, 0.07);
-  padding: 32px 22px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lieu-card.active-card {
-  border: 3px solid #007bff;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  transform: scale(1.02);
 }

@@ -1,28 +1,3 @@
-/* ===== ACCUEIL PAGE ===== */
-.LogoAcceuil {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-}
-
-.LogoAcceuil img {
-  max-width: 260px;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .LogoAcceuil img {
-    max-width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .LogoAcceuil img {
-    max-width: 150px;
-  }
-}
-
 /* ===== HERO & ACCUEIL SECTION ===== */
 .hero-section {
   position: relative;
@@ -265,11 +240,5 @@
   .why-card {
     width: 98%;
     max-width: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header_top {
-    padding: 12px 16px;
   }
 }
