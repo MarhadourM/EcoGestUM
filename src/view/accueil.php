@@ -53,8 +53,11 @@ require_once __DIR__ . '/../controller/AccueilController.php';
     <section class="communications-section">
         <h2 class="communications-title">Communications Officielles</h2>
         <p class="communications-text">Restez informé des dernières actualités et annonces importantes d'EcoGestUM</p>
-        <a href="<?php echo getenv('BASE_URL'); ?>communications" class="communications-btn">Accéder aux Communications</a>
-    </section>
+        <?php if ($user_id): ?>
+            <a href="<?php echo getenv('BASE_URL'); ?>communications" class="communications-btn">Voir plus</a>
+        <?php else: ?>
+            <a href="<?php echo getenv('BASE_URL'); ?>connexion" class="communications-btn">Voir plus</a>
+        <?php endif; ?>    </section>
 
         <!-- Section Points de collecte -->
         <section class="collect-section">
