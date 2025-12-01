@@ -7,7 +7,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 session_start();
-
 $page = $_GET['page'] ?? 'accueil';
 $section = $_GET['section'] ?? null;
 $action= $_GET['action'] ?? null;

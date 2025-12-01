@@ -1,14 +1,14 @@
 <?php
+require_once __DIR__ . '/../../Controller/HeaderController.php';
 
-require_once __DIR__ . '/../../Model/modelUtilisateur.php';
 ?>
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo getenv('BASE_URL')."src/assets/css/style.css"; ?>" rel="stylesheet" />
+    <link href="<?php echo getenv('BASE_URL') . "src/assets/css/style.css"; ?>" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -20,33 +20,41 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
         <div class="header_top">
             <div id="logo_accueil" class="header_logo">
                 <div class="LogoAcceuil">
-                    <img src="<?php echo getenv('BASE_URL')."src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université" width="90" height="40">
+                    <img src="<?php echo getenv('BASE_URL') . "src/assets/Images/logo_LEMANS_UNIVERSITE_Blanc.png"; ?>" alt="Le Mans Université" width="90" height="40">
                 </div>
                 <span class="header_separator">|</span>
                 <span class="header_site-name">EcoGestUM</span>
             </div>
-            <?php if (empty($_SESSION['isConnected']) || $_SESSION['isConnected'] !== true): ?>
-                <button class="header_connect-btn">SE CONNECTER</button>
+
+            <?php if (!empty($_SESSION['isConnected']) && $_SESSION['isConnected'] === true): ?>
+                <!-- Utilisateur connecté -->
+                <div class="header_right">
+                    <?php if (get_nom_role($_SESSION['user']['roles'][0]) == 'Présidence' || get_nom_role($_SESSION['user']['roles'][0]) == 'Chef de département'): ?>
+                        <div id="dashbord">
+                            <button class="button-dashboard">
+                                <a href="<?php echo getenv('BASE_URL'); ?>dashboard">DASHBOARD</a>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                    <div id="notifications">
+                        <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
+                    </div>
+                    <div id="profil">
+                        <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/user_icon.png" alt="Utilisateur" class="header-user-icon" title="Icon User">
+                    </div>
+                </div>
             <?php else: ?>
-        <div class="header_right">
-            <?php if(get_nom_role($_SESSION['user']['roles'][0]) == 'Présidence' || get_nom_role($_SESSION['user']['roles'][0]) == 'Chef de département'): ?>
-            <div id= "dashbord">
-                <button class="button-dashboard" ><a href="<?php echo getenv('BASE_URL'); ?>dashboard">DASHBOARD</a></button>
-            </div>
-            <?php endif; ?>
-            <div id="notifications">
-                <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/alerte.png" alt="Notifications" class="alerte-icon" title="Icon Alerte">
-            </div>
-            <div id="profil">
-                <img src="<?php echo getenv('BASE_URL'); ?>src/assets/Images/user_icon.png" alt="Utilisateur" class="header-user-icon" title="Icon User">
-            </div>
-        </div>
+                <!-- Utilisateur non connecté -->
+                <a href="<?php echo getenv('BASE_URL'); ?>connexion">
+                    <button class="header_connect-btn">SE CONNECTER</button>
+                </a>
             <?php endif; ?>
         </div>
+
         <!-- Navigation principale -->
         <nav class="header_nav">
             <div class="nav">
-                <div class="nav_item <?php if($page == 'statistiques'){echo 'active';} ?>">
+                <div class="nav_item <?php if ($page == 'statistiques') { echo 'active'; } ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>statistiques" class="nav_link">
                         <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18" stroke-linecap="round" stroke-linejoin="round"/>
@@ -56,7 +64,7 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
                     </a>
                 </div>
 
-                <div class="nav_item <?php if($page == 'notre-politique'){echo 'active';} ?>">
+                <div class="nav_item <?php if ($page == 'notre-politique') { echo 'active'; } ?>">
                     <a href="<?php echo getenv('BASE_URL'); ?>notre-politique" class="nav_link">
                         <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
@@ -67,8 +75,8 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
                     </a>
                 </div>
 
-                <div class="nav_item <?php if($page == 'espace-reprise'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>espace-reprise" class="nav_link">
+                <div class="nav_item <?php if ($page == 'espace-reprise') { echo 'active'; } ?>">
+                    <a href="<?php echo $redirect_espace_reprise; ?>" class="nav_link">
                         <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -77,8 +85,8 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
                     </a>
                 </div>
 
-                <div class="nav_item <?php if($page == 'evenements'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>evenements" class="nav_link">
+                <div class="nav_item <?php if ($page == 'evenements') { echo 'active'; } ?>">
+                    <a href="<?php echo $redirect_evenements; ?>" class="nav_link">
                         <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -89,8 +97,8 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
                     </a>
                 </div>
 
-                <div class="nav_item <?php if($page == 'messagerie'){echo 'active';} ?>">
-                    <a href="<?php echo getenv('BASE_URL'); ?>messagerie" class="nav_link">
+                <div class="nav_item <?php if ($page == 'messagerie') { echo 'active'; } ?>">
+                    <a href="<?php echo $redirect_messagerie; ?>" class="nav_link">
                         <svg class="nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -101,7 +109,7 @@ require_once __DIR__ . '/../../Model/modelUtilisateur.php';
         </nav>
     </header>
 
-     <script>
+    <script>
         const BASE_URL = '<?php echo getenv('BASE_URL'); ?>';
     </script>
 
