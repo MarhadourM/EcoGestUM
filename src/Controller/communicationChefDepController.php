@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Model/modelChefDepCommunication.php';
+require_once __DIR__ . '/../Model/ModelChefDepCommunication.php';
 
 $message = null;
 

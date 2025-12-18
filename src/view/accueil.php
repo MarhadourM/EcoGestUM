@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../controller/AccueilController.php';
+require_once __DIR__ . '/../Controller/AccueilController.php';
 ?>
 <main class="main-content">
     <!-- Section Hero avec compteur -->

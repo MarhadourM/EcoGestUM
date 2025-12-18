@@ -4,7 +4,7 @@ require_once __DIR__ . '/modelBDD.php';
 //Récupère la liste des états d'objet.
 function get_etats_objet() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM etat_objet");
+    $stmt = $pdo->query("SELECT id_etat_obj, nom_etat_obj FROM ETAT_OBJET");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 

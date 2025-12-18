@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controller/InscriptionController.php';
+require_once __DIR__ . '/../Controller/InscriptionController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

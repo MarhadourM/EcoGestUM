@@ -1,5 +1,5 @@
 <?php
-require_once 'modelChefDep.php';
+require_once 'ModelChefDep.php';
 // Récupère les informations d'un utilisateur par son ID
 function get_user_info($id) {
     $pdo = get_bdd();

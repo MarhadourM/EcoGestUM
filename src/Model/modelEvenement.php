@@ -12,7 +12,7 @@ function getEvents() {
             date_event,
             prix_event
         FROM
-            evenement
+            EVENEMENT
         ORDER BY
             date_event ASC
     ";
@@ -24,7 +24,7 @@ function getEvents() {
 // Inscrire un utilisateur à un événement
 function inscrireEvent($id_event, $id_ut) {
     $pdo = get_bdd();
-    $check = $pdo->prepare('SELECT COUNT(*) FROM billet WHERE id_event = ? AND id_ut = ?');
+    $check = $pdo->prepare('SELECT COUNT(*) FROM BILLET WHERE id_event = ? AND id_ut = ?');
     $check->execute([$id_event, $id_ut]);
     if ($check->fetchColumn() == 0) {
         $stmt = $pdo->prepare('INSERT INTO billet (id_event, id_ut) VALUES (?, ?)');
@@ -43,7 +43,7 @@ function getInscriptions($user_id) {
             e.desc_event,
             e.date_event,
             e.prix_event
-        FROM evenement e
+        FROM EVENEMENT e
         INNER JOIN billet b ON e.id_event = b.id_event
         WHERE b.id_ut = ?
         ORDER BY e.date_event ASC
@@ -59,7 +59,7 @@ function getUserEvents($user_id) {
 // Récupère le nom d'un événement par son ID
 function getEventNameById($event_id) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare('SELECT nom_event FROM evenement WHERE id_event = ?');
+    $stmt = $pdo->prepare('SELECT nom_event FROM EVENEMENT WHERE id_event = ?');
     $stmt->execute([$event_id]);
     return $stmt->fetchColumn();
 }

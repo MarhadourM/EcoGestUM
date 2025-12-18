@@ -5,7 +5,7 @@ require_once __DIR__ . '/modelBDD.php';
 function historique_get_operations($id_inv, $page=1, $parPage=10, $search='', $categorie='') {
     $pdo = get_bdd();
     $offset = ($page - 1) * $parPage;
-    $where = "WHERE op.id_dept = (SELECT id_dept FROM departement WHERE id_inv = :id_inv)";
+    $where = "WHERE op.id_dept = (SELECT id_dept FROM DEPARTEMENT WHERE id_inv = :id_inv)";
     if ($search !== '') {
         $where .= " AND op.nom_op_recycl LIKE :search";
     }
@@ -16,9 +16,9 @@ function historique_get_operations($id_inv, $page=1, $parPage=10, $search='', $c
         SELECT op.date_op_recycl, op.nom_op_recycl,
             COUNT(obj.id_obj_recycl) AS quantite,
             GROUP_CONCAT(DISTINCT cat.nom_cat_obj) AS types
-        FROM operation_recyclage op
-        LEFT JOIN objet_recyclable obj ON obj.id_op_recycl = op.id_op_recycl
-        LEFT JOIN categorie_objet cat ON obj.id_cat_obj = cat.id_cat_obj
+        FROM OPERATION_RECYCLAGE op
+        LEFT JOIN OBJET_RECYCLABLE obj ON obj.id_op_recycl = op.id_op_recycl
+        LEFT JOIN CATEGORIE_OBJET cat ON obj.id_cat_obj = cat.id_cat_obj
         $where
         GROUP BY op.id_op_recycl
         ORDER BY op.date_op_recycl DESC
@@ -40,14 +40,14 @@ function historique_get_operations($id_inv, $page=1, $parPage=10, $search='', $c
 // Nombre total d’opérations pour la pagination
 function historique_get_nb_operations($id_inv, $search='', $categorie='') {
     $pdo = get_bdd();
-    $where = "WHERE op.id_dept = (SELECT id_dept FROM departement WHERE id_inv = :id_inv)";
+    $where = "WHERE op.id_dept = (SELECT id_dept FROM DEPARTEMENT WHERE id_inv = :id_inv)";
     if ($search !== '') $where .= " AND op.nom_op_recycl LIKE :search";
     if ($categorie !== '') $where .= " AND cat.id_cat_obj = :categorie";
     $sql = "
         SELECT COUNT(DISTINCT op.id_op_recycl) AS total
-        FROM operation_recyclage op
-        LEFT JOIN objet_recyclable obj ON obj.id_op_recycl = op.id_op_recycl
-        LEFT JOIN categorie_objet cat ON obj.id_cat_obj = cat.id_cat_obj
+        FROM OPERATION_RECYCLAGE op
+        LEFT JOIN OBJET_RECYCLABLE obj ON obj.id_op_recycl = op.id_op_recycl
+        LEFT JOIN CATEGORIE_OBJET cat ON obj.id_cat_obj = cat.id_cat_obj
         $where
     ";
     $stmt = $pdo->prepare($sql);
@@ -63,10 +63,10 @@ function historique_get_categories_operations($id_inv) {
     $pdo = get_bdd();
     $sql = "
         SELECT DISTINCT cat.id_cat_obj, cat.nom_cat_obj
-        FROM operation_recyclage op
-        LEFT JOIN objet_recyclable obj ON obj.id_op_recycl = op.id_op_recycl
-        LEFT JOIN categorie_objet cat ON obj.id_cat_obj = cat.id_cat_obj
-        WHERE op.id_dept = (SELECT id_dept FROM departement WHERE id_inv = ?)
+        FROM OPERATION_RECYCLAGE op
+        LEFT JOIN OBJET_RECYCLABLE obj ON obj.id_op_recycl = op.id_op_recycl
+        LEFT JOIN CATEGORIE_OBJET cat ON obj.id_cat_obj = cat.id_cat_obj
+        WHERE op.id_dept = (SELECT id_dept FROM DEPARTEMENT WHERE id_inv = ?)
     ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id_inv]);

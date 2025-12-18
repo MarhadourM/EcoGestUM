@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../controller/PresImpactController.php';
+require_once __DIR__ . '/../../Controller/PresImpactController.php';
 ?>
 
 <div class="impact-stats-container">
