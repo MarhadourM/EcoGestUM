@@ -44,7 +44,7 @@ function getInscriptions($user_id) {
             e.date_event,
             e.prix_event
         FROM EVENEMENT e
-        INNER JOIN billet b ON e.id_event = b.id_event
+        INNER JOIN BILLET b ON e.id_event = b.id_event
         WHERE b.id_ut = ?
         ORDER BY e.date_event ASC
     ";

@@ -4,10 +4,10 @@ require_once 'ModelChefDep.php';
 function get_user_info($id) {
     $pdo = get_bdd();
     $stmt = $pdo->prepare("SELECT u.*, un.nom_univ, comp.nom_comp, dept.nom_dept
-                           FROM utilisateur u
-                           LEFT JOIN universite un ON un.id_univ = u.id_univ
-                           LEFT JOIN composante comp ON comp.id_comp = u.id_comp
-                           LEFT JOIN departement dept ON dept.id_dept = u.id_dept
+                           FROM UTILISATEUR u
+                           LEFT JOIN UNIVERSITE un ON un.id_univ = u.id_univ
+                           LEFT JOIN COMPOSANTE comp ON comp.id_comp = u.id_comp
+                           LEFT JOIN DEPARTEMENT dept ON dept.id_dept = u.id_dept
                            WHERE u.id_ut = ?");
     $stmt->execute([$id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -15,7 +15,7 @@ function get_user_info($id) {
 // Met à jour l'email d'un utilisateur
 function update_user_email($id, $new_email) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("UPDATE utilisateur SET email_ut = ? WHERE id_ut = ?");
+    $stmt = $pdo->prepare("UPDATE UTILISATEUR SET email_ut = ? WHERE id_ut = ?");
     $stmt->execute([$new_email, $id]);
 }
 // Inscrit un nouvel utilisateur avec un rôle par défaut (4)
@@ -71,26 +71,26 @@ function email_existe($email) {
 // Récupère le nom d'un rôle par son ID
 function get_nom_role($id_role) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT nom_role FROM roles WHERE id_role = ?");
+    $stmt = $pdo->prepare("SELECT nom_role FROM ROLES WHERE id_role = ?");
     $stmt->execute([$id_role]);
     return $stmt->fetchColumn();
 }
 // Récupère toutes les universités
 function get_universites() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("SELECT id_univ, nom_univ FROM universite");
+    $stmt = $pdo->query("SELECT id_univ, nom_univ FROM UNIVERSITE");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 // Récupère toutes les composantes
 function get_composantes() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("SELECT id_comp, nom_comp FROM composante");
+    $stmt = $pdo->query("SELECT id_comp, nom_comp FROM COMPOSANTE");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 // Récupère tous les départements
 function get_departements() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("SELECT id_dept, nom_dept FROM departement");
+    $stmt = $pdo->query("SELECT id_dept, nom_dept FROM DEPARTEMENT");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
