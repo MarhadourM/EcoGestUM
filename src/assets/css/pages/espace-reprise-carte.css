@@ -212,20 +212,34 @@
   font-size: 1em;
 }
 .map-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: #d65924;
-  color: #fff;
+  color: #fff !important;
   border: none;
   border-radius: 7px;
-  margin: 15px 0 0 0;
+  margin: 25px 0 0 0;
   font-weight: 700;
   font-size: 1.07em;
   padding: 12px 0;
   width: 85%;
   align-self: center;
+  text-decoration: none !important;
   cursor: pointer;
   transition: background 0.17s;
   box-shadow: 0 1px 6px rgba(214, 89, 36, 0.06);
 }
+
+.map-btn:link,
+.map-btn:visited,
+.map-btn:hover,
+.map-btn:active {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
 .map-btn:hover {
   background: #b94813;
 }

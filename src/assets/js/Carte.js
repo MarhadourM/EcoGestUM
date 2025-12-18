@@ -26,15 +26,4 @@ document.addEventListener("DOMContentLoaded", function () {
       .addTo(map)
       .bindPopup(getCardHTML("saint"), { maxWidth: 300 }),
   };
-
-  // Boutons "Voir sur maps" = ouvre aussi la popup
-  document.querySelectorAll(".map-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var key = btn.getAttribute("data-marker");
-      if (markers[key]) {
-        map.setView(markers[key].getLatLng(), 15, { animate: true });
-        markers[key].openPopup();
-      }
-    });
-  });
 });
