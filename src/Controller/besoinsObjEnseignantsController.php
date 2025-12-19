@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/modelBesoinEnseignant.php';
-require_once __DIR__ . '/../model/modelRechercheObjet.php';
+require_once __DIR__ . '/../Model/modelBesoinEnseignant.php';
+require_once __DIR__ . '/../Model/modelRechercheObjet.php';
 
 // Initialiser tout pour la vue
 $search = $_GET['search'] ?? '';

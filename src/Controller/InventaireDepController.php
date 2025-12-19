@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/modelRechercheObjet.php';
-require_once __DIR__ . '/../model/modelInventaireDep.php';
+require_once __DIR__ . '/../Model/modelRechercheObjet.php';
+require_once __DIR__ . '/../Model/modelInventaireDep.php';
 
 
 // Sécurité session

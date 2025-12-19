@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../model/modelBesoinEnseignant.php';
-require_once __DIR__ . '/../model/ModelNotif.php';
-require_once __DIR__ . '/../model/modelMessagerie.php';
+require_once __DIR__ . '/../Model/modelBesoinEnseignant.php';
+require_once __DIR__ . '/../Model/ModelNotif.php';
+require_once __DIR__ . '/../Model/modelMessagerie.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id_demande_obj'])) {
     $idBesoin = (int)$_POST['id_demande_obj'];

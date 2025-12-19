@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelMessagerie.php';
+require_once __DIR__ . '/../Model/modelMessagerie.php';
 
 // TRAITEMENT SUPPRESSION
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['conv'])) {

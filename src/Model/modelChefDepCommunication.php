@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/ModelNotif.php';
+require_once __DIR__ . '/../Model/ModelNotif.php';
 
 //Trouve l'id_ut du destinataire par email ou login.
 function get_user_id_by_destinataire(string $destinataire): ?int {

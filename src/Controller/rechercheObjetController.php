@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
-require_once __DIR__ . '/../model/ModelNotif.php';
-require_once __DIR__ . '/../model/modelRechercheObjet.php';
+require_once __DIR__ . '/../Model/modelBDD.php';
+require_once __DIR__ . '/../Model/ModelNotif.php';
+require_once __DIR__ . '/../Model/modelRechercheObjet.php';
 
 function reserver_objet_action() {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

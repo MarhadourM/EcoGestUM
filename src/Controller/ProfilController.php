@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/ModelUtilisateur.php';
+require_once __DIR__ . '/../Model/ModelUtilisateur.php';
 
 $user_id = $_SESSION['user']['id_ut'] ?? null;
 $user = null;

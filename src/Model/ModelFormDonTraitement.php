@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
+require_once __DIR__ . '/../Model/modelBDD.php';
 // Ajoute un objet recyclable et retourne son ID
 function ajouter_objet_recyclable($categorie, $nom, $description, $localisation, $etat, $idinv) {
     $pdo = get_bdd();

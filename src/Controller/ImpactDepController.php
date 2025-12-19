@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/modelStatistiqueRapport.php';
-require_once __DIR__ . '/../model/modelBDD.php';
+require_once __DIR__ . '/../Model/modelStatistiqueRapport.php';
+require_once __DIR__ . '/../Model/modelBDD.php';
 
 
 $id_ut = $_SESSION['user']['id_ut'];

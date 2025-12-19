@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelUtilisateur.php';
+require_once __DIR__ . '/../Model/modelUtilisateur.php';
 
 function motdepasse_invalide($mdp, $mdp2) {
     $err = [];

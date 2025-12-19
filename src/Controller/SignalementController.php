@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../model/modelBDD.php';
-require_once __DIR__ . '/../model/modelSignalement.php';
-require_once __DIR__ . '/../model/modelReservations.php';
+require_once __DIR__ . '/../Model/modelBDD.php';
+require_once __DIR__ . '/../Model/modelSignalement.php';
+require_once __DIR__ . '/../Model/modelReservations.php';
 
 $error_message = '';
 
