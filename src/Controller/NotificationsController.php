@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/modelNotif.php';
+require_once __DIR__ . '/../model/ModelNotif.php';
 $user_id = $_SESSION['user']['id_ut'] ?? null;
 
 // Gestion de la suppression POST

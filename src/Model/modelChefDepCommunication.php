@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../model/modelNotif.php';
+require_once __DIR__ . '/../model/ModelNotif.php';
 
 //Trouve l'id_ut du destinataire par email ou login.
 function get_user_id_by_destinataire(string $destinataire): ?int {
     $pdo = get_bdd();
-    $sql = "SELECT id_ut FROM utilisateur WHERE email_ut = :dest LIMIT 1";
+    $sql = "SELECT id_ut FROM UTILISATEUR WHERE email_ut = :dest LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':dest' => $destinataire]);
     $id = $stmt->fetchColumn();
@@ -25,7 +25,7 @@ function creer_notification_communication(string $destinataire, string $message_
 
 function get_expediteur_nom(int $user_id): string {
     $pdo = get_bdd();
-    $sql = "SELECT nom_ut, pren_ut FROM utilisateur WHERE id_ut = ?";
+    $sql = "SELECT nom_ut, pren_ut FROM UTILISATEUR WHERE id_ut = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$user_id]);
     if ($infos = $stmt->fetch(PDO::FETCH_ASSOC)) {

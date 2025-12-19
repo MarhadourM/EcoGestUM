@@ -13,7 +13,7 @@ function get_bdd(){
 function get_nb_objets_reserves() {
     $pdo = get_bdd();
     $sql = "SELECT COUNT(*) AS total
-            FROM objet_recyclable
+            FROM  OBJET_RECYCLABLE
             WHERE id_statut_recyclage_obj != 1"; 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -22,24 +22,24 @@ function get_nb_objets_reserves() {
 // Fonction pour obtenir l'inventaire associé à un utilisateur
 function get_inventaire_by_idut($idut) {
     $pdo = get_bdd();
-    $stmt = $pdo->prepare("SELECT id_dept, id_comp, id_univ FROM utilisateur WHERE id_ut = ?");
+    $stmt = $pdo->prepare("SELECT id_dept, id_comp, id_univ FROM UTILISATEUR WHERE id_ut = ?");
     $stmt->execute([$idut]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!empty($user['id_dept'])) {
-        $stmt2 = $pdo->prepare("SELECT id_inv FROM departement WHERE id_dept = ?");
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM DEPARTEMENT WHERE id_dept = ?");
         $stmt2->execute([$user['id_dept']]);
         $id_inv = $stmt2->fetchColumn();
         if ($id_inv) return $id_inv;
     }
     if (!empty($user['id_comp'])) {
-        $stmt2 = $pdo->prepare("SELECT id_inv FROM composante WHERE id_comp = ?");
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM COMPOSANTE WHERE id_comp = ?");
         $stmt2->execute([$user['id_comp']]);
         $id_inv = $stmt2->fetchColumn();
         if ($id_inv) return $id_inv;
     }
     if (!empty($user['id_univ'])) {
-        $stmt2 = $pdo->prepare("SELECT id_inv FROM universite WHERE id_univ = ?");
+        $stmt2 = $pdo->prepare("SELECT id_inv FROM UNIVERSITE WHERE id_univ = ?");
         $stmt2->execute([$user['id_univ']]);
         $id_inv = $stmt2->fetchColumn();
         if ($id_inv) return $id_inv;

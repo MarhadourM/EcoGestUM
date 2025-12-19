@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../model/modelBesoinEnseignant.php';
-require_once __DIR__ . '/../model/modelNotif.php';
+require_once __DIR__ . '/../model/ModelNotif.php';
 require_once __DIR__ . '/../model/modelMessagerie.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id_demande_obj'])) {

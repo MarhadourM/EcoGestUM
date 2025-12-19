@@ -25,9 +25,9 @@ function invdep_get_objets_by_inventaire($id_inv, $page = 1, $parPage = 10, $sea
             o.desc_obj_recycl AS description,
             o.loca_obj_recycl AS localisation,
             et.nom_etat_obj AS etat
-        FROM objet_recyclable o
-        INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
-        INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
+        FROM OPERATION_RECYCLAGE o
+        INNER JOIN CATEGORIE_OBJET cat ON o.id_cat_obj = cat.id_cat_obj
+        INNER JOIN ETAT_OBJET et ON o.id_etat_obj = et.id_etat_obj
         $where
         ORDER BY o.date_obj_recycl DESC
         LIMIT :offset, :parPage
@@ -50,7 +50,7 @@ function invdep_get_nb_objets_inventaire($id_inv, $search = '', $etat = '', $cat
     if ($search !== '') $where .= " AND (nom_obj_recycl LIKE :search OR desc_obj_recycl LIKE :search)";
     if ($etat !== '') $where .= " AND id_etat_obj = :etat";
     if ($categorie !== '') $where .= " AND id_cat_obj = :categorie";
-    $sql = "SELECT COUNT(*) as total FROM objet_recyclable $where";
+    $sql = "SELECT COUNT(*) as total FROM OBJET_RECYCLABLE $where";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id_inv', $id_inv, PDO::PARAM_INT);
     if ($search !== '') $stmt->bindValue(':search', "%$search%");
@@ -63,8 +63,8 @@ function invdep_get_nb_objets_inventaire($id_inv, $search = '', $etat = '', $cat
 function invdep_get_categories_inventaire($id_inv) {
     $pdo = get_bdd();
     $sql = "SELECT DISTINCT cat.id_cat_obj, cat.nom_cat_obj
-            FROM objet_recyclable o
-            INNER JOIN categorie_objet cat ON o.id_cat_obj = cat.id_cat_obj
+            FROM OBJET_RECYCLABLE o
+            INNER JOIN CATEGORIE_OBJET cat ON o.id_cat_obj = cat.id_cat_obj
             WHERE o.id_inv = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id_inv]);

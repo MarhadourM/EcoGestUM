@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controller/formDonController.php';
+require_once __DIR__ . '/../Controller/formDonController.php';
 ?>
 
 <!DOCTYPE html>

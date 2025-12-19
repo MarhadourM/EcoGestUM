@@ -11,9 +11,9 @@ function getObjectifs() {
             obj.date_ajout_objectif,
             statut.nom_statut_objectif AS statut
         FROM
-            objectif_developpement_durable AS obj
+            OBJECTIF_DEVELOPPEMENT_DURABLE AS obj
         INNER JOIN
-            statut_objectif AS statut
+            STATUS_OBJECTIF AS statut
             ON obj.id_statut_objectif = statut.id_statut_objectif
         ORDER BY
             obj.id_objectif ASC

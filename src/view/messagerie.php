@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controller/messagerieController.php';
+require_once __DIR__ . '/../Controller/messagerieController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

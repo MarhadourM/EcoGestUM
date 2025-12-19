@@ -1,8 +1,8 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/src/model/modelUtilisateur.php';
-require_once __DIR__ . '/src/Model/modelNotif.php';
+require __DIR__ . '/src/Model/modelUtilisateur.php';
+require_once __DIR__ . '/src/Model/ModelNotif.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
@@ -37,7 +37,7 @@ switch ($page) {
         break;
 
     case 'traitement_connexion':
-        require_once __DIR__ . '/src/controller/traitement_connexion.php';
+        require_once __DIR__ . '/src/Controller/traitement_connexion.php';
         break;
 
     case 'deconnexion':
@@ -48,7 +48,7 @@ switch ($page) {
         break;
 
     case 'traitement_inscription':
-        require_once __DIR__ . '/src/controller/traitement_inscription.php';
+        require_once __DIR__ . '/src/Controller/traitement_inscription.php';
         break;
 
     case 'profil':
@@ -90,7 +90,7 @@ switch ($page) {
         break;
 
     case 'messagerie':
-        require_once __DIR__ . '/src/controller/messagerieController.php';
+        require_once __DIR__ . '/src/Controller/messagerieController.php';
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'], $_POST['conv_id'], $_POST['dest_id'])) {
             sendMessage($_POST['conv_id'], $_SESSION['user']['id_ut'], $_POST['dest_id'], $_POST['message']);
             header('Location: ?page=messagerie&conv=' . urlencode($_POST['conv_id']));
@@ -104,7 +104,7 @@ switch ($page) {
         break;
 
     case 'traitement_form-besoin-objet':
-        require_once __DIR__.'/src/controller/formBesoinTraitementController.php';
+        require_once __DIR__.'/src/Controller/formBesoinTraitementController.php';
         break;
 
     case 'besoins-objet-enseignants':
@@ -115,7 +115,7 @@ switch ($page) {
         break;
 
     case 'traitement_besoinObjEnseignant':
-        require_once __DIR__.'/src/controller/traitement_besoinObjEnseignant.php';
+        require_once __DIR__.'/src/Controller/traitement_besoinObjEnseignant.php';
         break;
 
     case 'objectifs':
@@ -140,7 +140,7 @@ switch ($page) {
         break;
 
     case 'rechercheObjet':
-        require_once __DIR__ . '/src/controller/rechercheObjetController.php';
+        require_once __DIR__ . '/src/Controller/rechercheObjetController.php';
         if ($_SERVER['REQUEST_METHOD'] === 'POST'
             && isset($_POST['action'])
             && $_POST['action'] === 'reserver') {
@@ -157,7 +157,7 @@ switch ($page) {
         break;
 
     case 'traitement_formDon':
-        require_once __DIR__.'/src/controller/formDonTraitementController.php';
+        require_once __DIR__.'/src/Controller/formDonTraitementController.php';
         break;
 
     case 'dashboard':
@@ -210,11 +210,11 @@ switch ($page) {
         break;
 
     case 'traitement_signalement':
-        require_once __DIR__ . '/src/controller/signalementController.php';
+        require_once __DIR__ . '/src/Controller/signalementController.php';
         break;
 
     case 'telecharger_rapport':
-        require_once __DIR__ . '/src/controller/telechargerRapportController.php';
+        require_once __DIR__ . '/src/Controller/telechargerRapportController.php';
         break;
 
 
