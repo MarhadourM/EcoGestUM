@@ -11,7 +11,7 @@ function get_etats_objet() {
 //Récupère la liste des catégories d'objet.
 function get_categories_objet() {
     $pdo = get_bdd();
-    $stmt = $pdo->query("SELECT id_cat_obj, nom_cat_obj FROM categorie_objet");
+    $stmt = $pdo->query("SELECT id_cat_obj, nom_cat_obj FROM CATEGORIE_OBJET");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -41,7 +41,7 @@ function get_objets_disponibles($page = 1, $parPage = 9, $search = '', $etat = '
             et.nom_etat_obj,
             cat.nom_cat_obj,
             p.lien_photo
-        FROM objet_recyclable o
+        FROM OBJET_RECYCLABLE o
         INNER JOIN photo_objet po ON o.id_obj_recycl = po.id_obj_recycl
         INNER JOIN photo p ON po.id_photo = p.id_photo
         INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
@@ -84,7 +84,7 @@ function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
 
     $sql = "
         SELECT COUNT(*) as total
-        FROM objet_recyclable o
+        FROM OBJET_RECYCLABLE o
         INNER JOIN photo_objet po ON o.id_obj_recycl = po.id_obj_recycl
         INNER JOIN photo p ON po.id_photo = p.id_photo
         INNER JOIN etat_objet et ON o.id_etat_obj = et.id_etat_obj
@@ -112,7 +112,7 @@ function get_nb_objets_disponibles($search = '', $etat = '', $categorie = '') {
 function reserver_objet($idObj, $idUt) {
     $pdo = get_bdd();
 
-    $test = $pdo->prepare("SELECT COUNT(*) as nb FROM reservation WHERE id_obj_recycl = ?");
+    $test = $pdo->prepare("SELECT COUNT(*) as nb FROM RESERVATION WHERE id_obj_recycl = ?");
     $test->execute([$idObj]);
     $row = $test->fetch(PDO::FETCH_ASSOC);
     if ($row['nb'] > 0) {
@@ -120,7 +120,7 @@ function reserver_objet($idObj, $idUt) {
     }
 
     $stmt = $pdo->prepare("
-        INSERT INTO reservation (date_res, date_exp_res, id_statut_res, id_obj_recycl, id_ut)
+        INSERT INTO RESERVATION (date_res, date_exp_res, id_statut_res, id_obj_recycl, id_ut)
         VALUES (CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY), 2, ?, ?)
     ");
     $stmt->execute([$idObj, $idUt]);
