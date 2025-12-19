@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Controller/profilController.php';
+require_once __DIR__ . '/../Controller/ProfilController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

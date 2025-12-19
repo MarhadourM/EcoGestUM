@@ -113,4 +113,4 @@ require_once __DIR__ . '/../../Controller/HeaderController.php';
         const BASE_URL = '<?php echo getenv('BASE_URL'); ?>';
     </script>
 
-    <script src ="<?php echo getenv('BASE_URL'); ?>src/assets/js/header.js"></script>
+    <script src ="<?php echo getenv('BASE_URL'); ?>src/assets/js/Header.js"></script>
